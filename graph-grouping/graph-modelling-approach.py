@@ -38,7 +38,17 @@ def check_graph_for_cycles(adjacencyTable: dict) -> bool:
 
 
 def split_by_bfs(adjacencyTable: dict, groupSize: int) -> list:
-	pass
+	nodesWithOneEdge = [
+		node for node in adjacencyTable if len(adjacencyTable[node]) == 1
+	]
+
+	if len(nodesWithOneEdge) > 0:
+		currentNode = nodesWithOneEdge[0]
+	else:
+		currentNode = list(adjacencyTable.keys())[0]
+	
+	# initialise queue
+
 
 
 def get_splits_by_dfs(adjacencyTable: dict, groupSize: int, currentNode: str, visited: set=None) -> list:
