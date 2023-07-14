@@ -5,10 +5,12 @@ import config
 # TEST_GRAPH_DICT = config.GRAPH_DICT
 
 TEST_GRAPH_DICT = {
-	'A': ['B'],
-	'B': ['C'],
-	'C': [],
-	'D': ['B']
+	'A': ['B', 'D', ],
+	'B': ['C', 'A'],
+	'C': ['E', 'B'],
+	'D': ['B', 'A'],
+	'E': ['C', 'F'],
+	'F': ['E']
 }
 
 
@@ -47,9 +49,29 @@ def split_by_bfs(adjacencyTable: dict, groupSize: int) -> list:
 	else:
 		currentNode = list(adjacencyTable.keys())[0]
 	
-	# initialise queue
+	splitCount = 0
+	splitList = [[] for i in range(int(len(adjacencyTable) / groupSize))]
+	nodeQueue = [currentNode]
+	visitedList = [currentNode]
 
+	while len(nodeQueue) > 0:
 
+		currentNode = nodeQueue.pop(0)
+		visitedList.append(currentNode)
+		splitList[splitCount // groupSize].append(currentNode)
+
+		print(currentNode, end = " ")
+
+		for adjacentNode in adjacencyTable[currentNode]:
+			if adjacentNode not in visitedList:
+				visitedList.append(adjacentNode)
+				nodeQueue.append(adjacentNode)
+		
+		splitCount += 1
+	print(splitList)
+	return splitList
+
+split_by_bfs(TEST_GRAPH_DICT, 3)
 
 def get_splits_by_dfs(adjacencyTable: dict, groupSize: int, currentNode: str, visited: set=None) -> list:
 	if visited == None:
@@ -61,6 +83,13 @@ def get_groups_of_node_groups_of_n(adjacencyTable: dict, n: int) -> list:
 	
 	if len(adjacencyTable) % n != 0:
 		raise ValueError('The number of nodes in adjacencyTable must be a multiple of n.')
+	elif 0 in [len(adjacencyTable[node]) for node in adjacencyTable]:
+		raise ValueError('All nodes must have at least one adjacent node.')
+	
+		# Note: This is technically not true, as
+		# the graph is directed and should work
+		# as long as a node has a node pointing
+		# to it. Maybe make the graph undirected?
 
 	if graphHasCycles is True:
 		return [split_by_bfs(adjacencyTable, n)]
