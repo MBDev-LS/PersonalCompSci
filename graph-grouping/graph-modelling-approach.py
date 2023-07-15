@@ -1,18 +1,20 @@
 
 
 import config
+from pprint import pprint
 
-# TEST_GRAPH_DICT = config.GRAPH_DICT
+TEST_GRAPH_DICT = config.GRAPH_DICT
 
-TEST_GRAPH_DICT = {
-	'A': ['B', 'D', ],
-	'B': ['C', 'A'],
-	'C': ['E', 'B'],
-	'D': ['B', 'A'],
-	'E': ['C', 'F'],
-	'F': ['E']
-}
+# TEST_GRAPH_DICT = {
+# 	'A': ['B', 'D', ],
+# 	'B': ['C', 'A'],
+# 	'C': ['E', 'B'],
+# 	'D': ['B', 'A'],
+# 	'E': ['C', 'F'],
+# 	'F': ['E']
+# }
 
+pprint(TEST_GRAPH_DICT)
 
 def dfs_cycles_check(adjacencyTable: dict, currentNode: str, visited: set=None) -> bool:
 	if visited == None:
@@ -40,6 +42,10 @@ def check_graph_for_cycles(adjacencyTable: dict) -> bool:
 
 
 def split_by_bfs(adjacencyTable: dict, groupSize: int) -> list:
+	# Need to run this starting at every
+	# node, then validate the responses
+	# by checking the groups meet the
+	# requirements.
 	nodesWithOneEdge = [
 		node for node in adjacencyTable if len(adjacencyTable[node]) == 1
 	]
@@ -117,3 +123,6 @@ def get_groups_of_node_groups_of_n(adjacencyTable: dict, n: int) -> list:
 
 
 groups_of_node_groups = get_groups_of_node_groups_of_n(TEST_GRAPH_DICT, 3)
+
+
+
