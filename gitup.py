@@ -60,7 +60,7 @@ def main():
 		print('error: unexpected argument (\'py gitup help\' for help)')
 		exit(1)
 
-	os.system(f'{"" if dontPull else "git pull; "}git add --all; git commit -m "{addSpTagText}{arguments[1]}"; git push;')
+	os.system(f'{"" if dontPull else "git pull; "}git add --all; git commit -m "{addSpTagText}{arguments[1]}"; git push originHTTP;') # originHTTP for at school (port 22 blocked)
 
 	print()
 
