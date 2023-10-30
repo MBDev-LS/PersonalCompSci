@@ -42,7 +42,7 @@ itemQueue = [
 	Item('K', 8),
 ]
 
-def pack_items(itemQueue: list):
+def first_fit(itemQueue: list):
 	initialBindex = 1
 	binList = [Bin(initialBindex)]
 	bindex = initialBindex + 1 # 'bindex', a very funny portmanteau of 'bin' and 'index'. Hahaha.
@@ -54,6 +54,8 @@ def pack_items(itemQueue: list):
 			if currentBin.get_total_items_size() + currentItem.size <= currentBin.capacity:
 				currentBin.add_item(currentItem)
 				binFound = True
+
+				break
 		
 		if binFound is False:
 			binList.append(Bin(bindex, itemList=[currentItem]))
@@ -61,6 +63,15 @@ def pack_items(itemQueue: list):
 
 	return binList
 
-print('\n'.join([str(currentBin) for currentBin in pack_items(itemQueue)]))
+print('# First Fit')
+print('\n'.join([str(currentBin) for currentBin in first_fit(itemQueue)]))
 
+
+def first_fit_decreasing(itemQueue: list):
+	sortedItemQueue = sorted(itemQueue, reverse=True, key=lambda item: item.size)
+	
+	return first_fit(sortedItemQueue)
+
+print('# First Fit Decreasing')
+print('\n'.join([str(currentBin) for currentBin in first_fit_decreasing(itemQueue)]))
 
