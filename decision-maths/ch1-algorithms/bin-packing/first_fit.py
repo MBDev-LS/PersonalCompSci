@@ -23,8 +23,20 @@ class Bin():
 	def add_item(self, item):
 		self.items.append(item)
 	
+	def get_free_space(self) -> int:
+		return self.capacity - self.get_total_items_size()
+	
+	def is_full(self) -> bool:
+		return self.get_free_space() == 0
+	
 	def __str__(self) -> str:
 		return f'Bin \'{self.idenitifer}\' [ {", ".join([str(item) for item in self.items])} ]'
+		
+
+	@classmethod
+	def get_free_space_in_bin_list(cls, binList: list):
+		return sum([currentBin.get_free_space() for currentBin in binList])
+
 
 BIN_CAPACITY = 20
 
@@ -63,15 +75,18 @@ def first_fit(itemQueue: list):
 
 	return binList
 
-print('# First Fit')
-print('\n'.join([str(currentBin) for currentBin in first_fit(itemQueue)]))
-
+print('\n# First Fit')
+fist_fit_bin_list = first_fit(itemQueue)
+print('\n'.join([str(currentBin) for currentBin in fist_fit_bin_list]))
+print(f'Free space: {Bin.get_free_space_in_bin_list(fist_fit_bin_list)}')
 
 def first_fit_decreasing(itemQueue: list):
 	sortedItemQueue = sorted(itemQueue, reverse=True, key=lambda item: item.size)
 	
 	return first_fit(sortedItemQueue)
 
-print('# First Fit Decreasing')
-print('\n'.join([str(currentBin) for currentBin in first_fit_decreasing(itemQueue)]))
+print('\n# First Fit Decreasing')
+fist_fit_decreasing_bin_list = first_fit_decreasing(itemQueue)
+print('\n'.join([str(currentBin) for currentBin in fist_fit_decreasing_bin_list]))
+print(f'Free space: {Bin.get_free_space_in_bin_list(fist_fit_decreasing_bin_list)}')
 
