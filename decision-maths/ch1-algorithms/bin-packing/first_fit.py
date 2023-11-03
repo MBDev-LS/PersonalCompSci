@@ -10,7 +10,7 @@ class Item:
 
 
 class Bin():
-	BIN_CAPACITY = 20
+	BIN_CAPACITY = 180
 
 	def __init__(self, idenitifer, capacity: int=None, itemList: list=None) -> None:
 		self.capacity = capacity if capacity is not None else Bin.BIN_CAPACITY
@@ -40,18 +40,34 @@ class Bin():
 
 BIN_CAPACITY = 20
 
+# itemQueue = [
+# 	Item('A', 8),
+# 	Item('B', 7),
+# 	Item('C', 14),
+# 	Item('D', 9),
+# 	Item('E', 6),
+# 	Item('F', 9),
+# 	Item('G', 5),
+# 	Item('H', 15),
+# 	Item('I', 6),
+# 	Item('J', 7),
+# 	Item('K', 8),
+# ]
+
 itemQueue = [
-	Item('A', 8),
-	Item('B', 7),
-	Item('C', 14),
-	Item('D', 9),
-	Item('E', 6),
-	Item('F', 9),
-	Item('G', 5),
-	Item('H', 15),
-	Item('I', 6),
-	Item('J', 7),
-	Item('K', 8),
+	Item('A', 30),
+	Item('B', 30),
+	Item('C', 30),
+	Item('D', 45),
+	Item('E', 45),
+	Item('F', 60),
+	Item('G', 60),
+	Item('H', 60),
+	Item('I', 60),
+	Item('J', 75),
+	Item('K', 90),
+	Item('L', 120),
+	Item('M', 120),
 ]
 
 def first_fit(itemQueue: list):
