@@ -46,6 +46,9 @@ class Node():
 	def addEdge(self, connectedNode, weight: int=None) -> None:
 		self.edgeList.append(Edge(self, connectedNode, weight))
 	
+	def addEdgeObj(self, edgeObj: Edge) -> None:
+		self.edgeList.append(edgeObj)
+	
 	def is_active(self) -> bool:
 		return self.active
 	
@@ -107,7 +110,8 @@ class Graph():
 		self.clearEdges()
 
 		for edge in currentEdges:
-			edge.outerNode.addEdge(edge.innerNode, edge.weight)
+			edge.innerNode, edge.outerNode = edge.outerNode, edge.innerNode
+			edge.innerNode.addEdgeObj(edge)
 
 
 	def dfsCycleCheck(self, currentNode: Node, onlyActive: bool=False):
@@ -133,7 +137,7 @@ class Graph():
 		if len(self.nodeList) == 0:
 			return False
 
-		return self.dfsCycleCheck(self.nodeList[0], onlyActive)
+		return self.dfsCycleCheck(self.getNodeList(onlyActive)[0], onlyActive)
 	
 
 	def dfsConnectedCheck(self, currentNode: Node, onlyActive: bool=False):
@@ -226,8 +230,8 @@ while graph.checkGraphIsConnected(onlyActive=True) is not True:
 	nextEdge = sortedEdgeList.pop()
 
 	nextEdge.active = True
-	print(nextEdge)
-		listr(graph.get_graph_edge_list())
+	# print(nextEdge)
+	# listr(graph.get_graph_edge_list())
 
 	
 	innerNodeCurrentStatus = nextEdge.innerNode.active
