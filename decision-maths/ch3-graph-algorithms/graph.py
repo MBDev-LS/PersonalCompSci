@@ -7,9 +7,6 @@ def printList(lst: list, returnPrintableList: bool=False) -> None:
 	
 	print([str(item) for item in lst])
 
-def listr(lst: list) -> list:
-	return [str(item) for item in lst]
-
 
 
 class Edge():
@@ -20,7 +17,7 @@ class Edge():
 		self.active = False
 	
 	def __str__(self) -> str:
-		activeFlag = 'T' if self.active == True else 'F'
+		activeFlag = 'T' if self.active is True else 'F'
 
 		return f"{self.innerNode.name} -({self.weight})({activeFlag})-> {self.outerNode.name}"
 	
@@ -52,7 +49,7 @@ class Node():
 	def set_active(self, isActive: bool) -> None:
 		self.active = isActive
 	
-
+	
 
 
 class Graph():
@@ -184,14 +181,23 @@ class Graph():
 
 
 
+
+
+# graphDict = {
+# 	'A': [{'node': 'C', 'weight': 7}, {'node': 'D', 'weight': 4}, {'node': 'E', 'weight': 2}, {'node': 'F', 'weight': 8}],
+# 	'B': [{'node': 'C', 'weight': 1}, {'node': 'E', 'weight': 5}, {'node': 'F', 'weight': 3}],
+# 	'C': [{'node': 'A', 'weight': 7}, {'node': 'D', 'weight': 8}, {'node': 'B', 'weight': 1}],
+# 	'D': [{'node': 'A', 'weight': 4}, {'node': 'C', 'weight': 8}],
+# 	'E': [{'node': 'A', 'weight': 2}, {'node': 'B', 'weight': 5}, {'node': 'F', 'weight': 10}],
+# 	'F': [{'node': 'A', 'weight': 8}, {'node': 'B', 'weight': 3}, {'node': 'E', 'weight': 10}],
+# }
+
 graphDict = {
-	'A': [{'node': 'C', 'weight': 7}, {'node': 'D', 'weight': 4}, {'node': 'E', 'weight': 2}, {'node': 'F', 'weight': 8}],
-	'B': [{'node': 'C', 'weight': 1}, {'node': 'E', 'weight': 5}, {'node': 'F', 'weight': 3}],
-	'C': [{'node': 'A', 'weight': 7}, {'node': 'D', 'weight': 8}, {'node': 'B', 'weight': 1}],
-	'D': [{'node': 'A', 'weight': 4}, {'node': 'C', 'weight': 8}],
-	'E': [{'node': 'A', 'weight': 2}, {'node': 'B', 'weight': 5}, {'node': 'F', 'weight': 10}],
-	'F': [{'node': 'A', 'weight': 8}, {'node': 'B', 'weight': 3}, {'node': 'E', 'weight': 10}],
+	'A': [{'node': 'B', 'weight': 4}],
+	'B': [],
+	'C': [{'node': 'A', 'weight': 2}],
 }
+
 
 graph = Graph([Node(nodeName) for nodeName in graphDict])
 
@@ -203,42 +209,8 @@ for currentNode in graph.nodeList:
 print(graph)
 print('----------')
 
-# print([str(edge) for edge in graph.get_graph_edge_list(sortList=True)])
+print('Cycles:', graph.checkForCycles())
+print('Connected:', graph.checkGraphIsConnected())
 
-sortedEdgeList = graph.get_graph_edge_list(sortList=True)
-sortedEdgeList.reverse()
-
-print()
-
-# pprint(printList(sortedEdgeList, True))
-
-
-# while not graph.checkIfAllNodesAreActive():
-# Should be until graph is connected
-
-
-
-while graph.checkGraphIsConnected(onlyActive=True) is not True:
-	if len(sortedEdgeList) == 0:
-		print("Error: This graph doesn't have any possible spanning trees.")
-		exit()
-	
-	nextEdge = sortedEdgeList.pop()
-
-	nextEdge.active = True
-	print(nextEdge)
-		listr(graph.get_graph_edge_list())
-
-	
-	innerNodeCurrentStatus = nextEdge.innerNode.active
-	outerNodeCurrentStatus = nextEdge.outerNode.active
-
-	nextEdge.activateNodes()
-
-	if graph.checkForCycles(onlyActive=True) is True:
-		nextEdge.active = False
-		innerNodeCurrentStatus = nextEdge.innerNode.active
-		outerNodeCurrentStatus = nextEdge.outerNode.active
-
-
-pprint(printList(graph.get_graph_edge_list(onlyActive=True), True))
+# graph.reverseEdges()
+# print(graph)
