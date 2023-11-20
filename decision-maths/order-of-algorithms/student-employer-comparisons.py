@@ -1,7 +1,7 @@
 
 import random
 
-
+N = 3
 
 def print_list(lst: list) -> None:
 	print([str(item) for item in lst])
@@ -37,11 +37,11 @@ class RatingRelationship():
 		return self.studentsRating + self.employersRating
 	
 	def __str__(self) -> str:
-		return f'<{student} ({self.studentsRating}) - {self.get_total_rating()} - {employer} ({self.employersRating})>'
+		return f'<{self.student} ({self.studentsRating}) - {self.get_total_rating()} - {self.employer} ({self.employersRating})>'
 
 
-students = [Student(i + 1) for i in range(3)]
-employers = [Employer(i + 1) for i in range(3)]
+students = [Student(i + 1) for i in range(N)]
+employers = [Employer(i + 1) for i in range(N)]
 
 print_list(students)
 
