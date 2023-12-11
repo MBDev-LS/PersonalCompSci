@@ -1,6 +1,7 @@
 
 # Project Specific
 nlp_course
+*.db
 
 # Personal
 .vscode
