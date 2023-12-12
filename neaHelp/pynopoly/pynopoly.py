@@ -2,18 +2,22 @@
 import config
 
 import sqlite3
-
 import re
 
 class Player():
 	def __init__(self):
-		self.balance = 1500
-		self.currentLocationIndex = 0
-
+		# Player profile setup
 		self.name = None
 		self.username = None
 		self.playerId = None
 		self.guest = None
+
+		# Game setup
+		self.inJail = False
+		self.turnsInJail = 0
+
+		self.balance = 1500
+		self.currentLocationIndex = 0
 
 	@classmethod
 	def getYesNoInput(cls, prompt: str) -> bool:
@@ -212,6 +216,29 @@ def databaseSetup():
 	''')
 
 	#PRIMARY KEY (playerUsername) - Removed
+
+
+class SpaceWrapper():
+	def __init__(self, name: str) -> None:
+		self.name = name
+		self.landFunction = None # The function which is called when a player lands on the square.
+
+		self.owner = None # The player that owns the space, None if not owned
+
+
+class SiteSpace():
+	def __init__(self, name: str) -> None:
+		self.name = name
+		self.value = None
+
+		self.numOfHouses = 0
+		self.hasHotel = True
+
+
+class Board():
+	pass
+
+# The board will handle the gameloop
 
 
 def main():
