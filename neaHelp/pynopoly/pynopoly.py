@@ -13,6 +13,7 @@ class Player():
 		self.name = None
 		self.username = None
 		self.playerId = None
+		self.guest = None
 
 	@classmethod
 	def getYesNoInput(cls, prompt: str) -> bool:
@@ -40,7 +41,11 @@ class Player():
 			{'username': playerUsername}
 		)
 
-		return len(queryResult.fetchall()) == 0
+		numOfResults = len(queryResult.fetchall())
+
+		usernameLookupCon.close()
+
+		return numOfResults == 0
 
 	@classmethod
 	def validateUsername(cls, playerUsername: str) -> dict:
@@ -54,8 +59,9 @@ class Player():
 		
 		return {'valid': True, 'error': None}
 	
+	
 	@classmethod
-	def getValidUsername(cls) -> str:
+	def getValidUsername(cls, forceUnique: bool=True) -> str:
 		usernameIsUnique = False
 
 		while usernameIsUnique == False:
@@ -67,38 +73,114 @@ class Player():
 				newPlayerUsername = input('Please enter your username (Max length 50, may contain letters, numbers and _ - .): ')
 				validUsernameDict = Player.validateUsername(newPlayerUsername)
 			
-			if Player.checkUsernameIsUnique(newPlayerUsername) == True:
+			if forceUnique == False or Player.checkUsernameIsUnique(newPlayerUsername) == True:
 				break
 			else:
 				print('Error: Someone is already using this username, please pick a different.')
 		
 		return newPlayerUsername
+	
+	@classmethod
+	def securityPinInput(cls, overidePrompt: str=None) -> str:
+		inputPrompt = overidePrompt if overidePrompt != None else 'Please enter your security pin: '
 
-	def loginPlayer(self):
-		pass
+		playerPin = input(inputPrompt)
+		while Player.validatePlayerPin(playerPin) is False:
+			print('Please enter a valid security pin.')
+			playerPin = input(inputPrompt)
+		
+		return playerPin
+
+
+	@classmethod
+	def nameInput(cls, overidePrompt: str=None) -> str:
+		inputPrompt = overidePrompt if overidePrompt != None else 'Please enter your name: '
+
+		nameInput = input(inputPrompt)
+		while len(nameInput) == 0 or len(nameInput) > 50:
+			print('Error: Invalid name supplied.')
+			nameInput = input(inputPrompt)
+		
+		return nameInput
+
+
+	
+	def loadPlayerInfo(self, sqlQueryResult: tuple) -> None:
+		self.username = sqlQueryResult[1]
+		self.name = sqlQueryResult[2]
+
+
+	def loginPlayer(self) -> bool:
+		"""
+		Bool returned indicating whether
+		user has logged in (True), or will
+		play as a guest (False).
+		"""
+		successfulLogin = False
+
+		while successfulLogin == False:
+			loginUsername = self.getValidUsername(forceUnique=False)
+			loginPin = Player.securityPinInput()
+
+			loginCon = sqlite3.connect(config.DATABASE_DIR)
+			loginCur = loginCon.cursor()
+
+			loginQueryResult = loginCur.execute(
+				'SELECT * FROM Players WHERE playerUsername = :username AND playerPin = :securityPin', 
+				{'username': loginUsername, 'securityPin': loginPin}
+			).fetchall()
+
+			if len(loginQueryResult) == 0:
+				print('\nError: No player profile found with those details.')
+
+				playAsGuest = Player.getYesNoInput('Would you like to play as a guest? ')
+				if playAsGuest is True:
+					return False
+			else:
+				self.loadPlayerInfo(loginQueryResult[0])
+				self.guest = False
+
+				return True
+	
+	
 
 	def signupPlayer(self):
-		newPlayerName = input('Please enter your name (Max length 50): ')
+		newPlayerName = Player.nameInput('Please enter your name (Max length 50): ')
 		
 		newPlayerUsername = Player.getValidUsername()
 		
 
-		newPlayerPin = input('Please enter your security pin (it must be an integer with 4 to 6 digits, both inclusive): ')
-		while Player.validatePlayerPin(newPlayerPin) is False:
-			print('Please enter a valid security pin.')
-			newPlayerPin = input('Please enter your security pin (it must be an integer with 4 to 6 digits, both inclusive): ')
+		newPlayerPin = Player.securityPinInput('Please enter your security pin (it must be an integer with 4 to 6 digits, both inclusive): ')
 
 		signupCon = sqlite3.connect(config.DATABASE_DIR)
 		signupCur = signupCon.cursor()
 
 		signupCur.execute(f'''
-		INSERT INTO Players (playerId, playerUsername, playerName, playerPin, playerWinCount)
-		VALUES (NULL, ?, ?, ?, ?);
-		''', [newPlayerUsername, newPlayerName, newPlayerPin, 0])
+		INSERT INTO Players (playerId, playerUsername, playerName, playerPin, playerWinCount, playerPlayCount)
+		VALUES (NULL, ?, ?, ?, ?, ?);
+		''', [newPlayerUsername, newPlayerName, newPlayerPin, 0, 0])
 
 		signupCon.commit()
 
+		loginQueryResult = signupCon.execute(
+			'SELECT * FROM Players WHERE playerId = :lastRowId', 
+			{'lastRowId': signupCur.lastrowid}
+		).fetchone()
+
+		print(loginQueryResult)
+
+		self.loadPlayerInfo(loginQueryResult)
+		self.guest = False
+
 		signupCur.close()
+	
+	
+	def loadGuestDetails(self) -> None:
+		print('\nYou have chosen to play as a guest, your details, including your score, will not be stored.')
+
+		self.name = Player.nameInput()
+		self.username = Player.getValidUsername()
+		self.guest = True
 
 
 	def loadPlayerProfile(self):
@@ -107,13 +189,11 @@ class Player():
 		if playerHasAccount is True:
 			self.loginPlayer()
 		else:
-			self.signupPlayer()
+			loggedIn = self.signupPlayer()
 
+			if loggedIn == False:
+				self.loadGuestDetails()
 
-player = Player()
-Player.validateUsername('mb')
-Player.validateUsername('mblss')
-player.loadPlayerProfile()
 
 
 def databaseSetup():
@@ -122,11 +202,12 @@ def databaseSetup():
 
 	cur.execute('''
 		CREATE TABLE IF NOT EXISTS Players(
-				playerId 		INTEGER 		PRIMARY KEY,
-				playerUsername 	VARCHAR(25) 	NOT NULL,
-				playerName 		VARCHAR(50) 	NOT NULL,
-				playerPin 		VARCHAR(6) 		NOT NULL,
-				playerWinCount		INT
+				playerId 			INTEGER 		PRIMARY KEY,
+				playerUsername 		VARCHAR(25) 	NOT NULL,
+				playerName 			VARCHAR(50) 	NOT NULL,
+				playerPin 			VARCHAR(6) 		NOT NULL,
+				playerWinCount		INT,
+				playerPlayCount		INT
 			)
 	''')
 
@@ -135,6 +216,11 @@ def databaseSetup():
 
 def main():
 	databaseSetup()
+
+	player = Player()
+	Player.validateUsername('mb')
+	Player.validateUsername('mblss')
+	player.loadPlayerProfile()
 
 
 if __name__ == '__main__':
