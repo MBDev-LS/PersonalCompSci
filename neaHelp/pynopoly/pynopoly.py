@@ -3,6 +3,7 @@ import config
 
 import sqlite3
 import re
+import colorist
 
 class Player():
 	def __init__(self):
@@ -171,8 +172,6 @@ class Player():
 			{'lastRowId': signupCur.lastrowid}
 		).fetchone()
 
-		print(loginQueryResult)
-
 		self.loadPlayerInfo(loginQueryResult)
 		self.guest = False
 
@@ -197,6 +196,16 @@ class Player():
 
 			if loggedIn == False:
 				self.loadGuestDetails()
+	
+
+	# Game functions
+
+	def addToBalance(self, amount: int) -> None:
+		self.balance += amount
+
+	def removeFromBalance(self, amount: int) -> None:
+		self.balance -= amount
+
 
 
 
@@ -223,16 +232,103 @@ class SpaceWrapper():
 		self.name = name
 		self.landFunction = None # The function which is called when a player lands on the square.
 
-		self.owner = None # The player that owns the space, None if not owned
+		# self.owner = None # The player that owns the space, None if not owned
+
+
+class LocationGroup():
+	def __init__(self, name: str, hexColour: str) -> None:
+		self.name = name
+		self.hexColour = hexColour
+
+		self.properties = []
+
+	def getHexColour(self) -> str:
+		"""
+		Returns the hex code for
+		the group's colour.
+
+		Without hashtag (#).
+		"""
+		return self.hexColour
+	
+	def checkForMonopoly(self, playerToCheck: Player=None) -> bool:
+		"""
+		Checks for a monopoly, returns
+		boolean.
+
+		If player to check is specified,
+		will only return boolean if that
+		player has monopoly.
+		"""
+		propertyOwners = set()
+
+		for property in self.properties:
+			propertyOwners.add(property.owner)
+		
+		if playerToCheck == None:
+			return len(propertyOwners) == 1 and propertyOwners[0] != None
+		else:
+			return len(propertyOwners) == 1 and propertyOwners[0] == playerToCheck
+
 
 
 class SiteSpace():
-	def __init__(self, name: str) -> None:
+	def __init__(
+			self, 
+			name: str, 
+			locationGroup: LocationGroup,
+			value: int, 
+			houseValues: list,
+			hotelValue: int,
+			mortgageValue: int
+		) -> None:
 		self.name = name
-		self.value = None
+		self.locationGroup = locationGroup
+		self.value = value
+
+		self.owner = None
+
+		self.houseValues = houseValues
+		self.hotelValue = hotelValue
+		self.mortgageValue = mortgageValue
 
 		self.numOfHouses = 0
 		self.hasHotel = True
+		
+		self.isMortgaged = False
+
+	def __getNameForPrint(self) -> str:
+		groupColour = colorist.ColorHex(self.locationGroup.getHexColour())
+
+		return f'{groupColour}{self.name}{groupColour.OFF}'
+
+
+	def __calculateRent(self) -> int:
+		# Check for monopoly condition
+
+		if self.hasHotel == True:
+			return self.hotelValue
+		elif self.numOfHouses > 0:
+			return self.houseValues[self.numOfHouses - 1]
+		else:
+			return self.value
+	
+	def __collectRent(self, renterPlayer: Player):
+		rentAmount = self.__calculateRent()
+
+		renterPlayer.removeFromBalance(rentAmount)
+		self.owner.addToBalance(rentAmount)
+
+		print(f'{renterPlayer.name} has paid {self.owner.name} £{rentAmount} in rent for stopping on {self.__getNameForPrint()}!')
+		print(f'')
+	
+	def landFuntion(self, player: Player):
+		
+		self.__collectRent(self.owner)
+
+		pass
+
+
 
 
 class Board():

@@ -1,0 +1,55 @@
+{
+	"pieces": [
+		"Top Hat",
+		"Thimble",
+		"Horse Rider",
+		"Dog",
+		"Car",
+		"Wheelbarrow",
+		"Iron",
+		"Artillery",
+		"Shoe",
+		"Ship"
+	],
+	"propertyGroups": [
+		"brown",
+		"light_blue",
+		"pink",
+		"orange",
+		"red",
+		"yellow",
+		"green",
+		"dark_blue"
+	],
+	"propertyGroupColours": {
+		"brown": "#945639",
+		"light_blue": "#a9e0fb",
+		"pink": "#d63a98",
+		"orange": "#f49320",
+		"red": "#e9191d",
+		"yellow": "#fdf200",
+		"green": "#20b25a",
+		"dark_blue": "#0170c3"
+	},
+	"properies": [
+		{
+			"name": "__________",
+			"group": "",
+			"spaceIndex": -1,
+
+			"values": {
+				"SITE": 		-1, 
+				"oneHouse": 	-1, 
+				"twoHouses": 	-1, 
+				"threeHouses": 	-1, 
+				"fourHouses": 	-1, 
+				"HOTEL": 		-1
+			},
+
+			"houseCost": "",
+			"hotelCost": "",
+			
+			"siteMortgageValue": -1
+		}
+	]
+}
