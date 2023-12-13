@@ -2,11 +2,7 @@
 	{
 		"name": "Old Kent Road",
 		"group": "brown",
-		"houseCost": 50,
-		"hotelCost": 50,
-		"siteMortgageValue": 30,
-		"spaceIndex": 1,
-		"rents": {
+		"values": {
 			"SITE": 2,
 			"oneHouse": 10,
 			"twoHouses": 30,
@@ -14,16 +10,15 @@
 			"fourHouses": 160,
 			"HOTEL": 250
 		},
-		"value": 60
+		"houseCost": 50,
+		"hotelCost": 50,
+		"siteMortgageValue": 30,
+		"spaceIndex": 1
 	},
 	{
 		"name": "Whitechapel Road",
 		"group": "brown",
-		"houseCost": 50,
-		"hotelCost": 50,
-		"siteMortgageValue": 30,
-		"spaceIndex": 3,
-		"rents": {
+		"values": {
 			"SITE": 4,
 			"oneHouse": 20,
 			"twoHouses": 60,
@@ -31,16 +26,15 @@
 			"fourHouses": 320,
 			"HOTEL": 450
 		},
-		"value": 60
+		"houseCost": 50,
+		"hotelCost": 50,
+		"siteMortgageValue": 30,
+		"spaceIndex": 3
 	},
 	{
 		"name": "The Angel Islington",
 		"group": "light_blue",
-		"houseCost": 50,
-		"hotelCost": 50,
-		"siteMortgageValue": 50,
-		"spaceIndex": 6,
-		"rents": {
+		"values": {
 			"SITE": 6,
 			"oneHouse": 30,
 			"twoHouses": 90,
@@ -48,16 +42,15 @@
 			"fourHouses": 400,
 			"HOTEL": 550
 		},
-		"value": 100
+		"houseCost": 50,
+		"hotelCost": 50,
+		"siteMortgageValue": 50,
+		"spaceIndex": 6
 	},
 	{
 		"name": "Euston Road",
 		"group": "light_blue",
-		"houseCost": 50,
-		"hotelCost": 50,
-		"siteMortgageValue": 50,
-		"spaceIndex": 8,
-		"rents": {
+		"values": {
 			"SITE": 6,
 			"oneHouse": 30,
 			"twoHouses": 90,
@@ -65,16 +58,15 @@
 			"fourHouses": 400,
 			"HOTEL": 550
 		},
-		"value": 100
+		"houseCost": 50,
+		"hotelCost": 50,
+		"siteMortgageValue": 50,
+		"spaceIndex": 8
 	},
 	{
 		"name": "Pentonville Road",
 		"group": "light_blue",
-		"houseCost": 50,
-		"hotelCost": 50,
-		"siteMortgageValue": 60,
-		"spaceIndex": 9,
-		"rents": {
+		"values": {
 			"SITE": 8,
 			"oneHouse": 40,
 			"twoHouses": 100,
@@ -82,16 +74,15 @@
 			"fourHouses": 450,
 			"HOTEL": 600
 		},
-		"value": 120
+		"houseCost": 50,
+		"hotelCost": 50,
+		"siteMortgageValue": 60,
+		"spaceIndex": 9
 	},
 	{
 		"name": "Pall Mall",
 		"group": "pink",
-		"houseCost": 100,
-		"hotelCost": 100,
-		"siteMortgageValue": 70,
-		"spaceIndex": 11,
-		"rents": {
+		"values": {
 			"SITE": 10,
 			"oneHouse": 50,
 			"twoHouses": 150,
@@ -99,16 +90,15 @@
 			"fourHouses": 625,
 			"HOTEL": 750
 		},
-		"value": 140
+		"houseCost": 100,
+		"hotelCost": 100,
+		"siteMortgageValue": 70,
+		"spaceIndex": 11
 	},
 	{
 		"name": "Whitehall",
 		"group": "pink",
-		"houseCost": 100,
-		"hotelCost": 100,
-		"siteMortgageValue": 70,
-		"spaceIndex": 13,
-		"rents": {
+		"values": {
 			"SITE": 10,
 			"oneHouse": 50,
 			"twoHouses": 150,
@@ -116,16 +106,15 @@
 			"fourHouses": 625,
 			"HOTEL": 750
 		},
-		"value": 140
+		"houseCost": 100,
+		"hotelCost": 100,
+		"siteMortgageValue": 70,
+		"spaceIndex": 13
 	},
 	{
 		"name": "Northumberland Avenue",
 		"group": "pink",
-		"houseCost": 100,
-		"hotelCost": 100,
-		"siteMortgageValue": 80,
-		"spaceIndex": 14,
-		"rents": {
+		"values": {
 			"SITE": 12,
 			"oneHouse": 60,
 			"twoHouses": 180,
@@ -133,16 +122,15 @@
 			"fourHouses": 700,
 			"HOTEL": 900
 		},
-		"value": 160
+		"houseCost": 100,
+		"hotelCost": 100,
+		"siteMortgageValue": 80,
+		"spaceIndex": 14
 	},
 	{
 		"name": "Bow Street",
 		"group": "orange",
-		"houseCost": 100,
-		"hotelCost": 100,
-		"siteMortgageValue": 90,
-		"spaceIndex": 16,
-		"rents": {
+		"values": {
 			"SITE": 14,
 			"oneHouse": 70,
 			"twoHouses": 200,
@@ -150,16 +138,15 @@
 			"fourHouses": 750,
 			"HOTEL": 950
 		},
-		"value": 180
+		"houseCost": 100,
+		"hotelCost": 100,
+		"siteMortgageValue": 90,
+		"spaceIndex": 16
 	},
 	{
 		"name": "Marlborough Street",
 		"group": "orange",
-		"houseCost": 100,
-		"hotelCost": 100,
-		"siteMortgageValue": 90,
-		"spaceIndex": 18,
-		"rents": {
+		"values": {
 			"SITE": 14,
 			"oneHouse": 70,
 			"twoHouses": 200,
@@ -167,16 +154,15 @@
 			"fourHouses": 750,
 			"HOTEL": 950
 		},
-		"value": 180
+		"houseCost": 100,
+		"hotelCost": 100,
+		"siteMortgageValue": 90,
+		"spaceIndex": 18
 	},
 	{
 		"name": "Vine Street",
 		"group": "orange",
-		"houseCost": 100,
-		"hotelCost": 100,
-		"siteMortgageValue": 100,
-		"spaceIndex": 19,
-		"rents": {
+		"values": {
 			"SITE": 16,
 			"oneHouse": 80,
 			"twoHouses": 220,
@@ -184,16 +170,15 @@
 			"fourHouses": 800,
 			"HOTEL": 1000
 		},
-		"value": 200
+		"houseCost": 100,
+		"hotelCost": 100,
+		"siteMortgageValue": 100,
+		"spaceIndex": 19
 	},
 	{
 		"name": "The Strand",
 		"group": "red",
-		"houseCost": 150,
-		"hotelCost": 150,
-		"siteMortgageValue": 110,
-		"spaceIndex": 21,
-		"rents": {
+		"values": {
 			"SITE": 18,
 			"oneHouse": 90,
 			"twoHouses": 250,
@@ -201,16 +186,15 @@
 			"fourHouses": 875,
 			"HOTEL": 1050
 		},
-		"value": 220
+		"houseCost": 150,
+		"hotelCost": 150,
+		"siteMortgageValue": 110,
+		"spaceIndex": 21
 	},
 	{
 		"name": "Fleet Street",
 		"group": "red",
-		"houseCost": 150,
-		"hotelCost": 150,
-		"siteMortgageValue": 110,
-		"spaceIndex": 23,
-		"rents": {
+		"values": {
 			"SITE": 18,
 			"oneHouse": 90,
 			"twoHouses": 250,
@@ -218,16 +202,15 @@
 			"fourHouses": 875,
 			"HOTEL": 1050
 		},
-		"value": 220
+		"houseCost": 150,
+		"hotelCost": 150,
+		"siteMortgageValue": 110,
+		"spaceIndex": 23
 	},
 	{
 		"name": "Trafalgar Square",
 		"group": "red",
-		"houseCost": 150,
-		"hotelCost": 150,
-		"siteMortgageValue": 110,
-		"spaceIndex": 24,
-		"rents": {
+		"values": {
 			"SITE": 18,
 			"oneHouse": 90,
 			"twoHouses": 250,
@@ -235,16 +218,15 @@
 			"fourHouses": 875,
 			"HOTEL": 1050
 		},
-		"value": 240
+		"houseCost": 150,
+		"hotelCost": 150,
+		"siteMortgageValue": 110,
+		"spaceIndex": 24
 	},
 	{
 		"name": "Leicester Square",
 		"group": "yellow",
-		"houseCost": 150,
-		"hotelCost": 150,
-		"siteMortgageValue": 130,
-		"spaceIndex": 26,
-		"rents": {
+		"values": {
 			"SITE": 22,
 			"oneHouse": 110,
 			"twoHouses": 330,
@@ -252,16 +234,15 @@
 			"fourHouses": 975,
 			"HOTEL": 1150
 		},
-		"value": 260
+		"houseCost": 150,
+		"hotelCost": 150,
+		"siteMortgageValue": 130,
+		"spaceIndex": 26
 	},
 	{
 		"name": "Coventry Street",
 		"group": "yellow",
-		"houseCost": 150,
-		"hotelCost": 150,
-		"siteMortgageValue": 130,
-		"spaceIndex": 27,
-		"rents": {
+		"values": {
 			"SITE": 22,
 			"oneHouse": 110,
 			"twoHouses": 330,
@@ -269,16 +250,15 @@
 			"fourHouses": 975,
 			"HOTEL": 1150
 		},
-		"value": 260
+		"houseCost": 150,
+		"hotelCost": 150,
+		"siteMortgageValue": 130,
+		"spaceIndex": 27
 	},
 	{
 		"name": "Piccadilly",
 		"group": "yellow",
-		"houseCost": 150,
-		"hotelCost": 150,
-		"siteMortgageValue": 140,
-		"spaceIndex": 29,
-		"rents": {
+		"values": {
 			"SITE": 24,
 			"oneHouse": 120,
 			"twoHouses": 360,
@@ -286,16 +266,15 @@
 			"fourHouses": 1025,
 			"HOTEL": 1200
 		},
-		"value": 280
+		"houseCost": 150,
+		"hotelCost": 150,
+		"siteMortgageValue": 140,
+		"spaceIndex": 29
 	},
 	{
 		"name": "Regent Street",
 		"group": "green",
-		"houseCost": 200,
-		"hotelCost": 200,
-		"siteMortgageValue": 150,
-		"spaceIndex": 31,
-		"rents": {
+		"values": {
 			"SITE": 26,
 			"oneHouse": 130,
 			"twoHouses": 390,
@@ -303,16 +282,15 @@
 			"fourHouses": 1100,
 			"HOTEL": 1275
 		},
-		"value": 300
+		"houseCost": 200,
+		"hotelCost": 200,
+		"siteMortgageValue": 150,
+		"spaceIndex": 31
 	},
 	{
 		"name": "Oxford Street",
 		"group": "green",
-		"houseCost": 200,
-		"hotelCost": 200,
-		"siteMortgageValue": 150,
-		"spaceIndex": 32,
-		"rents": {
+		"values": {
 			"SITE": 26,
 			"oneHouse": 130,
 			"twoHouses": 390,
@@ -320,16 +298,15 @@
 			"fourHouses": 1100,
 			"HOTEL": 1275
 		},
-		"value": 300
+		"houseCost": 200,
+		"hotelCost": 200,
+		"siteMortgageValue": 150,
+		"spaceIndex": 32
 	},
 	{
 		"name": "Bond Street",
 		"group": "green",
-		"houseCost": 200,
-		"hotelCost": 200,
-		"siteMortgageValue": 160,
-		"spaceIndex": 34,
-		"rents": {
+		"values": {
 			"SITE": 28,
 			"oneHouse": 150,
 			"twoHouses": 450,
@@ -337,16 +314,15 @@
 			"fourHouses": 1200,
 			"HOTEL": 1400
 		},
-		"value": 320
+		"houseCost": 200,
+		"hotelCost": 200,
+		"siteMortgageValue": 160,
+		"spaceIndex": 34
 	},
 	{
 		"name": "Park Lane",
 		"group": "dark_blue",
-		"houseCost": 200,
-		"hotelCost": 200,
-		"siteMortgageValue": 175,
-		"spaceIndex": 37,
-		"rents": {
+		"values": {
 			"SITE": 35,
 			"oneHouse": 175,
 			"twoHouses": 500,
@@ -354,16 +330,15 @@
 			"fourHouses": 1300,
 			"HOTEL": 1500
 		},
-		"value": 350
+		"houseCost": 200,
+		"hotelCost": 200,
+		"siteMortgageValue": 175,
+		"spaceIndex": 37
 	},
 	{
 		"name": "Mayfair",
 		"group": "dark_blue",
-		"houseCost": 200,
-		"hotelCost": 200,
-		"siteMortgageValue": 200,
-		"spaceIndex": 39,
-		"rents": {
+		"values": {
 			"SITE": 50,
 			"oneHouse": 200,
 			"twoHouses": 600,
@@ -371,6 +346,9 @@
 			"fourHouses": 1700,
 			"HOTEL": 2000
 		},
-		"value": 400
+		"houseCost": 200,
+		"hotelCost": 200,
+		"siteMortgageValue": 200,
+		"spaceIndex": 39
 	}
 ]

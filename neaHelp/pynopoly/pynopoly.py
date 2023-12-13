@@ -5,6 +5,22 @@ import sqlite3
 import re
 import colorist
 
+# Utility Functions
+
+def getYesNoInput(prompt: str) -> bool:
+		print("Please respond to the following prompt with 'yes' or 'no':")
+		userInput = input(prompt)
+
+		while userInput.lower() not in ['yes', 'no', 'y', 'n']:
+			print("Please respond to the following prompt with 'yes' or 'no':")
+			userInput = input(prompt)
+		
+		return userInput.lower() in ['yes', 'y']
+
+
+
+
+
 class Player():
 	def __init__(self):
 		# Player profile setup
@@ -19,17 +35,6 @@ class Player():
 
 		self.balance = 1500
 		self.currentLocationIndex = 0
-
-	@classmethod
-	def getYesNoInput(cls, prompt: str) -> bool:
-		print("Please respond to the following prompt with 'yes' or 'no':")
-		userInput = input(prompt)
-
-		while userInput.lower() not in ['yes', 'no', 'y', 'n']:
-			print("Please respond to the following prompt with 'yes' or 'no':")
-			userInput = input(prompt)
-		
-		return userInput.lower() in ['yes', 'y']
 	
 	@classmethod
 	def validatePlayerPin(cls, playerPin: str) -> bool:
@@ -138,7 +143,7 @@ class Player():
 			if len(loginQueryResult) == 0:
 				print('\nError: No player profile found with those details.')
 
-				playAsGuest = Player.getYesNoInput('Would you like to play as a guest? ')
+				playAsGuest = getYesNoInput('Would you like to play as a guest? ')
 				if playAsGuest is True:
 					return False
 			else:
@@ -187,7 +192,7 @@ class Player():
 
 
 	def loadPlayerProfile(self):
-		playerHasAccount = Player.getYesNoInput('Do you have an account already? ')
+		playerHasAccount = getYesNoInput('Do you have an account already? ')
 
 		if playerHasAccount is True:
 			self.loginPlayer()
@@ -200,11 +205,23 @@ class Player():
 
 	# Game functions
 
+	def getBalanceStr(self) -> str:
+		return f'£{self.balance}'
+
 	def addToBalance(self, amount: int) -> None:
 		self.balance += amount
 
 	def removeFromBalance(self, amount: int) -> None:
 		self.balance -= amount
+
+	def hasAmount(self, amount: int) -> bool:
+		"""
+		Checks whether player has the
+		specified amount of money.
+
+		Returns bool.
+		"""
+		return self.balance >= amount
 
 
 
@@ -278,18 +295,23 @@ class SiteSpace():
 			name: str, 
 			locationGroup: LocationGroup,
 			value: int, 
-			houseValues: list,
-			hotelValue: int,
-			mortgageValue: int
+			baseRent: int,
+			houseRents: list,
+			hotelRent: int,
+			mortgageValue: int,
+
+			parentBoard
 		) -> None:
 		self.name = name
 		self.locationGroup = locationGroup
+		
 		self.value = value
 
 		self.owner = None
 
-		self.houseValues = houseValues
-		self.hotelValue = hotelValue
+		self.baseRent = baseRent
+		self.houseRents = houseRents
+		self.hotelRent = hotelRent
 		self.mortgageValue = mortgageValue
 
 		self.numOfHouses = 0
@@ -297,33 +319,66 @@ class SiteSpace():
 		
 		self.isMortgaged = False
 
-	def __getNameForPrint(self) -> str:
+		self.parentBoard = parentBoard
+	
+	def __getValueStr(self) -> str:
+		return f'£{self.value}'
+
+	def getNameForPrint(self) -> str:
 		groupColour = colorist.ColorHex(self.locationGroup.getHexColour())
 
 		return f'{groupColour}{self.name}{groupColour.OFF}'
 
 
 	def __calculateRent(self) -> int:
-		# Check for monopoly condition
+		rentMultiplier = 2 if self.locationGroup.checkForMonopoly() == True else 1
 
 		if self.hasHotel == True:
-			return self.hotelValue
+			return self.hotelRent * rentMultiplier
 		elif self.numOfHouses > 0:
-			return self.houseValues[self.numOfHouses - 1]
+			return self.houseRents[self.numOfHouses - 1] * rentMultiplier
 		else:
-			return self.value
+			return self.baseRent * rentMultiplier
 	
+
 	def __collectRent(self, renterPlayer: Player):
 		rentAmount = self.__calculateRent()
 
 		renterPlayer.removeFromBalance(rentAmount)
 		self.owner.addToBalance(rentAmount)
 
-		print(f'{renterPlayer.name} has paid {self.owner.name} £{rentAmount} in rent for stopping on {self.__getNameForPrint()}!')
-		print(f'')
+		print(f'{renterPlayer.name} has paid {self.owner.name} £{rentAmount} in rent for stopping on {self.getNameForPrint()}!')
+		if self.locationGroup.checkForMonopoly() == True:
+			print(f"That's double rent as {renterPlayer.name} has a monopoly!")
 	
-	def landFuntion(self, player: Player):
+
+	def sellSelfToPlayer(self, playerBuying: Player):
+		self.owner = playerBuying
+
+	def __sellProperty(self, landingPlayer: Player):
+		print(f"You're the first to land on {self.getNameForPrint()}!")
+
+		if landingPlayer.hasAmount(self.value) == True:
+			if getYesNoInput(f'Would you like to buy it for {self.__getValueStr()}? '):
+				self.sellSelfToPlayer(landingPlayer)
+
+				return
+		else:
+			print(f'Unfortunately, it costs {self.__getValueStr()} and you only have {landingPlayer.getBalanceStr()}, so you can\'t afford to buy it.')
 		
+		print('\nAs the property has not been bought, it must be auctioned! Hold an auction amongst yourselves.') # Lazy? Yes.
+
+		auctionWinner = self.parentBoard.getPlayerInput('Who won the auction? ')
+
+		self.sellSelfToPlayer(auctionWinner)
+
+
+
+
+	def landFuntion(self, landingPlayer: Player):
+		if self.owner == None:
+			self.__sellProperty(landingPlayer)
+
 		self.__collectRent(self.owner)
 
 		pass
@@ -332,7 +387,16 @@ class SiteSpace():
 
 
 class Board():
-	pass
+	def __init__(self) -> None:
+		pass
+
+	def getPlayerInput(self, prompt: str) -> Player:
+		"""
+		Gets an valid player input
+		and returns the player object
+		for that player.
+		"""
+		pass
 
 # The board will handle the gameloop
 

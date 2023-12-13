@@ -85,7 +85,7 @@ def savePropertyList(propertyList: list, overrideFileName: str=None, printList: 
 
 	fileName = overrideFileName if overrideFileName != None else 'properties.json'
 
-	with open(config.BASE_DIR / fileName, 'wt') as f:
+	with open(config.BASE_DIR / 'setup' / fileName, 'wt') as f:
 		f.write(json.dumps(propertyList))
 
 	if printList == True:
@@ -95,11 +95,25 @@ def savePropertyList(propertyList: list, overrideFileName: str=None, printList: 
 
 
 
-with open(config.BASE_DIR / 'properties.json', 'rt') as f:
+with open(config.BASE_DIR / 'setup' / 'properties.json', 'rt') as f:
 	propertiesDictsList = json.loads(f.read())
 
-for i, propertyDict in enumerate(propertiesDictsList):
-	propertyDict['spaceIndex'] = existingPropertyDictsList[i]['spaceId'] - 1
+
+for property in propertiesDictsList:
+	os.system('clear')
+	print(f"PROPERTY: {property['name']}\n")
+	
+	newValue = intInput('Enter property value: ')
+
+	property['rents'] = property['values']
+	del property['values']
+
+	property['value'] = newValue
+
+
+
+# for i, propertyDict in enumerate(propertiesDictsList):
+# 	propertyDict['spaceIndex'] = existingPropertyDictsList[i]['spaceId'] - 1
 
 savePropertyList(propertiesDictsList)
 
