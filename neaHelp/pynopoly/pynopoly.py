@@ -4,6 +4,12 @@ import config
 import sqlite3
 import re
 import colorist
+import os
+import time
+
+import pathlib
+from pathlib import Path
+
 
 # Utility Functions
 
@@ -18,6 +24,11 @@ def getYesNoInput(prompt: str) -> bool:
 		return userInput.lower() in ['yes', 'y']
 
 
+def clearTerminal(delay: int=0):
+	if delay > 0:
+		time.sleep(delay)
+
+	os.system('clear')
 
 
 
@@ -226,22 +237,7 @@ class Player():
 
 
 
-def databaseSetup():
-	con = sqlite3.connect(config.DATABASE_DIR)
-	cur = con.cursor()
 
-	cur.execute('''
-		CREATE TABLE IF NOT EXISTS Players(
-				playerId 			INTEGER 		PRIMARY KEY,
-				playerUsername 		VARCHAR(25) 	NOT NULL,
-				playerName 			VARCHAR(50) 	NOT NULL,
-				playerPin 			VARCHAR(6) 		NOT NULL,
-				playerWinCount		INT,
-				playerPlayCount		INT
-			)
-	''')
-
-	#PRIMARY KEY (playerUsername) - Removed
 
 
 class SpaceWrapper():
@@ -386,9 +382,76 @@ class SiteSpace():
 
 
 
-class Board():
-	def __init__(self) -> None:
+class Pynopoly():
+	def __init__(self, BASE_DIR: Path, SETUP_JSON_NAME: str='pynopolySetup.json') -> None:
+		self.BASE_DIR = BASE_DIR
+		self.SETUP_JSON_NAME = SETUP_JSON_NAME
+		self.checkForSetupJson()
+
+		Pynopoly.databaseSetup()
+		self.setup()
+	
+
+	@classmethod
+	def databaseSetup(cls):
+		con = sqlite3.connect(config.DATABASE_DIR)
+		cur = con.cursor()
+
+		cur.execute('''
+			CREATE TABLE IF NOT EXISTS Players(
+					playerId 			INTEGER 		PRIMARY KEY,
+					playerUsername 		VARCHAR(25) 	NOT NULL,
+					playerName 			VARCHAR(50) 	NOT NULL,
+					playerPin 			VARCHAR(6) 		NOT NULL,
+					playerWinCount		INT,
+					playerPlayCount		INT
+				)
+		''')
+
+		#PRIMARY KEY (playerUsername) - Removed
+	
+
+	def checkForSetupJson(self):
+		setupJsonExists = pathlib.Path(self.BASE_DIR / self.SETUP_JSON_NAME).is_file()
+
+		if setupJsonExists != True:
+			raise Exception(f'Pynopoly setup JSON file not at BASE_DIR specified. (Tried {self.BASE_DIR / self.SETUP_JSON_NAME})')
+
+
+	def setupPlayers(self):
+		print("You'll need between 2 and 8 players (inclusive).")
+
+		self.playersList = []
+		
+		for i in range(8):
+			if i > 1 and getYesNoInput(f'Would you like to add another player (you\'ve currently added {i})') == True:
+				break
+			print('Adding new player...\n_____________________________')
+			newPlayer = Player()
+			newPlayer.loadPlayerProfile()
+
+			self.playersList.append(newPlayer)
+		
+		print('Players added successfull! Clearing terminal.')
+		clearTerminal(2)
+
+
+	def setupBoard(self):
 		pass
+
+
+	def setup(self) -> None:
+		if getYesNoInput('Would you like to clear the terminal? ') == True:
+			clearTerminal()
+		
+		print('Welcome to Pynopoly!')
+		print("First you'll need to set up the players.")
+		self.setupPlayers()
+
+		self.setupBoard()
+		pass
+
+
 
 	def getPlayerInput(self, prompt: str) -> Player:
 		"""
@@ -402,12 +465,14 @@ class Board():
 
 
 def main():
-	databaseSetup()
+	
 
-	player = Player()
-	Player.validateUsername('mb')
-	Player.validateUsername('mblss')
-	player.loadPlayerProfile()
+	testGame = Pynopoly(config.BASE_DIR)
+
+	# player = Player()
+	# Player.validateUsername('mb')
+	# Player.validateUsername('mblss')
+	# player.loadPlayerProfile()
 
 
 if __name__ == '__main__':
