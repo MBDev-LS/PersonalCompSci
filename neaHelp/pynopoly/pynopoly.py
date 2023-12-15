@@ -6,6 +6,7 @@ import re
 import colorist
 import os
 import time
+import json
 
 import pathlib
 from pathlib import Path
@@ -14,7 +15,7 @@ from pathlib import Path
 # Utility Functions
 
 def getYesNoInput(prompt: str) -> bool:
-		print("Please respond to the following prompt with 'yes' or 'no':")
+		print("\nPlease respond to the following prompt with 'yes' or 'no':")
 		userInput = input(prompt)
 
 		while userInput.lower() not in ['yes', 'no', 'y', 'n']:
@@ -154,6 +155,11 @@ class Player():
 			if len(loginQueryResult) == 0:
 				print('\nError: No player profile found with those details.')
 
+				signupInstead = getYesNoInput('Would you like to sign up instead? ')
+				if signupInstead is True:
+					self.signupPlayer()
+					return True
+				
 				playAsGuest = getYesNoInput('Would you like to play as a guest? ')
 				if playAsGuest is True:
 					return False
@@ -206,11 +212,14 @@ class Player():
 		playerHasAccount = getYesNoInput('Do you have an account already? ')
 
 		if playerHasAccount is True:
-			self.loginPlayer()
-		else:
-			loggedIn = self.signupPlayer()
+			loggedIn = self.loginPlayer()
 
-			if loggedIn == False:
+			if loggedIn != True:
+				self.loadGuestDetails()
+		else:
+			if getYesNoInput('Would you like to play as a guest? ') == False:
+				self.signupPlayer()
+			else:
 				self.loadGuestDetails()
 	
 
@@ -241,19 +250,20 @@ class Player():
 
 
 class SpaceWrapper():
-	def __init__(self, name: str) -> None:
-		self.name = name
-		self.landFunction = None # The function which is called when a player lands on the square.
+	def __init__(self, space, locationIndex: int) -> None:
+		self.space = space
+		self.locationIndex = locationIndex
+		# spaceType = None
 
 		# self.owner = None # The player that owns the space, None if not owned
 
 
-class LocationGroup():
+class SpaceGroup():
 	def __init__(self, name: str, hexColour: str) -> None:
 		self.name = name
 		self.hexColour = hexColour
 
-		self.properties = []
+		self.spaces = []
 
 	def getHexColour(self) -> str:
 		"""
@@ -273,33 +283,117 @@ class LocationGroup():
 		will only return boolean if that
 		player has monopoly.
 		"""
-		propertyOwners = set()
+		spaceOwners = set()
 
 		for property in self.properties:
-			propertyOwners.add(property.owner)
+			spaceOwners.add(property.owner)
 		
 		if playerToCheck == None:
-			return len(propertyOwners) == 1 and propertyOwners[0] != None
+			return len(spaceOwners) == 1 and spaceOwners[0] != None
 		else:
-			return len(propertyOwners) == 1 and propertyOwners[0] == playerToCheck
+			return len(spaceOwners) == 1 and spaceOwners[0] == playerToCheck
 
+
+
+class UtilitySpace():
+	def __init__(
+				self, 
+				name: str, 
+				value: int, 
+				baseRentDiceMultiplier: int, 
+				monopolyRentDiceMultiplier: int,
+				mortgageValue: int,
+				spaceGroup: SpaceGroup,
+				parentGame
+			) -> None:
+		
+		self.name = name
+		self.value = value
+		self.baseRentDiceMultiplier = baseRentDiceMultiplier
+		self.monopolyRentDiceMultiplier = monopolyRentDiceMultiplier
+		self.mortgageValue = mortgageValue
+
+		self.owner = None
+		self.isMortgaged = False
+
+		self.spaceGroup = spaceGroup
+		self.parentGame = parentGame
+
+	
+	def __sellUtility(self, landingPlayer: Player):
+		print(f"You're the first to land on {self.getNameForPrint()}!")
+
+		if landingPlayer.hasAmount(self.value) == True:
+			if getYesNoInput(f'Would you like to buy it for {self.__getValueStr()}? '):
+				self.sellSelfToPlayer(landingPlayer)
+
+				return
+		else:
+			print(f'Unfortunately, it costs {self.__getValueStr()} and you only have {landingPlayer.getBalanceStr()}, so you can\'t afford to buy it.')
+		
+		print('\nAs the property has not been bought, it must be auctioned! Hold an auction amongst yourselves.') # Lazy? Yes.
+
+		auctionWinner = self.parentBoard.getPlayerInput('Who won the auction? ')
+
+		self.sellSelfToPlayer(auctionWinner)
+
+	
+	def __calculateRent(self, diceNum: int) -> int:
+		if self.spaceGroup.checkForMonopoly() == True:
+			return diceNum * self.monopolyRentDiceMultiplier
+		else:
+			return diceNum * self.baseRentDiceMultiplier
+
+
+	def __collectRent(self, landingPlayer: Player, diceNum: int) -> None:
+		print(f'{landingPlayer.name} has landed on {self.name}, which is owned by {self.owner.name}!')
+		
+		rentAmount = self.__calculateRent(diceNum)
+		landingPlayer.removeFromBalance(rentAmount)
+		self.owner.addToBalance(rentAmount)
+
+		print(f'{landingPlayer.name} has paid {self.name} £{rentAmount}.')
+	
+	def landFunction(self, landingPlayer: Player, diceNum: int) -> None:
+		if self.owner == None:
+			self.__sellUtility(landingPlayer)
+		elif landingPlayer == self.owner:
+			print(f'{landingPlayer.name} has landed on {self.name} and already own it!')
+			return
+		else:
+			self.__collectRent(landingPlayer, diceNum)
+
+
+class StationSpace():
+	def __init__(
+				self, 
+				name: str, 
+				value: int, 
+				baseRent: int, 
+				rentsWithOtherStations: list,
+				mortgageValue: int,
+				spaceGroup: SpaceGroup,
+				parentGame
+			) -> None:
+		pass
 
 
 class SiteSpace():
 	def __init__(
-			self, 
-			name: str, 
-			locationGroup: LocationGroup,
-			value: int, 
-			baseRent: int,
-			houseRents: list,
-			hotelRent: int,
-			mortgageValue: int,
+				self, 
+				name: str, 
+				spaceGroup: SpaceGroup,
+				value: int, 
+				baseRent: int,
+				houseRents: list,
+				hotelRent: int,
+				mortgageValue: int,
 
-			parentBoard
-		) -> None:
+				parentBoard
+			) -> None:
+
 		self.name = name
-		self.locationGroup = locationGroup
+		self.spaceGroup = spaceGroup
 		
 		self.value = value
 
@@ -311,7 +405,7 @@ class SiteSpace():
 		self.mortgageValue = mortgageValue
 
 		self.numOfHouses = 0
-		self.hasHotel = True
+		self.hasHotel = False
 		
 		self.isMortgaged = False
 
@@ -321,13 +415,13 @@ class SiteSpace():
 		return f'£{self.value}'
 
 	def getNameForPrint(self) -> str:
-		groupColour = colorist.ColorHex(self.locationGroup.getHexColour())
+		groupColour = colorist.ColorHex(self.spaceGroup.getHexColour())
 
 		return f'{groupColour}{self.name}{groupColour.OFF}'
 
 
 	def __calculateRent(self) -> int:
-		rentMultiplier = 2 if self.locationGroup.checkForMonopoly() == True else 1
+		rentMultiplier = 2 if self.spaceGroup.checkForMonopoly() == True else 1
 
 		if self.hasHotel == True:
 			return self.hotelRent * rentMultiplier
@@ -344,7 +438,7 @@ class SiteSpace():
 		self.owner.addToBalance(rentAmount)
 
 		print(f'{renterPlayer.name} has paid {self.owner.name} £{rentAmount} in rent for stopping on {self.getNameForPrint()}!')
-		if self.locationGroup.checkForMonopoly() == True:
+		if self.spaceGroup.checkForMonopoly() == True:
 			print(f"That's double rent as {renterPlayer.name} has a monopoly!")
 	
 
@@ -369,15 +463,14 @@ class SiteSpace():
 		self.sellSelfToPlayer(auctionWinner)
 
 
-
-
 	def landFuntion(self, landingPlayer: Player):
 		if self.owner == None:
 			self.__sellProperty(landingPlayer)
+		elif self.owner == landingPlayer:
+			print(f'{landingPlayer} landed on their own property!')
 
 		self.__collectRent(self.owner)
 
-		pass
 
 
 
@@ -424,20 +517,66 @@ class Pynopoly():
 		self.playersList = []
 		
 		for i in range(8):
-			if i > 1 and getYesNoInput(f'Would you like to add another player (you\'ve currently added {i})') == True:
+			if i > 1 and getYesNoInput(f'Would you like to add another player (you\'ve currently added {i})? ') == False:
 				break
-			print('Adding new player...\n_____________________________')
+			print('Adding new player...\n_____________________________\n')
 			newPlayer = Player()
 			newPlayer.loadPlayerProfile()
 
 			self.playersList.append(newPlayer)
+			print('\nAdded player!\n_____________________________\n')
+
 		
 		print('Players added successfull! Clearing terminal.')
 		clearTerminal(2)
+	
 
+	def getSetupJson(self):
+		self.checkForSetupJson()
+
+		with open(self.BASE_DIR / self.SETUP_JSON_NAME) as f:
+			setupDict = json.loads(f.read())
+		
+		return setupDict
+
+	
+	def getSpaceGroup(self, name: str):
+		for spaceGroup in self.spaceGroupsList:
+			if spaceGroup.name == name:
+				return spaceGroup
 
 	def setupBoard(self):
-		pass
+		print('Setting up board...')
+
+		setupDict = self.getSetupJson()
+
+		self.spaceGroupsList = []
+
+		for propertyGroupName in setupDict['propertyGroups']:
+			self.spaceGroupsList.append(SpaceGroup(
+				propertyGroupName,
+				setupDict['propertyGroupHexColours'][propertyGroupName]
+			))
+
+		locationProperties = []
+		
+		for propertyDict in setupDict['properties']['locations']:
+			
+			locationProperties.append(SpaceWrapper(SiteSpace(
+				name=propertyDict['name'],
+				spaceGroup=self.getSpaceGroup(propertyDict['group']),
+				value=propertyDict['value'],
+				baseRent=propertyDict['rents']['SITE'],
+				houseRents=[propertyDict['rents']['oneHouse'], propertyDict['rents']['twoHouses'], propertyDict['rents']['threeHouses'], propertyDict['rents']['fourHouses']],
+				hotelRent=propertyDict['rents']['HOTEL'],
+				mortgageValue=propertyDict['siteMortgageValue'],
+				parentBoard=self
+			), propertyDict['spaceIndex']))
+		
+		print(locationProperties)
+
+
+
 
 
 	def setup(self) -> None:
@@ -446,10 +585,10 @@ class Pynopoly():
 		
 		print('Welcome to Pynopoly!')
 		print("First you'll need to set up the players.")
-		self.setupPlayers()
+		# self.setupPlayers()
 
 		self.setupBoard()
-		pass
+
 
 
 
