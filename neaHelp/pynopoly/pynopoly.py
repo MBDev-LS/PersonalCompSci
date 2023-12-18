@@ -285,13 +285,24 @@ class SpaceGroup():
 		"""
 		spaceOwners = set()
 
-		for property in self.properties:
-			spaceOwners.add(property.owner)
+		for spaceWrapper in self.spaces:
+			spaceOwners.add(spaceWrapper.space.owner)
 		
 		if playerToCheck == None:
 			return len(spaceOwners) == 1 and spaceOwners[0] != None
 		else:
 			return len(spaceOwners) == 1 and spaceOwners[0] == playerToCheck
+	
+
+	def numberOfSpacesOwned(self, player: Player) -> int:
+		ownershipCount = len([spaceWrapper.space for spaceWrapper in self.spaces if spaceWrapper.space.owner == player])
+		
+		return ownershipCount
+	
+
+	def addSpace(self, spaceObj) -> None:
+		self.spaces.append(spaceObj)
+
 
 
 
@@ -375,7 +386,69 @@ class StationSpace():
 				spaceGroup: SpaceGroup,
 				parentGame
 			) -> None:
-		pass
+		self.name = name
+		self.value = value
+		self.baseRent = baseRent
+		self.rentsWithOtherStations = rentsWithOtherStations
+		self.mortgageValue = mortgageValue
+
+		self.spaceGroup = spaceGroup
+		self.parentGame = parentGame
+	
+
+	def sellSelfToPlayer(self, playerBuying: Player):
+		self.owner = playerBuying
+
+	def __sellProperty(self, landingPlayer: Player):
+		print(f"You're the first to land on {self.getNameForPrint()}!")
+
+		if landingPlayer.hasAmount(self.value) == True:
+			if getYesNoInput(f'Would you like to buy it for {self.__getValueStr()}? '):
+				self.sellSelfToPlayer(landingPlayer)
+
+				return
+		else:
+			print(f'Unfortunately, it costs {self.__getValueStr()} and you only have {landingPlayer.getBalanceStr()}, so you can\'t afford to buy it.')
+		
+		print('\nAs the property has not been bought, it must be auctioned! Hold an auction amongst yourselves.') # Lazy? Yes.
+
+		auctionWinner = self.parentBoard.getPlayerInput('Who won the auction? ')
+
+		self.sellSelfToPlayer(auctionWinner)
+
+	
+	def __calculateRent(self) -> int:
+		numOfStationsOwned = self.spaceGroup.numberOfSpacesOwned(self.owner)
+
+		if numOfStationsOwned == 1:
+			return self.baseRent
+		else:
+			return self.rentsWithOtherStations[numOfStationsOwned - 2]
+	
+
+	def __collectRent(self, renterPlayer: Player) -> None:
+		rentAmount = self.__calculateRent()
+
+		renterPlayer.removeFromBalance(rentAmount)
+		self.owner.addToBalance(rentAmount)
+
+		print(f'{renterPlayer.name} has paid {self.owner.name} £{rentAmount} in rent for stopping on {self.getNameForPrint()}!')
+	
+	
+	def landFunction(self, landingPlayer: Player) -> None:
+		if self.owner == None:
+			print(f'{landingPlayer.name} has landed on {self.name}')
+			self.__sellProperty(landingPlayer)
+		elif self.onwer == landingPlayer:
+			print(f'You\'ve landed on {self.name}, which you already own!')
+			return
+		else:
+			print(f'You\'ve landed on {self.name}, which is owned by {self.owner.name}! You must pay them rent.')
+			self.__collectRent()
+
+		
+		
+
 
 
 class SiteSpace():
@@ -540,7 +613,7 @@ class Pynopoly():
 		return setupDict
 
 	
-	def getSpaceGroup(self, name: str):
+	def getSpaceGroup(self, name: str) -> SpaceGroup:
 		for spaceGroup in self.spaceGroupsList:
 			if spaceGroup.name == name:
 				return spaceGroup
@@ -561,8 +634,8 @@ class Pynopoly():
 		locationProperties = []
 		
 		for propertyDict in setupDict['properties']['locations']:
-			
-			locationProperties.append(SpaceWrapper(SiteSpace(
+
+			newPropertySpace = SpaceWrapper(SiteSpace(
 				name=propertyDict['name'],
 				spaceGroup=self.getSpaceGroup(propertyDict['group']),
 				value=propertyDict['value'],
@@ -571,7 +644,11 @@ class Pynopoly():
 				hotelRent=propertyDict['rents']['HOTEL'],
 				mortgageValue=propertyDict['siteMortgageValue'],
 				parentBoard=self
-			), propertyDict['spaceIndex']))
+			), propertyDict['spaceIndex'])
+			
+			locationProperties.append(newPropertySpace)
+
+			self.getSpaceGroup(propertyDict['group']).addSpace(newPropertySpace)
 		
 		print(locationProperties)
 
