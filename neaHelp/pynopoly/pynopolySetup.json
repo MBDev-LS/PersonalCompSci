@@ -38,14 +38,18 @@
 				"value": 150,
 				"baseRentDiceMultiplier": 4,
 				"monopolyRentDiceMultiplier": 10,
-				"mortgageValue": 75
+				"mortgageValue": 75,
+
+				"spaceIndex": 13
 			},
 			{
 				"name": "Water Works",
 				"value": 150,
 				"baseRentDiceMultiplier": 4,
 				"monopolyRentDiceMultiplier": 10,
-				"mortgageValue": 75
+				"mortgageValue": 75,
+
+				"spaceIndex": 28
 			}
 		],
 		"stations": [
@@ -54,28 +58,36 @@
 				"value": 200,
 				"baseRent": 25,
 				"multipleStationRents": [50, 100, 200],
-				"mortgageValue": 100
+				"mortgageValue": 100,
+
+				"spaceIndex": 5
 			},
 			{
 				"name": "Marylebone Station",
 				"value": 200,
 				"baseRent": 25,
 				"multipleStationRents": [50, 100, 200],
-				"mortgageValue": 100
+				"mortgageValue": 100,
+
+				"spaceIndex": 15
 			},
 			{
 				"name": "Fenchurch Street Station",
 				"value": 200,
 				"baseRent": 25,
 				"multipleStationRents": [50, 100, 200],
-				"mortgageValue": 100
+				"mortgageValue": 100,
+
+				"spaceIndex": 25
 			},
 			{
 				"name": "Liverpool Street Station",
 				"value": 200,
 				"baseRent": 25,
 				"multipleStationRents": [50, 100, 200],
-				"mortgageValue": 100
+				"mortgageValue": 100,
+
+				"spaceIndex": 35
 			}
 		], 
 		"locations": [
