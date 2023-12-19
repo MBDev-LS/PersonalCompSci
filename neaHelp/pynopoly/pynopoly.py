@@ -7,6 +7,9 @@ import colorist
 import os
 import time
 import json
+import random
+
+from typing import Optional, Union
 
 import pathlib
 from pathlib import Path
@@ -32,6 +35,16 @@ def clearTerminal(delay: int=0):
 	os.system('clear')
 
 
+def splitList(lst: list, indexToSplitAt: int) -> list:
+	"""
+	Splits list at given index, removing item at
+	this index.
+
+	Returns a list of the original list's components.
+	"""
+	return [lst[:indexToSplitAt], lst[indexToSplitAt+1:]]
+
+
 
 class Player():
 	def __init__(self):
@@ -47,9 +60,8 @@ class Player():
 		self.turnsInJail = 0
 
 		self.balance = 1500
-		self.currentLocationIndex = 0
 
-		self.currentSpace = 0
+		self.currentSpaceIndex = 0
 	
 	@classmethod
 	def validatePlayerPin(cls, playerPin: str) -> bool:
@@ -333,6 +345,8 @@ class PropertySpace():
 
 		self.spaceGroup = spaceGroup
 		self.parentGame = parentGame
+
+		self.chanceFlag = False
 	
 
 	def getValueStr(self) -> str:
@@ -403,8 +417,18 @@ class UtilitySpace(PropertySpace):
 		self.monopolyRentDiceMultiplier = monopolyRentDiceMultiplier
 
 	
+	def calculateChanceRent(self):
+		input('You must now roll the dice to calculate the rent. ')
+		diceRoll: int = self.parentGame.rollDice()
+		print(f'The dice rolled {diceRoll}!')
+		
+		return diceRoll
+
+	
 	def calculateRent(self, diceNum: int) -> int:
-		if self.spaceGroup.checkForMonopoly() == True:
+		if self.chanceFlag == True:
+			return self.calculateChanceRent()
+		elif self.spaceGroup.checkForMonopoly():
 			return diceNum * self.monopolyRentDiceMultiplier
 		else:
 			return diceNum * self.baseRentDiceMultiplier
@@ -444,12 +468,13 @@ class StationSpace(PropertySpace):
 
 	
 	def calculateRent(self) -> int:
+		chanceMultipler = 10 if self.chanceFlag == True else 1
 		numOfStationsOwned = self.spaceGroup.numberOfSpacesOwned(self.owner)
 
 		if numOfStationsOwned == 1:
-			return self.baseRent
+			return self.baseRent * chanceMultipler
 		else:
-			return self.rentsWithOtherStations[numOfStationsOwned - 2]
+			return self.rentsWithOtherStations[numOfStationsOwned - 2] * chanceMultipler
 	
 	
 	def landFunction(self, landingPlayer: Player) -> None:
@@ -531,12 +556,37 @@ class ChanceCardManager():
 		self.parentGame = parentGame
 
 		self.cardFunctions = [
-			self.advanceToGo,
-			self.a
+			self.__advanceToGo,
+			self.__advanceToSiteWithId24,
+			self.__advanceToLastSite,
+			self.__advanceToSiteWithId11,
+			self.__advanceToNearestStation,
+			self.__advanceToNearestUtility,
+			self.__bankPaysDividend,
+			self.__getOutOfJailFree,
+			self.__goBackThreeSpaces,
+			self.__goTojail,
+			self.__makeGeneralRepairs,
+			self.__speedingFine,
+			self.__goToFirstStation,
+			self.__electedChairman,
+			self.__buildingLoanMatures
 		]
 
+	
+	def takeChanceCard(self, player: Player) -> int:
+		"""
+		Runs random chance card's function.
 
-	def advanceToGo(self, player: Player) -> int:
+		Returns player's new location ID (integer).
+		"""
+		print('\nDrawing random chance card!\n')
+		cardDrawn = random.choice(self.cardFunctions)
+
+		return cardDrawn(player)
+
+
+	def __advanceToGo(self, player: Player) -> int:
 		"""
 		Advance to Go (Collect £200)
 		
@@ -545,8 +595,9 @@ class ChanceCardManager():
 		return 0
 
 
-	def advanceToSiteWithId24(self, player: Player) -> None:
-		"""Advance to site with space ID (cloest to) 24. If you pass Go, collect £200
+	def __advanceToSiteWithId24(self, player: Player) -> Optional[int]:
+		"""
+		Advance to site with space ID (closest to) 24. If you pass Go, collect £200
 
 		Normally Trafalgar Square.
 		
@@ -555,8 +606,9 @@ class ChanceCardManager():
 		pass
 
 
-	def advanceToLastSite(self, player: Player) -> None:
-		"""Advance to last site before Go.
+	def __advanceToLastSite(self, player: Player) -> Optional[int]:
+		"""
+		Advance to last site before Go.
 		
 		Normally Mayfair.
 
@@ -565,8 +617,9 @@ class ChanceCardManager():
 		pass
 
 
-	def advanceToSiteWithId11(self, player: Player) -> None:
-		"""Advance to site with space ID (cloest to) 11. If you pass Go, collect £200
+	def __advanceToSiteWithId11(self, player: Player) -> Optional[int]:
+		"""
+		Advance to site with space ID (cloest to) 11. If you pass Go, collect £200
 
 		Usually Pall Mall
 		
@@ -575,26 +628,51 @@ class ChanceCardManager():
 		pass
 
 
-	def advanceToNearestStation(self, player: Player) -> None:
-		"""Advance to the nearest Station. If unowned, you may buy it from the Bank
+	def __advanceToNearestStation(self, player: Player) -> Optional[int]:
+		"""
+		Advance to the nearest Station. If unowned, you may buy it from the Bank
 		If owned, pay wonder twice the rental to which they are otherwise entitled
 		
 		Returns new space's ID (integer). None if no change.
 		"""
-		pass
+		print("""Advance to the nearest Station. If unowned, you may buy it from the Bank
+		If owned, pay wonder twice the rental to which they are otherwise entitled.\n""")
+		stationSpacesList = self.parentGame.stationSpacesList
+
+		if stationSpacesList[-1].locationIndex < player.currentSpaceIndex:
+			return stationSpacesList[0].locationIndex
+		
+		for stationSpace in self.parentGame.stationSpacesList:
+			if stationSpace.locationIndex > player.currentSpaceIndex:
+				return stationSpace.locationIndex
 
 
-	def advanceToNearestUtility(self, player: Player) -> None:
-		"""Advance token to nearest Utility. If unowned, you may buy it from the Bank.
+	def __advanceToNearestUtility(self, player: Player) -> Optional[int]:
+		"""
+		Advance token to nearest Utility. If unowned, you may buy it from the Bank.
 		If owned, throw dice and pay owner a total ten times amount thrown.
 		
 		Returns new space's ID (integer). None if no change.
 		"""
-		pass
+		print("""Advance token to nearest Utility. If unowned, you may buy it from the Bank.
+		If owned, throw dice and pay owner a total ten times amount thrown.\n""")
+		utilitySpacesList = self.parentGame.utilitySpacesList
+
+		if utilitySpacesList[-1].locationIndex < player.currentSpaceIndex:
+			utilitySpacesList[0].chanceFlag = True
+
+			return utilitySpacesList[0].locationIndex
+		
+		for stationSpace in self.parentGame.utilitySpacesList:
+			utilitySpacesList[0].chanceFlag = True
+
+			if stationSpace.locationIndex > player.currentSpaceIndex:
+				return stationSpace.locationIndex
 	
 
-	def bankPaysDividend(self, player: Player) -> None:
-		"""Bank pays you dividend of £50
+	def __bankPaysDividend(self, player: Player) -> Optional[int]:
+		"""
+		Bank pays you dividend of £50
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -603,8 +681,9 @@ class ChanceCardManager():
 		player.addToBalance(50)
 
 
-	def getOutOfJailFree(self, player: Player) -> None:
-		"""Get Out of Jail Free - to be used at any time
+	def __getOutOfJailFree(self, player: Player) -> Optional[int]:
+		"""
+		Get Out of Jail Free - to be used at any time
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -613,8 +692,9 @@ class ChanceCardManager():
 		player.getOutOfJailFreeCountCard += 1
 
 
-	def goBackThreeSpaces(self, player: Player) -> None:
-		"""Go Back 3 Spaces
+	def __goBackThreeSpaces(self, player: Player) -> Optional[int]:
+		"""
+		Go Back 3 Spaces
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -622,8 +702,9 @@ class ChanceCardManager():
 		return (player.currentSpace - 3) % self.parentGame.totalSpaceCount
 
 
-	def goTojail(self, player: Player) -> None:
-		"""Go to Jail. Go directly to Jail, do not pass Go, do not collect £200
+	def __goTojail(self, player: Player) -> Optional[int]:
+		"""
+		Go to Jail. Go directly to Jail, do not pass Go, do not collect £200
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -633,8 +714,9 @@ class ChanceCardManager():
 		return -1
 
 
-	def makeGeneralRepairs(self, player: Player) -> None:
-		"""Make general repairs on all your property.
+	def __makeGeneralRepairs(self, player: Player) -> Optional[int]:
+		"""
+		Make general repairs on all your property.
 		For each house pay £25. For each hotel pay £100
 		
 		Returns new space's ID (integer). None if no change.
@@ -642,8 +724,9 @@ class ChanceCardManager():
 		pass
 	
 
-	def speedingFine(self, player: Player) -> None:
-		"""Speeding fine £15
+	def __speedingFine(self, player: Player) -> Optional[int]:
+		"""
+		Speeding fine £15
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -652,8 +735,9 @@ class ChanceCardManager():
 		player.removeFromBalance(15)
 
 
-	def goToFirstStation(self, player: Player) -> None:
-		"""Take a trip to {self.parentGame.firstStation.name}. If you pass Go, collect £200
+	def __goToFirstStation(self, player: Player) -> Optional[int]:
+		"""
+		Take a trip to {self.parentGame.firstStation.name}. If you pass Go, collect £200
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -663,8 +747,9 @@ class ChanceCardManager():
 		return self.parentGame.firstStation.locationIndex
 
 
-	def electedChairman(self, player: Player) -> None:
-		"""You have been elected Chairman of the Board. Pay each player £50
+	def __electedChairman(self, player: Player) -> Optional[int]:
+		"""
+		You have been elected Chairman of the Board. Pay each player £50
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -679,8 +764,9 @@ class ChanceCardManager():
 		player.removeFromBalance( 50 * otherPlayers )
 
 
-	def buildingLoanMatures(self, player: Player) -> None:
-		"""Your building loan matures. Collect £150
+	def __buildingLoanMatures(self, player: Player) -> Optional[int]:
+		"""
+		Your building loan matures. Collect £150
 		
 		Returns new space's ID (integer). None if no change.
 		"""
@@ -819,7 +905,7 @@ class Pynopoly():
 			},
 			"""
 
-			newUtilitySpace = StationSpace(
+			newStationSpace = StationSpace(
 				name=stationDict['name'],
 				spaceGroup=stationSpaceGroup,
 
@@ -833,9 +919,9 @@ class Pynopoly():
 				parentGame=self
 			)
 			
-			stationSpaces.append(newUtilitySpace)
+			stationSpaces.append(newStationSpace)
 
-			stationSpaceGroup.addSpace(newUtilitySpace)
+			stationSpaceGroup.addSpace(newStationSpace)
 
 		self.firstStation = stationSpaces[0]
 
@@ -909,6 +995,59 @@ class Pynopoly():
 		"""
 		pass
 
+	def rollDice(self) -> int:
+		return random.randint(1, 6)
+	
+	@property
+	def siteSpacesList(self) -> list:
+		return [space for space in self.spacesList if isinstance(space, SiteSpace) == True]
+
+	@property
+	def stationSpacesList(self) -> list:
+		return [space for space in self.spacesList if isinstance(space, StationSpace) == True]
+	
+	@property
+	def utilitySpacesList(self) -> list:
+		return [space for space in self.spacesList if isinstance(space, UtilitySpace) == True]
+	
+	def binarySpaceSearch(self, spaceList: list, targetLocationIndex: int, returnClosest: bool=False):
+		if len(spaceList) == 0:
+			return None
+		
+		splitIndex = round(len(spaceList) / 2)
+		currentSpace = spaceList[splitIndex]
+		splitLists = splitList(spaceList, splitIndex)
+
+		searchResult = None
+		
+		if targetLocationIndex == currentSpace.locationIndex:
+			return currentSpace
+		elif targetLocationIndex < currentSpace.locationIndex:
+			searchResult = self.binarySpaceSearch(splitLists[0], targetLocationIndex, returnClosest)
+		else:
+			searchResult = self.binarySpaceSearch(splitLists[1], targetLocationIndex, returnClosest)
+
+		# if set([len(lst) for lst in splitLists]) == 1 and len(splitLists[0]) == 0:
+		# 	return searchResult
+
+		if searchResult == None and returnClosest == True:
+			searchResult = currentSpace
+		
+		return searchResult
+
+	def getPropertySpace(self, targetLocationIndex: int, returnClosest: bool=False) -> Optional[Union[SiteSpace, StationSpace, UtilitySpace]]:
+		sortedSpaceList = sorted(self.spacesList, key=lambda space: space.locationIndex)
+
+		return self.binarySpaceSearch(sortedSpaceList, targetLocationIndex, returnClosest)
+	
+	def getSiteSpace(self, targetLocationIndex: int, returnClosest: bool=False) -> Optional[SiteSpace]:
+		sortedSiteSpaceList = sorted(self.siteSpacesList, key=lambda space: space.locationIndex)
+
+		return self.binarySpaceSearch(sortedSiteSpaceList, targetLocationIndex, returnClosest)
+
+
+
+
 
 
 
@@ -916,6 +1055,7 @@ def main():
 	
 
 	testGame = Pynopoly(config.BASE_DIR)
+	print(testGame.getSiteSpace(25, True).name)
 
 	# player = Player()
 	# Player.validateUsername('mb')
