@@ -603,7 +603,11 @@ class ChanceCardManager():
 		
 		Returns new space's ID (integer). None if no change.
 		"""
-		pass
+		newSpace = self.parentGame.getSiteSpace(24, True)
+
+		print(f"""Advance to {newSpace.name}. If you pass Go, collect £200""")
+
+		return newSpace.locationIndex
 
 
 	def __advanceToLastSite(self, player: Player) -> Optional[int]:
@@ -614,7 +618,11 @@ class ChanceCardManager():
 
 		Returns new space's ID (integer). None if no change.
 		"""
-		pass
+		newSpace = self.parentGame.getSiteSpace(self.parentGame.highestSiteLocationIndex, True)
+
+		print(f"""Advance to {newSpace.name}.""")
+
+		return newSpace.locationIndex
 
 
 	def __advanceToSiteWithId11(self, player: Player) -> Optional[int]:
@@ -625,7 +633,11 @@ class ChanceCardManager():
 		
 		Returns new space's ID (integer). None if no change.
 		"""
-		pass
+		newSpace = self.parentGame.getSiteSpace(11, True)
+
+		print(f"""Advance to {newSpace.name}. If you pass Go, collect £200""")
+
+		return newSpace.locationIndex
 
 
 	def __advanceToNearestStation(self, player: Player) -> Optional[int]:
@@ -721,8 +733,18 @@ class ChanceCardManager():
 		
 		Returns new space's ID (integer). None if no change.
 		"""
-		pass
-	
+		print("""Make general repairs on all your property.
+		For each house pay £25. For each hotel pay £100""")
+		
+		ownedSites = self.parentGame.getSiteSpacesOwnedBy(player)
+		
+		totalHouseCount = sum([space.numOfHouses for space in ownedSites])
+		totalHotelCount = sum([space for space in ownedSites if space.hasHotel == True])
+		
+		repairCost = totalHouseCount * 25 + totalHotelCount * 100
+		print(f'Repairs cost £{repairCost}.')
+
+		player.removeFromBalance(repairCost)
 
 	def __speedingFine(self, player: Player) -> Optional[int]:
 		"""
@@ -780,10 +802,28 @@ class Pynopoly():
 		self.BASE_DIR = BASE_DIR
 		self.SETUP_JSON_NAME = SETUP_JSON_NAME
 		self.checkForSetupJson()
+		self.diceSideCount = 6
 
 		Pynopoly.databaseSetup()
 		self.setup()
 	
+
+	@property
+	def siteSpacesList(self) -> list:
+		return [space for space in self.spacesList if isinstance(space, SiteSpace) == True]
+
+	@property
+	def stationSpacesList(self) -> list:
+		return [space for space in self.spacesList if isinstance(space, StationSpace) == True]
+	
+	@property
+	def utilitySpacesList(self) -> list:
+		return [space for space in self.spacesList if isinstance(space, UtilitySpace) == True]
+	
+	@property
+	def highestSiteLocationIndex(self) -> int:
+		return sorted(self.siteSpacesList, key=lambda space: space.locationIndex)[-1]
+
 
 	@classmethod
 	def databaseSetup(cls):
@@ -995,20 +1035,22 @@ class Pynopoly():
 		"""
 		pass
 
-	def rollDice(self) -> int:
-		return random.randint(1, 6)
-	
-	@property
-	def siteSpacesList(self) -> list:
-		return [space for space in self.spacesList if isinstance(space, SiteSpace) == True]
+	def __printDiceAnimation(self) -> None:
+		for i in range(20):
+			time.sleep(0.05)
+			print(f'Dice Rolled: {random.randint(1, self.diceSideCount)}', end='\r')
 
-	@property
-	def stationSpacesList(self) -> list:
-		return [space for space in self.spacesList if isinstance(space, StationSpace) == True]
+
+	def rollDice(self, printDiceRoll: bool=False) -> int:
+		diceRollResult = random.randint(1, 6)
+
+		if printDiceRoll == True:
+			self.__printDiceAnimation()
+			print(f'Dice Rolled: {diceRollResult}')
+		
+		return diceRollResult
 	
-	@property
-	def utilitySpacesList(self) -> list:
-		return [space for space in self.spacesList if isinstance(space, UtilitySpace) == True]
+	
 	
 	def binarySpaceSearch(self, spaceList: list, targetLocationIndex: int, returnClosest: bool=False):
 		if len(spaceList) == 0:
@@ -1040,11 +1082,30 @@ class Pynopoly():
 
 		return self.binarySpaceSearch(sortedSpaceList, targetLocationIndex, returnClosest)
 	
+
 	def getSiteSpace(self, targetLocationIndex: int, returnClosest: bool=False) -> Optional[SiteSpace]:
 		sortedSiteSpaceList = sorted(self.siteSpacesList, key=lambda space: space.locationIndex)
 
 		return self.binarySpaceSearch(sortedSiteSpaceList, targetLocationIndex, returnClosest)
+	
 
+	def getSiteSpacesOwnedBy(self, player: Player) -> list:
+		return [space for space in self.siteSpacesList if space.owner == player]
+	
+
+	def playGame(self):
+		currentPlayerIndex = -1
+
+		while True:
+			currentPlayerIndex += 1
+			# currentPlayer = self.playersList[currentPlayerIndex]
+
+			os.system('clear')
+
+			# print("_______" * 100 + f"\nIt's {currentPlayer.name}'s turn!")
+			input('Please roll the dice (by pressing enter)... ')
+			self.rollDice(printDiceRoll=True)
+			input()
 
 
 
@@ -1055,7 +1116,8 @@ def main():
 	
 
 	testGame = Pynopoly(config.BASE_DIR)
-	print(testGame.getSiteSpace(25, True).name)
+	testGame.playGame()
+	# print(testGame.getSiteSpace(25, True).name)
 
 	# player = Player()
 	# Player.validateUsername('mb')
