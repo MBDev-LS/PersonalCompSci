@@ -100,6 +100,14 @@ def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:
 	return edgeList
 
 
+def removeOppositeEdges(edgeList: list[graphs.Edge]) -> list[graphs.Edge]:
+	resultList = []
+
+	for currentEdge in edgeList:
+		if getOppositeEdge(resultList, currentEdge) == None:
+			resultList.append(currentEdge)
+
+	return resultList
 
 # minimumSpanningTree = graphs.setRandomWeights(minimumSpanningTree)
 graphList = graphs.generateGraph(3,3)
