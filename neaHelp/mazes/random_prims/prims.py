@@ -111,5 +111,3 @@ for node in minimumSpanningTreeWithFlags:
 # pprint([str(edge) for edge in minimumSpanningTree])
 
 
-
-
