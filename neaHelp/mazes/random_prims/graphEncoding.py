@@ -3,7 +3,7 @@ from pprint import pprint
 
 import graphs
 import prims
-import kruskals
+import time
 
 
 def displayMazeData(mazeData: list[bool]) -> None:
@@ -13,6 +13,21 @@ def displayMazeData(mazeData: list[bool]) -> None:
 
 def getMazeDataForDisplay(mazeData: list[bool]) -> None:
 	return [''.join(["⬜️" if value == False else "🟥" for value in row]) for row in mazeData]
+
+
+def replaceItemInList(lst: list, targetItem, newItem) -> list:
+	resultList = []
+
+	for item in lst:
+		if item == targetItem:
+			resultList.append(newItem)
+		elif isinstance(item, list):
+			resultList.append(replaceItemInList(item, targetItem, newItem))
+		else:
+			resultList.append(item)
+
+	return resultList
+
 
 
 def getEncodedMazeData(minimumSpanningTree: list[graphs.Node], width: int, height: int) -> list:
@@ -34,10 +49,10 @@ def getEncodedMazeData(minimumSpanningTree: list[graphs.Node], width: int, heigh
 
 			mazeData[h][w] = False
 
-			print(f'At [{h}][{w}]:')
-			print(f'	UP: 	{str(currentNode.upEdge)} - [{h-1}][{w}]')
-			print(f'	LEFT: 	{str(currentNode.leftEdge)} - [{h}][{w-1}]')
-			print(f'	DOWN: 	{str(currentNode.downEdge)} - [{h-1}][{w}]')
+			# print(f'At [{h}][{w}]:')
+			# print(f'	UP: 	{str(currentNode.upEdge)} - [{h-1}][{w}]')
+			# print(f'	LEFT: 	{str(currentNode.leftEdge)} - [{h}][{w-1}]')
+			# print(f'	DOWN: 	{str(currentNode.downEdge)} - [{h-1}][{w}]')
 
 			if mazeData[h-1][w] != False:
 				mazeData[h-1][w] = currentNode.upEdge == None
@@ -53,37 +68,23 @@ def getEncodedMazeData(minimumSpanningTree: list[graphs.Node], width: int, heigh
 			
 			currentNodeIndex += 1
 
-	return mazeData
+	return replaceItemInList(mazeData, None, True)
 
 
 if __name__ == '__main__':
 	WIDTH = 16
 	HEIGHT = 16
 
-	graphList = graphs.generateGraph(WIDTH,HEIGHT)
-	graphListWithWeights = graphs.setRandomWeights(graphList)
+	while True:
+		graphList = graphs.generateGraph(WIDTH,HEIGHT)
+		graphListWithWeights = graphs.setRandomWeights(graphList)
 
-	minimumSpanningTree = graphs.removeInactiveEdges(prims.findMinimumSpanningTree(graphListWithWeights))
+		minimumSpanningTree = graphs.removeInactiveEdges(prims.findMinimumSpanningTree(graphListWithWeights))
 
-	for node in minimumSpanningTree:
-		print('\n____________________\n', node)
-		for edge in prims.getAdjacentEdges(node):
-			if edge != None and edge.active == True:
-				print(edge)
+		encodedMazeData = getEncodedMazeData(minimumSpanningTree, WIDTH, HEIGHT)
 
+		print('\n')
+		displayMazeData(encodedMazeData)
+		print()
 
-	print('--------------------------------')
-
-
-
-
-	# pprint([str(edge) for edge in kruskals.getEdgeList(minimumSpanningTree)])
-
-	encodedMazeData = getEncodedMazeData(minimumSpanningTree, WIDTH, HEIGHT)
-
-	pprint(encodedMazeData)
-
-	displayMazeData(encodedMazeData)
-
-	# for row in encodedMazeData:
-	# 	print(''.join(["⬜️" if value == False else "🟥" for value in row]))
+		time.sleep(1.5)
