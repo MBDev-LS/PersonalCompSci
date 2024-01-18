@@ -92,22 +92,15 @@ def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:
 	return graphList
 
 
+if __name__ == '__main__':
+	graphList = graphs.generateGraph(4,4)
+	graphListWithWeights = graphs.setRandomWeights(graphList)
 
-graphList = graphs.generateGraph(4,4)
-graphListWithWeights = graphs.setRandomWeights(graphList)
+	minimumSpanningTree = findMinimumSpanningTree(graphListWithWeights)
+	# print([str(node) for node in minimumSpanningTreeWithFlags])
 
-minimumSpanningTreeWithFlags = findMinimumSpanningTree(graphListWithWeights)
-# print([str(node) for node in minimumSpanningTreeWithFlags])
-
-for node in minimumSpanningTreeWithFlags:
-	print('\n____________________\n', node)
-	for edge in getAdjacentEdges(node):
-		if edge != None and edge.active == True:
-			print(edge)
-
-# minimumSpanningTree = removeOppositeEdges([edge for edge in minimumSpanningTreeWithFlags if edge.active == True])
-
-# print(minimumSpanningTree)
-# pprint([str(edge) for edge in minimumSpanningTree])
-
-
+	for node in minimumSpanningTree:
+		print('\n____________________\n', node)
+		for edge in getAdjacentEdges(node):
+			if edge != None and edge.active == True:
+				print(edge)

@@ -109,12 +109,13 @@ def removeOppositeEdges(edgeList: list[graphs.Edge]) -> list[graphs.Edge]:
 
 	return resultList
 
-# minimumSpanningTree = graphs.setRandomWeights(minimumSpanningTree)
-graphList = graphs.generateGraph(3,3)
-graphListWithWeights = graphs.setUniformWeights(graphList)
+if __name__ == '__main__':
+	# minimumSpanningTree = graphs.setRandomWeights(minimumSpanningTree)
+	graphList = graphs.generateGraph(3,3)
+	graphListWithWeights = graphs.setUniformWeights(graphList)
 
-minimumSpanningTreeWithFlags = findMinimumSpanningTree(graphListWithWeights)
-minimumSpanningTree = removeOppositeEdges([edge for edge in minimumSpanningTreeWithFlags if edge.active == True])
+	minimumSpanningTreeWithFlags = findMinimumSpanningTree(graphListWithWeights)
+	minimumSpanningTree = removeOppositeEdges([edge for edge in minimumSpanningTreeWithFlags if edge.active == True])
 
-print(minimumSpanningTree)
-pprint([str(edge) for edge in minimumSpanningTree])
+	print(minimumSpanningTree)
+	pprint([str(edge) for edge in minimumSpanningTree])

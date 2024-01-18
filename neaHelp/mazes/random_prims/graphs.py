@@ -108,21 +108,31 @@ def generateGraph(width: int, height: int) -> list:
 	return graphList
 
 
-
-
-def checkForCycles(graphList: list[Node], currentNode: Node, activeEdgesOnly: bool=False) -> bool:
-	currentNode.visitedFlag = True
-
-	for edge in currentNode.getEdgeList():
-		if activeEdgesOnly == True and edge.active != True:
-			continue
-		
-		if edge.node1.visitedFlag == True:
-			return True
-		else:
-			return checkForCycles(graphList, edge.node1, activeEdgesOnly)
+def removeInactiveEdges(graphList: list[Node]) -> list[Node]:
+	for node in graphList:
+		node.upEdge = node.upEdge if node.upEdge != None and node.upEdge.active == True else None
+		node.rightEdge = node.rightEdge if node.rightEdge != None and node.rightEdge.active == True else None
+		node.downEdge = node.downEdge if node.downEdge != None and node.downEdge.active == True else None
+		node.leftEdge = node.leftEdge if node.leftEdge != None and node.leftEdge.active == True else None
 	
-	return False
+	return graphList
+
+
+
+
+# def checkForCycles(graphList: list[Node], currentNode: Node, activeEdgesOnly: bool=False) -> bool:
+# 	currentNode.visitedFlag = True
+
+# 	for edge in currentNode.getEdgeList():
+# 		if activeEdgesOnly == True and edge.active != True:
+# 			continue
+		
+# 		if edge.node1.visitedFlag == True:
+# 			return True
+# 		else:
+# 			return checkForCycles(graphList, edge.node1, activeEdgesOnly)
+	
+# 	return False
 
 if __name__ == '__main__':
 	# pprint([str(node) for node in setRandomWeights( generateGraph(9,4) )])
@@ -136,4 +146,4 @@ if __name__ == '__main__':
 	nodeC.upEdge = Edge(nodeB, nodeB)
 
 	graphList = [nodeA, nodeB, nodeC]
-	print(checkForCycles(graphList, nodeA))
+	# print(checkForCycles(graphList, nodeA))
