@@ -4,6 +4,17 @@ import random
 
 import graphs
 
+
+def getOppositeEdge(edgeList: list[graphs.Edge], targetEdge: graphs.Edge) -> graphs.Edge:
+	if targetEdge == None:
+		return None
+	
+	for edge in edgeList:
+		if edge.node0 == targetEdge.node1 and edge.node1 == targetEdge.node0:
+			return edge
+	
+	return None
+
 def removeOppositeEdges(edgeList: list[graphs.Edge]) -> list[graphs.Edge]:
 	resultList = []
 
