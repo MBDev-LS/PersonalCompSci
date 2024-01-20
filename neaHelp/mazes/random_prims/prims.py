@@ -68,6 +68,16 @@ def getLowestNonCyclingEdge(graphList: list[graphs.Node], possibleEdges: list[gr
 	return None
 
 
+def getRandomNonCyclingEdge(possibleEdges: list[graphs.Edge]) -> graphs.Edge | None:
+	nonCylcingEdges = []
+	
+	for possibleEdge in possibleEdges:
+		if possibleEdge.node1.visitedFlag == False:
+			nonCylcingEdges.append(possibleEdge)
+	
+	return random.choice(nonCylcingEdges)
+
+
 
 def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:
 	startIndex = random.randint(0, len(graphList) - 1)
@@ -81,7 +91,7 @@ def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:
 		for node in visitedNodeList:
 			possibleEdges += getAdjacentEdges(node)
 
-		nextEdge = getLowestNonCyclingEdge(graphList, possibleEdges)
+		nextEdge = getRandomNonCyclingEdge(possibleEdges)
 
 		if nextEdge == None:
 			continue

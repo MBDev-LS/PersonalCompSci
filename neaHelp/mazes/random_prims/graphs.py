@@ -3,6 +3,13 @@ from pprint import pprint
 
 import random
 
+def removeItemFromList(lst: list, item) -> list:
+	# Would a for loop be better?
+	while item in lst:
+		lst.remove(item)
+	
+	return lst
+
 class Node():
 	def __init__(self, identifier):
 		self.identifier = identifier
@@ -13,6 +20,7 @@ class Node():
 		self.leftEdge = None
 
 		self.visitedFlag = False
+		self.mazePart = False
 	
 	def setUpEdgeWeightIfNotNone(self, newWeight: int) -> None:
 		if self.upEdge != None:
@@ -38,6 +46,16 @@ class Node():
 			self.leftEdge
 		] if edge != None]
 	
+	def getAdjacentEdges(self, removeVisited:bool =False) -> list:
+		adjacentEdgesList = [
+			self.upEdge, self.rightEdge, self.downEdge, self.leftEdge
+		]
+
+		if removeVisited == True:
+			adjacentEdgesList = [edge for edge in adjacentEdgesList if edge.visitedFlag != True] 
+
+		return removeItemFromList(adjacentEdgesList, None)
+		
 	
 	def __str__(self) -> str:
 		upVal = self.upEdge.node1.identifier if self.upEdge != None else None
@@ -49,11 +67,11 @@ class Node():
 
 
 class Edge():
-	def __init__(self, node0: Node, node1: Node):
+	def __init__(self, node0: Node, node1: Node, weight: int=None):
 		self.node0 = node0
 		self.node1 = node1
 		
-		self.weight = None 
+		self.weight = None if weight == None else weight
 		self.active = False
 		self.visitedFlag = False
 	
@@ -81,7 +99,7 @@ def setUniformWeights(graphList: list[Node]) -> list[Node]:
 	return graphList
 
 
-def generateGraph(width: int, height: int) -> list:
+def generateGraph(width: int, height: int, setUniformWeights: bool=False) -> list:
 	graphList = []
 
 	for i in range(0, width * height):
@@ -92,8 +110,9 @@ def generateGraph(width: int, height: int) -> list:
 		if upConnectedIndex >= 0:
 			upConnectedNode = graphList[upConnectedIndex]
 
-			newNode.upEdge = Edge(newNode, upConnectedNode)
-			upConnectedNode.downEdge = Edge(upConnectedNode, newNode)
+			edgeWeights = 1 if setUniformWeights == True else None
+			newNode.upEdge = Edge(newNode, upConnectedNode, weight=edgeWeights)
+			upConnectedNode.downEdge = Edge(upConnectedNode, newNode, weight=edgeWeights)
 		
 		leftConnectedIndex = i - 1
 
