@@ -21,6 +21,7 @@ class Node():
 
 		self.visitedFlag = False
 		self.mazePart = False
+		self.wilsonArrow: Edge = None
 	
 	def setUpEdgeWeightIfNotNone(self, newWeight: int) -> None:
 		if self.upEdge != None:
@@ -46,7 +47,7 @@ class Node():
 			self.leftEdge
 		] if edge != None]
 	
-	def getAdjacentEdges(self, removeVisited:bool =False) -> list:
+	def getAdjacentEdges(self, removeVisited: bool=False) -> list:
 		adjacentEdgesList = [
 			self.upEdge, self.rightEdge, self.downEdge, self.leftEdge
 		]
@@ -63,7 +64,7 @@ class Node():
 		downVal = self.downEdge.node1.identifier if self.downEdge != None else None
 		leftVal = self.leftEdge.node1.identifier if self.leftEdge != None else None
 		
-		return f'<Node {self.identifier} (U:{upVal}, R:{rightVal}, D:{downVal}, L:{leftVal}, )>'
+		return f'<Node {self.identifier} (U:{upVal}, R:{rightVal}, D:{downVal}, L:{leftVal})>'
 
 
 class Edge():
