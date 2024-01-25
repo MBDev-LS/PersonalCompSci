@@ -114,7 +114,7 @@ def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:
 			currentNodeToAdd.wilsonArrow.active = True
 
 			currentNodeToAdd = currentNodeToAdd.wilsonArrow.node1
-			
+		
 		resetWilsonArrows(graphList)
 	
 	

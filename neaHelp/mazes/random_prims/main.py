@@ -7,33 +7,40 @@ OUTPUT_DIR = BASE_DIR / 'output'
 
 import graphs, prims, graphEncoding, exportingToPdfs, wilsons
 
-WIDTH = 16
-HEIGHT = 16
+WIDTH = 3
+HEIGHT = 3
 
 graphList = graphs.generateGraph(WIDTH, HEIGHT, setUniformWeights=True)
 # graphListWithWeights = graphs.setRandomWeights(graphList)
-graphListWithWeights = graphs.setUniformWeights(graphList)
+# graphListWithWeights = graphs.setUniformWeights(graphList)
 
 timeList = []
 
-for i in range(10000):
-	t0 = time.perf_counter()
-	# mazeList = wilsons.findMinimumSpanningTree(graphListWithWeights)
-	mazeList = prims.findMinimumSpanningTree(graphListWithWeights)
-	t1 = time.perf_counter()
+# mazeList = wilsons.findMinimumSpanningTree(graphList)
 
-	timeList.append(t1-t0)
+mazeList = graphList
+graphList[0].downEdge.active = True
+graphList[1].rightEdge.active = True
+graphList[4].upEdge.active = True
+graphList[4].leftEdge.active = True
+graphList[4].rightEdge.active = True
+graphList[4].downEdge.active = True
+graphList[5].downEdge.active = True
+graphList[7].leftEdge.active = True
 
-	# print(f'Generation time: {t1-t0}')
-
-print(f'Mean generation time: {sum(timeList) / len(timeList)}')
 
 minimumSpanningTree = graphs.removeInactiveEdges(mazeList)
-
 encodedMazeData = graphEncoding.getEncodedMazeData(minimumSpanningTree, WIDTH, HEIGHT)
 
 print()
 graphEncoding.displayMazeData(encodedMazeData)
+
+print(graphs.checkForSwastika(mazeList, WIDTH), graphs.checkForSwastika(mazeList, WIDTH, True))
+# mazeList = prims.findMinimumSpanningTree(graphListWithWeights)
+
+
+
+
 print()
 
 exportingToPdfs.exportToPDF(encodedMazeData, str(OUTPUT_DIR / 'test.pdf'))

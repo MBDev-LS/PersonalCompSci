@@ -2,6 +2,7 @@
 from pprint import pprint
 
 import random
+import math
 
 def removeItemFromList(lst: list, item) -> list:
 	# Would a for loop be better?
@@ -100,7 +101,7 @@ def setUniformWeights(graphList: list[Node]) -> list[Node]:
 	return graphList
 
 
-def generateGraph(width: int, height: int, setUniformWeights: bool=False) -> list:
+def generateGraph(width: int, height: int, setUniformWeights: bool=False) -> list[Node]:
 	graphList = []
 
 	for i in range(0, width * height):
@@ -137,6 +138,165 @@ def removeInactiveEdges(graphList: list[Node]) -> list[Node]:
 	
 	return graphList
 
+
+def swastikaLeftRightCheck(graphList: list[Node], startIndex: int, mainCount: int, checkBool: bool, gridWidth: int) -> int:
+	rightCount = 0
+	
+	for i in range(startIndex, min(startIndex + mainCount + 2, math.ceil(startIndex / gridWidth) * gridWidth)):
+		if graphList[i].rightEdge == None or graphList[i].rightEdge.active != checkBool:
+			break
+		
+		rightCount += 1
+	
+	leftCount = 0
+	
+	for i in range(startIndex, max(startIndex - mainCount - 2, math.floor(startIndex / gridWidth) * gridWidth), -1):
+		if graphList[i].leftEdge == None or graphList[i].leftEdge.active != checkBool:
+			break
+		
+		leftCount += 1
+	
+	return max(abs(mainCount - leftCount), abs(mainCount - rightCount))
+
+
+def checkForDownSwastikaComponent(graphList: list[Node], startIndex: int, gridWidth: int, checkBool: bool=False) -> int:
+	currentIndex = startIndex
+	downCount = 0
+
+	useActualCurrentIndex = False
+
+	while currentIndex + gridWidth < len(graphList):
+		if graphList[currentIndex].downEdge == None:
+			useActualCurrentIndex = True
+			break
+		elif graphList[currentIndex].downEdge.active != checkBool:
+			useActualCurrentIndex = True
+			break
+
+		downCount += 1
+		currentIndex += gridWidth
+
+	# startIndex = currentIndex if useActualCurrentIndex == True else currentIndex - gridWidth
+	startIndex = currentIndex
+	
+	if downCount == 0:
+		return math.inf
+
+	return swastikaLeftRightCheck(graphList, startIndex, downCount, checkBool, gridWidth)
+
+
+def checkForUpSwastikaComponent(graphList: list[Node], startIndex: int, gridWidth: int, checkBool: bool=False) -> int:
+	currentIndex = startIndex
+	upCount = 0
+
+	useActualCurrentIndex = False
+
+	while currentIndex + gridWidth >= 0:
+		if graphList[currentIndex].upEdge == None:
+			useActualCurrentIndex = True
+			break
+		elif graphList[currentIndex].upEdge.active != checkBool:
+			useActualCurrentIndex = True
+			break
+
+		upCount += 1
+		currentIndex -= gridWidth
+
+	startIndex = currentIndex # if useActualCurrentIndex == True else currentIndex + gridWidth
+
+	if upCount == 0:
+		return math.inf
+	
+	return swastikaLeftRightCheck(graphList, startIndex, upCount, checkBool, gridWidth)
+
+
+def swastikaUpDownCheck(graphList: list[Node], startIndex: int, mainCount: int, checkBool: bool, gridWidth: int) -> int:
+	upCount = 0
+	
+	for i in range(startIndex, max(startIndex - (mainCount + 2) * gridWidth, startIndex % gridWidth), -gridWidth):
+		if graphList[i].upEdge == None or graphList[i].upEdge.active != checkBool:
+			break # Breaks, as edge is the down edge of node1, need to add function to get opposite edge
+		
+		upCount += 1
+	
+	downCount = 0
+	
+	for i in range(startIndex, max(startIndex + (mainCount + 2) * gridWidth, len(graphList) - (startIndex % gridWidth)), gridWidth):
+		if graphList[i].downEdge == None or graphList[i].downEdge.active != checkBool:
+			break
+		
+		downCount += 1
+	
+	return max(abs(mainCount - downCount), abs(mainCount - upCount))
+
+
+def checkForRightSwastikaComponent(graphList: list[Node], startIndex: int, gridWidth: int, checkBool: bool=False) -> int:
+	currentIndex = startIndex
+	rightCount = 0
+
+	useActualCurrentIndex = False
+
+	while currentIndex - 1 <= math.ceil(startIndex / gridWidth) * gridWidth:
+		if graphList[currentIndex].upEdge == None:
+			useActualCurrentIndex = True
+			break
+		elif graphList[currentIndex].leftEdge.active != checkBool:
+			useActualCurrentIndex = True
+			break
+
+		rightCount += 1
+		currentIndex += 1
+	
+	startIndex = currentIndex # if useActualCurrentIndex == True else currentIndex - 1
+
+	if rightCount == 0:
+		return math.inf
+	
+	return swastikaUpDownCheck(graphList, startIndex, rightCount, checkBool, gridWidth)
+
+
+def checkForLeftSwastikaComponent(graphList: list[Node], startIndex: int, gridWidth: int, checkBool: bool=False) -> int:
+	currentIndex = startIndex
+	leftCount = 0
+
+	useActualCurrentIndex = False
+
+	while currentIndex - 1 >= math.floor(startIndex / gridWidth) * gridWidth:
+		if graphList[currentIndex].upEdge == None:
+			useActualCurrentIndex = True
+			break
+		elif graphList[currentIndex].leftEdge.active != checkBool:
+			useActualCurrentIndex = True
+			break
+
+		leftCount += 1
+		currentIndex -= 1
+	
+	startIndex = currentIndex # if useActualCurrentIndex == True else currentIndex + 1
+
+	if leftCount == 0:
+		return math.inf
+	
+	return swastikaUpDownCheck(graphList, startIndex, leftCount, checkBool, gridWidth)
+
+def checkForSwastika(graphList: list[Node], gridWidth: int, checkInactive: bool=False) -> bool:
+	checkBool = not checkInactive
+
+	for i in range(1, len(graphList) - 2):
+		if i % gridWidth == 0 and gridWidth - (i % gridWidth) == 1:
+			continue
+		
+		checkResultList = [
+			checkForDownSwastikaComponent(graphList, i, gridWidth, checkBool),
+			checkForUpSwastikaComponent(graphList, i, gridWidth, checkBool),
+			checkForLeftSwastikaComponent(graphList, i, gridWidth, checkBool),
+			checkForRightSwastikaComponent(graphList, i, gridWidth, checkBool)
+		]
+		
+		if len([result for result in checkResultList if result <= 1]) > 3:
+			return True
+	
+	return False
 
 
 
