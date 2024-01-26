@@ -24,7 +24,7 @@ graphList[1].rightEdge.active = True
 graphList[4].upEdge.active = True
 graphList[4].leftEdge.active = True
 graphList[4].rightEdge.active = True
-graphList[4].downEdge.active = True
+# graphList[4].downEdge.active = True
 graphList[5].downEdge.active = True
 graphList[7].leftEdge.active = True
 
@@ -35,7 +35,8 @@ encodedMazeData = graphEncoding.getEncodedMazeData(minimumSpanningTree, WIDTH, H
 print()
 graphEncoding.displayMazeData(encodedMazeData)
 
-print(graphs.checkForSwastika(mazeList, WIDTH), graphs.checkForSwastika(mazeList, WIDTH, True))
+print(graphs.checkForSwastika(mazeList, WIDTH))
+# print(graphs.checkForSwastika(mazeList, WIDTH), graphs.checkForSwastika(mazeList, WIDTH, True))
 # mazeList = prims.findMinimumSpanningTree(graphListWithWeights)
 
 

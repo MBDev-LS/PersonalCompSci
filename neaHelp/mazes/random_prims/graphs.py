@@ -139,11 +139,24 @@ def removeInactiveEdges(graphList: list[Node]) -> list[Node]:
 	return graphList
 
 
+def getOppositeEdgeStatus(edge: Edge) -> bool:
+	"""
+	Returns False if no edge is found.
+	"""
+	possibleEdges = edge.node1.getAdjacentEdges()
+
+	for candidateEdge in possibleEdges:
+		if candidateEdge.node1 == edge.node0:
+			return candidateEdge.active
+	
+	return False
+
+
 def swastikaLeftRightCheck(graphList: list[Node], startIndex: int, mainCount: int, checkBool: bool, gridWidth: int) -> int:
 	rightCount = 0
 	
 	for i in range(startIndex, min(startIndex + mainCount + 2, math.ceil(startIndex / gridWidth) * gridWidth)):
-		if graphList[i].rightEdge == None or graphList[i].rightEdge.active != checkBool:
+		if graphList[i].rightEdge == None or (graphList[i].rightEdge.active != checkBool and (getOppositeEdgeStatus(graphList[i].rightEdge) != checkBool) or checkBool == False):
 			break
 		
 		rightCount += 1
@@ -151,12 +164,12 @@ def swastikaLeftRightCheck(graphList: list[Node], startIndex: int, mainCount: in
 	leftCount = 0
 	
 	for i in range(startIndex, max(startIndex - mainCount - 2, math.floor(startIndex / gridWidth) * gridWidth), -1):
-		if graphList[i].leftEdge == None or graphList[i].leftEdge.active != checkBool:
+		if graphList[i].leftEdge == None or (graphList[i].leftEdge.active != checkBool and (getOppositeEdgeStatus(graphList[i].leftEdge) != checkBool) or checkBool == False):
 			break
 		
 		leftCount += 1
 	
-	return max(abs(mainCount - leftCount), abs(mainCount - rightCount))
+	return min(abs(mainCount - leftCount), abs(mainCount - rightCount))
 
 
 def checkForDownSwastikaComponent(graphList: list[Node], startIndex: int, gridWidth: int, checkBool: bool=False) -> int:
@@ -169,7 +182,7 @@ def checkForDownSwastikaComponent(graphList: list[Node], startIndex: int, gridWi
 		if graphList[currentIndex].downEdge == None:
 			useActualCurrentIndex = True
 			break
-		elif graphList[currentIndex].downEdge.active != checkBool:
+		elif graphList[currentIndex].downEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].downEdge) != checkBool or checkBool == False):
 			useActualCurrentIndex = True
 			break
 
@@ -195,7 +208,7 @@ def checkForUpSwastikaComponent(graphList: list[Node], startIndex: int, gridWidt
 		if graphList[currentIndex].upEdge == None:
 			useActualCurrentIndex = True
 			break
-		elif graphList[currentIndex].upEdge.active != checkBool:
+		elif graphList[currentIndex].upEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].upEdge) != checkBool or checkBool == False):
 			useActualCurrentIndex = True
 			break
 
@@ -214,7 +227,7 @@ def swastikaUpDownCheck(graphList: list[Node], startIndex: int, mainCount: int, 
 	upCount = 0
 	
 	for i in range(startIndex, max(startIndex - (mainCount + 2) * gridWidth, startIndex % gridWidth), -gridWidth):
-		if graphList[i].upEdge == None or graphList[i].upEdge.active != checkBool:
+		if graphList[i].upEdge == None or (graphList[i].upEdge.active != checkBool and (getOppositeEdgeStatus(graphList[i].upEdge) != checkBool) or checkBool == False):
 			break # Breaks, as edge is the down edge of node1, need to add function to get opposite edge
 		
 		upCount += 1
@@ -222,12 +235,12 @@ def swastikaUpDownCheck(graphList: list[Node], startIndex: int, mainCount: int, 
 	downCount = 0
 	
 	for i in range(startIndex, max(startIndex + (mainCount + 2) * gridWidth, len(graphList) - (startIndex % gridWidth)), gridWidth):
-		if graphList[i].downEdge == None or graphList[i].downEdge.active != checkBool:
+		if graphList[i].downEdge == None or (graphList[i].downEdge.active != checkBool and (getOppositeEdgeStatus(graphList[i].downEdge) != checkBool) or checkBool == False):
 			break
 		
 		downCount += 1
 	
-	return max(abs(mainCount - downCount), abs(mainCount - upCount))
+	return min(abs(mainCount - downCount), abs(mainCount - upCount))
 
 
 def checkForRightSwastikaComponent(graphList: list[Node], startIndex: int, gridWidth: int, checkBool: bool=False) -> int:
@@ -240,7 +253,7 @@ def checkForRightSwastikaComponent(graphList: list[Node], startIndex: int, gridW
 		if graphList[currentIndex].upEdge == None:
 			useActualCurrentIndex = True
 			break
-		elif graphList[currentIndex].leftEdge.active != checkBool:
+		elif graphList[currentIndex].leftEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].leftEdge) != checkBool or checkBool == False):
 			useActualCurrentIndex = True
 			break
 
@@ -265,7 +278,7 @@ def checkForLeftSwastikaComponent(graphList: list[Node], startIndex: int, gridWi
 		if graphList[currentIndex].upEdge == None:
 			useActualCurrentIndex = True
 			break
-		elif graphList[currentIndex].leftEdge.active != checkBool:
+		elif graphList[currentIndex].leftEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].leftEdge) != checkBool or checkBool == False):
 			useActualCurrentIndex = True
 			break
 
@@ -293,7 +306,7 @@ def checkForSwastika(graphList: list[Node], gridWidth: int, checkInactive: bool=
 			checkForRightSwastikaComponent(graphList, i, gridWidth, checkBool)
 		]
 		
-		if len([result for result in checkResultList if result <= 1]) > 3:
+		if len([result for result in checkResultList if result <= 1]) >= 3:
 			return True
 	
 	return False
