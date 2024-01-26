@@ -83,7 +83,7 @@ def ranintExclude(lowerBound: int, upperBound: int, *exclude):
 	exclude = set(exclude)
 	randInt = random.randint(lowerBound,upperBound)
 
-	return ranintExclude() if randInt in exclude else randInt 
+	return ranintExclude(lowerBound, upperBound, *exclude) if randInt in exclude else randInt 
 
 
 def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:

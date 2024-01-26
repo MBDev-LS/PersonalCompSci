@@ -250,10 +250,10 @@ def checkForRightSwastikaComponent(graphList: list[Node], startIndex: int, gridW
 	useActualCurrentIndex = False
 
 	while currentIndex - 1 <= math.ceil(startIndex / gridWidth) * gridWidth:
-		if graphList[currentIndex].upEdge == None:
+		if graphList[currentIndex].rightEdge == None:
 			useActualCurrentIndex = True
 			break
-		elif graphList[currentIndex].leftEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].leftEdge) != checkBool or checkBool == False):
+		elif graphList[currentIndex].rightEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].leftEdge) != checkBool or checkBool == False):
 			useActualCurrentIndex = True
 			break
 
@@ -275,7 +275,7 @@ def checkForLeftSwastikaComponent(graphList: list[Node], startIndex: int, gridWi
 	useActualCurrentIndex = False
 
 	while currentIndex - 1 >= math.floor(startIndex / gridWidth) * gridWidth:
-		if graphList[currentIndex].upEdge == None:
+		if graphList[currentIndex].leftEdge == None:
 			useActualCurrentIndex = True
 			break
 		elif graphList[currentIndex].leftEdge.active != checkBool and (getOppositeEdgeStatus(graphList[currentIndex].leftEdge) != checkBool or checkBool == False):
