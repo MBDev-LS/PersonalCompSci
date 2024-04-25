@@ -30,6 +30,40 @@ def replaceItemInList(lst: list, targetItem, newItem) -> list:
 
 
 
+def getGraphData(graph, width, height):
+    tWidth = (width * 2) + 1
+    tHeight = (height * 2) + 1
+    graphDataList = []
+    for i in range(tHeight):
+        rowList = []
+        for j in range(tWidth):
+            if (i == 1) or (i == (tHeight - 1)):
+                rowList.append(True)
+            else:
+                rowList.append(None)
+        graphDataList.append(rowList)
+
+    print(graphDataList)
+
+    nodeIndex = 0
+    for i in range(1, (tHeight - 1), 2):
+        for j in range(1, (tWidth - 1), 2):
+            currentNode = graph[nodeIndex]
+            graphDataList[i][j] = False
+            if graphDataList[i-1][j] != False:
+                graphDataList[i-1][j] = currentNode.upEdge == None
+            if graphDataList[i][j+1] != False:
+                graphDataList[i][j+1] = currentNode.rightEdge == None 
+            if graphDataList[i+1][j] != False:
+                graphDataList[i+1][j] = currentNode.downEdge == None
+            if graphDataList[i][j-1] != False:
+                graphDataList[i][j-1] = currentNode.leftEdge == None
+            nodeIndex = nodeIndex + 1
+    gdlNoNones = replaceItemInList(graphDataList, None, True)
+    return gdlNoNones
+
+
+
 def getEncodedMazeData(minimumSpanningTree: list[graphs.Node], width: int, height: int) -> list:
 	tableWidth = width * 2 + 1
 	tableHeight = height * 2 + 1

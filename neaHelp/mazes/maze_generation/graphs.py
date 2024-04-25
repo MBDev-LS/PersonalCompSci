@@ -113,6 +113,7 @@ def generateGraph(width: int, height: int, setUniformWeights: bool=False) -> lis
 			upConnectedNode = graphList[upConnectedIndex]
 
 			edgeWeights = 1 if setUniformWeights == True else None
+
 			newNode.upEdge = Edge(newNode, upConnectedNode, weight=edgeWeights)
 			upConnectedNode.downEdge = Edge(upConnectedNode, newNode, weight=edgeWeights)
 		
@@ -150,6 +151,11 @@ def getOppositeEdgeStatus(edge: Edge) -> bool:
 			return candidateEdge.active
 	
 	return False
+
+
+
+##############
+
 
 
 def swastikaLeftRightCheck(graphList: list[Node], startIndex: int, mainCount: int, checkBool: bool, gridWidth: int) -> int:

@@ -104,7 +104,7 @@ def findMinimumSpanningTree(graphList: list[graphs.Node]) -> list[graphs.Node]:
 
 if __name__ == '__main__':
 	graphList = graphs.generateGraph(4,4)
-	graphListWithWeights = graphs.setRandomWeights(graphList)
+	graphListfthWeights = graphs.setRandomWeights(graphList)
 
 	minimumSpanningTree = findMinimumSpanningTree(graphListWithWeights)
 	# print([str(node) for node in minimumSpanningTreeWithFlags])

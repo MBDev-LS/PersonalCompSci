@@ -41,7 +41,11 @@ def getGeneratedMaze(mazeGenerationAlgorithmName: str, graphList: list[graphs.No
 if __name__ == '__main__':
 	mazeGeneratingAlgorithm = getOptionsInput('Prims', 'Wilsons')
 	mazeNum = intInput("Enter the number of mazes you'd like to generate: ")
-	outputFileName = input("Enter the file name for the output PDFs ('$i' will be incremeted by one for each new maze): ")
+	outputFileName = input("Enter the file name for the output PDFs ('$i' will be incremeted by one for each new maze, don't include file extention): ")
+
+	if '$i' not in outputFileName:
+		outputFileName += '__$i'
+	
 	
 	mazeHeight = intInput('Enter maze height: ')
 	mazeWidth = intInput('Enter maze width: ')
@@ -54,11 +58,9 @@ if __name__ == '__main__':
 		# 	mazeList = getGeneratedMaze(mazeGeneratingAlgorithm, graphList)
 
 		minimumSpanningTree = graphs.removeInactiveEdges(mazeList)
-		encodedMazeData = graphEncoding.getEncodedMazeData(mazeList, mazeWidth, mazeHeight)
+		# encodedMazeData = graphEncoding.getEncodedMazeData(mazeList, mazeWidth, mazeHeight)
+		encodedMazeData = graphEncoding.getGraphData(mazeList, mazeWidth, mazeHeight)
 		graphEncoding.displayMazeData(encodedMazeData)
 
-		exportingToPdfs.exportToPDF(encodedMazeData, str(OUTPUT_DIR / outputFileName.replace('$i', str(i+1))))
-
-
-
+		exportingToPdfs.exportToPDF(encodedMazeData, str(OUTPUT_DIR / outputFileName.replace('$i', str(i+1))) + '.pdf')
 
