@@ -1,0 +1,461 @@
+{
+	"partNumber": 1,
+	"number": 1,
+	"title": "The constituent parts of Parliament",
+	"description": null,
+	"sections": [
+		{
+			"parentSectionId": null,
+			"parentSectionTitle": null,
+			"chapterNumber": 1,
+			"chapterTitle": "The constituent parts of Parliament",
+			"partNumber": 1,
+			"partTitle": "Part 1",
+			"contentHtml": "<p class='updated-paragraph'><span class=\"paragraph-reference\">1.1</span>Parliament is composed of the Sovereign, the House of Lords and the House of Commons. Collectively they form the legislature and as distinct constituent parts of the constitution exercise functions and enjoy privileges peculiar to each.</p>",
+			"isUpdated": true,
+			"updatedDate": "2022-06-17T10:06:55",
+			"footnotes": [],
+			"id": 4499,
+			"title": "Introduction to the constituent parts of Parliament",
+			"titleChain": null,
+			"subSections": [
+				{
+					"parentSectionId": 4499,
+					"parentSectionTitle": "Introduction to the constituent parts of Parliament",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.2</span>The word \u2018parliament\u2019 is first used in England in the thirteenth century to describe an enlarged meeting of the King's council, attended by barons, bishops and prominent royal servants, called together to attend the King, advise him on law-making and administrative matters and hear and assist with his judicial decisions.</p><p >Although knights and burgesses were not invariably summoned to the earliest English Parliaments, by the middle of the fourteenth century they attended regularly, and the Commons (as they were known collectively) came to claim that their assent was a necessary prerequisite for royal taxation. By about the same period, the Lords and Commons began to deliberate separately. The King, Lords and Commons would meet together initially; afterwards the Lords and Commons would deliberate in separate rooms; and finally the Commons or their spokesmen would rejoin the King and the Lords.</p><p >By the thirteenth century Westminster was the centre of English royal government and the Palace of Westminster the habitual meeting place of the English Parliament. From at least the mid-fourteenth century onwards, the Lords and Commons usually met for the opening of Parliament in the Painted Chamber, and after hearing the cause of summons were ordered to meet separately for deliberation. The Lords would withdraw to a room known as the White Chamber at the south-east corner of the old palace, where they continued to meet until the early nineteenth century, while the Commons would deliberate in either the Painted Chamber or the Chapter House of Westminster Abbey. After 1394 they often used the Abbey's refectory. They did not acquire a permanent meeting place until after 1547, when they were granted the use of St Stephen's Chapel within the Palace.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a></p><p >There were spokesmen for the Commons from the mid-thirteenth century, though it is not known whether they also presided over the meetings of the Commons. Traditionally the first Speaker was Sir Peter de la Mare in 1376, though the first to be recorded on the Parliament Rolls is his successor, Sir Thomas Hungerford.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a>  The first reference to a Clerk is to Robert de Melton in 1363.<a id=\"footnote-link-3\" class=\"footnote-ref\" href=\"#footnote-item-3\">3</a></p><p >The term \u2018Member of Parliament\u2019 was originally taken to refer to members of either House. Since the Restoration of 1660, however, it has usually referred to Members of the Commons only.<a id=\"footnote-link-4\" class=\"footnote-ref\" href=\"#footnote-item-4\">4</a>  The Parliamentary and Municipal Elections Act 1872 ended the use in the returns of the very old terms of knights (for county constituencies), citizens or burgesses (who sat for cities and boroughs), barons of the Cinque Ports, and burgesses of the Universities of Oxford and Cambridge; and these distinctions ceased to figure in general use. (For the numbers of members of the Commons at various periods, see paras <a class=\"paragraph-ref\" href=\"/Search/Paragraph/1.7\" title=\"1.7\u20131.11\">1.7\u20131.11</a>.)</p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "For a full account of the meeting places of the Commons until 1547, see A I Dasent <em>Speakers of the House of Commons</em>  (1911), p 41."
+						},
+						{
+							"number": "2",
+							"content": "A I Dasent <em>Speakers of the House of Commons</em>  (1911); P A C Laundy <em>The Office of Speaker</em>  (1964)."
+						},
+						{
+							"number": "3",
+							"content": "O C Williams <em>Clerical Organisation of the House of Commons</em>  (1953); W R McKay <em>Clerks in the House of Commons, 1363\u20132002</em>  (2002)."
+						},
+						{
+							"number": "4",
+							"content": "Ed H Hobhouse <em>State Papers: Henry VIII</em>  (1830\u201352) iii, p 395; S R Gardiner <em>History of the Commonwealth and Protectorate</em>  (1894) i, p 296, n 2. See, however, <a class=\"hansard-ref\" href=\"https://hansard.parliament.uk/search/column?House=2&SeriesNumber=5&VolumeNumber=22&ColumnNumber=82\" target=\"_new\" title=\"https://hansard.parliament.uk/search/column?House=2&SeriesNumber=5&VolumeNumber=22&ColumnNumber=82\">HL Deb (1916) 22, c 82</a>."
+						}
+					],
+					"id": 4500,
+					"title": "History of representation in England",
+					"titleChain": "Introduction to the constituent parts of Parliament",
+					"subSections": []
+				},
+				{
+					"parentSectionId": 4499,
+					"parentSectionTitle": "Introduction to the constituent parts of Parliament",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.3</span>The pattern of development in Scotland before 1707 was rather different. Parliaments\u2014originally called <em>colloquia</em> \u2014emerged (as they did in England) in the middle of the thirteenth century, as more formal legal and judicial meetings of the King's council, attended by the various ranks of nobility. Other Estates of the community of the realm were added as time went on. The first Estate (bishops and abbots) were among the earliest members of Parliament. The abbots ceased to sit after the Reformation. The membership of the bishops was interrupted during the civil wars of the seventeenth century. They returned at the Restoration, only to be removed finally on the re-establishment of presbytery at the Revolution of 1688\u201389.</p><p >Not long after the Wars of Independence in the early fourteenth century, representatives of the royal burghs began to attend, initially only when taxation was demanded. They later became full partners in Parliament.</p><p >All freeholders who held of the King of Scots were bound to attend his court. The smaller barons were, however, frequently reluctant to do so, and an attempt in 1426 to overcome the problem by instituting shire representative elections on the English model failed. Following the large attendance of freeholding small barons at the Reformation Parliament in 1560 and a further Act of 1587 dealing with shire elections, the presence of shire commissioners, representative of the small barons and separate from the higher nobility, gradually became more regular.</p><p >Though the Scottish Parliament was formally unicameral, each of the Estates had assigned to it a particular place in the Parliament House and was separately represented on committees.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a></p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "See Keith M Brown and Roland J Tanner (eds) <em>The History of the Scottish Parliament, Volume 1: Parliament and Politics in Scotland, 1235\u20131560</em>  (Edinburgh University Press, 2004); Keith M Brown, Alistair J Mann (eds) <em>The History of the Scottish Parliament, Volume 2: Parliament and Politics in Scotland, 1567\u20131707</em>  (Edinburgh University Press, 2005); Keith M Brown, Alan R MacDonald (eds) <em>The History of the Scottish Parliament, Volume 3: Parliament in Context, 1235\u20131707</em>  (Edinburgh University Press, 2010)."
+						}
+					],
+					"id": 4501,
+					"title": "History of representation in Scotland",
+					"titleChain": "Introduction to the constituent parts of Parliament",
+					"subSections": []
+				}
+			]
+		},
+		{
+			"parentSectionId": null,
+			"parentSectionTitle": null,
+			"chapterNumber": 1,
+			"chapterTitle": "The constituent parts of Parliament",
+			"partNumber": 1,
+			"partTitle": "Part 1",
+			"contentHtml": "<p ><span class=\"paragraph-reference\">1.4</span>The Crown is hereditary, subject, however, to special limitations by Parliament; and the King or Queen has always enjoyed, by prescription, custom and law, the chief place in Parliament and the sole executive power. The right of succession and the prerogatives of the Crown itself are, however, subject to limitations and change by legislative process with the consent and authority of the Sovereign;<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  and in the exercise of the prerogatives and powers of the Crown the Sovereign now, by constitutional convention, depends on the advice of Ministers of the Crown, who continue to serve in that capacity only so long as they retain the confidence of Parliament.</p>",
+			"isUpdated": false,
+			"updatedDate": null,
+			"footnotes": [
+				{
+					"number": "1",
+					"content": "For additions made by statute to the royal style and title, see the Royal Titles Acts 1876, 1901 and 1953, and see also, The Title of the Sovereign (Cmd 8748); and <em>MacCormick v The Lord Advocate</em> <span class=\"citation\">1953 SC 396 at 403 and 409\u201310</span>. The Succession to the Crown Act 2013 made provision about non-discrimination of heirs to the Throne on the basis of gender."
+				}
+			],
+			"id": 4502,
+			"title": "The Sovereign",
+			"titleChain": null,
+			"subSections": [
+				{
+					"parentSectionId": 4502,
+					"parentSectionTitle": "The Sovereign",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.5</span>The prerogatives of the Crown, in connection with the legislature, are of paramount importance. The legal existence of Parliament results from the exercise of royal prerogative (see para <a class=\"paragraph-ref\" href=\"/Search/Paragraph/8.2\" title=\"8.2\">8.2</a> ). As \u2018supreme governor, as well in all spiritual or ecclesiastical things or causes as temporal\u2019,<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  the Queen appoints the archbishops and bishops of the Church of England who, as \u2018Lords Spiritual\u2019, form part of the House of Lords. All titles of honour are the gift of the Crown, and thus all \u2018Lords Temporal\u2019 in the upper House have been created by royal prerogative, and their number may be increased at pleasure. To a Queen's writ, also, Members of the House of Commons owe their election as the representatives of the people. The prorogation of Parliament is also a prerogative act of the Crown (see para <a class=\"paragraph-ref\" href=\"/Search/Paragraph/8.5\" title=\"8.5\">8.5</a> ). Other important powers will be described in the appropriate place.</p><p >The Crown also has a close relationship with the presiding officer of each House. The Speakers of both Houses, though elected by them, are submitted to the approbation of the Crown (paras <a class=\"paragraph-ref\" href=\"/Search/Paragraph/4.48\" title=\"4.48\">4.48</a>  and <a class=\"paragraph-ref\" href=\"/Search/Paragraph/8.20\" title=\"8.20\">8.20</a> ).<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a></p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "1 Eliz 1, c 1, s 19."
+						},
+						{
+							"number": "2",
+							"content": "LJ (239) 1000."
+						}
+					],
+					"id": 4503,
+					"title": "Prerogative in connection with Parliament",
+					"titleChain": "The Sovereign",
+					"subSections": []
+				},
+				{
+					"parentSectionId": 4502,
+					"parentSectionTitle": "The Sovereign",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.6</span>Many changes have been effected at different times in the legal succession to the Crown (a notable example are those that occurred at the Revolution of 1688\u201389). The power of Parliament over the Crown is distinctly affirmed by the statute law and recognised as an important principle of the constitution.</p><p >The Act of Settlement (1700\u201301) affirms \u2018that the laws of England are the birthright of the people thereof; and all the Kings and Queens<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  who shall ascend the throne of this realm ought to administer the government of the same according to the said laws; and all their officers and ministers ought to serve them respectively according to the same\u2019. The Succession to the Crown Act 1707 declares it high treason for anyone to maintain and affirm, by writing, printing, or preaching, \u2018that the Kings or Queens of this realm, by and with the authority of Parliament, are not able to make laws and statutes of sufficient force and validity to limit and bind the Crown, and the descent, limitation, inheritance, and government thereof\u2019. The relationship between the Crown and Parliament had earlier been defined in the Bill of Rights, which declared, inter alia, that \u2018the pretended power of suspending or dispensing with laws, or the execution of laws, without consent of Parliament, is illegal\u2019, and that \u2018levying money for or to the use of the Crown, by pretence of prerogative, without grant of Parliament for longer time or in other manner than the same is or shall be granted, is illegal\u2019.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a></p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "For a statutory confirmation of the ancient right of females to inherit the Crown, see 1 Mar Sess 2, c 1; Queen Regent's Prerogative Act 1554 (1 Mar Sess 3, c 1); 1 Eliz, c 3; the Succession to the Crown Act 2013 ended the system of male preference primogeniture. For the form in which the accession of a Sovereign is recognised, see CJ (1837) 488; ibid (1901) 2; ibid (1910) 148; ibid (1935\u201336) 49; ibid (1936\u201337) 58; ibid (1951\u201352) 88."
+						},
+						{
+							"number": "2",
+							"content": "1688, c 2, arts 1 and 4."
+						}
+					],
+					"id": 4504,
+					"title": "Limitations of prerogative",
+					"titleChain": "The Sovereign",
+					"subSections": []
+				}
+			]
+		},
+		{
+			"parentSectionId": null,
+			"parentSectionTitle": null,
+			"chapterNumber": 1,
+			"chapterTitle": "The constituent parts of Parliament",
+			"partNumber": 1,
+			"partTitle": "Part 1",
+			"contentHtml": "",
+			"isUpdated": false,
+			"updatedDate": null,
+			"footnotes": [],
+			"id": 4505,
+			"title": "The House of Commons",
+			"titleChain": null,
+			"subSections": [
+				{
+					"parentSectionId": 4505,
+					"parentSectionTitle": "The House of Commons",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.7</span>The number of Members admitted to the House of Commons has varied considerably at different periods. In the early fifteenth century there were nominally over 250 Members of the Commons; there were two knights from 37 counties, two citizens or burgesses from each of 80 or so cities or boroughs which were by custom represented, and 14 Members from the Cinque Ports. It is, however, impossible to say how many actually attended any Parliament. At the beginning of Henry VIII's reign there were about 300 seats available.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  In that reign 27 Members were added by statute for Wales<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a>  and four for the county and city of Chester,<a id=\"footnote-link-3\" class=\"footnote-ref\" href=\"#footnote-item-3\">3</a>  and in Charles II's reign four for the county and city of Durham.<a id=\"footnote-link-4\" class=\"footnote-ref\" href=\"#footnote-item-4\">4</a>  Between the reigns of Henry VIII and Charles II 180 new Members were added by royal charter.<a id=\"footnote-link-5\" class=\"footnote-ref\" href=\"#footnote-item-5\">5</a>  In 1673 Newark was the last constituency to be enfranchised in this way. There were then 513 Members in England and Wales.<a id=\"footnote-link-6\" class=\"footnote-ref\" href=\"#footnote-item-6\">6</a></p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "S T Bindoff (ed) <em>History of Parliament 1509\u20131558</em>  (1982)."
+						},
+						{
+							"number": "2",
+							"content": "Laws in Wales Act 1535 (27 Hen 8, c 26)."
+						},
+						{
+							"number": "3",
+							"content": "34 Hen 8, c 13."
+						},
+						{
+							"number": "4",
+							"content": "25 Cha 2, c 9."
+						},
+						{
+							"number": "5",
+							"content": "2 Hatsell 413."
+						},
+						{
+							"number": "6",
+							"content": "B D Henning (ed) <em>History of Parliament 1660\u20131690</em>  (1983), p 104."
+						}
+					],
+					"id": 4506,
+					"title": "Medieval and early modern representation: England and Wales",
+					"titleChain": "The House of Commons",
+					"subSections": []
+				},
+				{
+					"parentSectionId": 4505,
+					"parentSectionTitle": "The House of Commons",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.8</span>Forty-five Members from Scotland sat in the Parliament of Great Britain after the Union of 1707, and 100 from Ireland following the Union of 1801 which created the Parliament of the United Kingdom. By these successive additions the number of the Commons was increased to 658; and notwithstanding the changes effected in the distribution of the elective franchise by the Reform Acts in 1832, that number continued unaltered, except by the disenfranchisement of certain cities and boroughs for corruption, until the year 1885, when the number of the House was raised to 670 by the operation of the Redistribution of Seats Act of that year. By the Representation of the People Act 1918 the number of Members was increased to 707, but the reduction of the number of Members for constituencies in Northern Ireland under the Government of Ireland Act 1920, and the cessation of representation of constituencies in the rest of Ireland consequential on the establishment of the Irish Free State, reduced the number of Members of the House of Commons to 615.</p><p >As a result of the House of Commons (Redistribution of Seats) Act 1944, which made temporary provision for the subdivision of certain abnormally large constituencies (specified in the second schedule to the Act),<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  the number of Members was increased by 25 to 640. This number was reduced by the Representation of the People Act 1948, to 625, subject to variation by Order in Council on the recommendation of the Boundary Commissions; such Orders in Council were made under the authority of the House of Commons (Redistribution of Seats) Act 1949 and since 1986 under the Parliamentary Constituencies Act 1986 (see para <a class=\"paragraph-ref\" href=\"/Search/Paragraph/2.3\" title=\"2.3\">2.3</a> ).</p><p class='updated-paragraph'>Although the 1986 Act, as passed, stated that the number of constituencies in Great Britain should not be \u2018substantially greater or less than 613\u2019, there had been an increase in the number of seats since 1948, and in 1986 there were 650 seats. Other rules for the redistribution of seats set down in the Act made it extremely difficult for the Boundary Commissioners to create 613 seats with electorates of broadly the same size.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a>  Accordingly the creation of new constituencies, because of the growth of the electorate in some areas, was not offset to the same extent by the reduction of seats where the electorate had fallen.</p><p class='updated-paragraph'>There are currently 650 Members of the House of Commons. In 2010, the coalition Government undertook to create \u2018fewer and more equal sized constituencies', and subsequently the Parliamentary Voting System and Constituencies Act 2011 made provision to reduce the number of Members to 600 and to ensure more equal-sized electorates to within 5% above or below the electoral quota. The 2011 Act required the Boundary Commissions to report their recommendations for achieving this reduction to the Secretary of State in September 2013; this deadline was delayed until September 2018 by the Electoral Registration and Administration Act 2013. (see para <a class=\"paragraph-ref\" href=\"/Search/Paragraph/2.3\" title=\"2.3\">2.3</a> ).<a id=\"footnote-link-3\" class=\"footnote-ref\" href=\"#footnote-item-3\">3</a></p><p class='updated-paragraph'>The 2018 recommendations from the Boundary Commissions were not implemented. The Parliamentary Constituencies Act 2020 removed the duty to implement the recommendations. The 2020 Act also cancelled the reduction in the number of Members, specifying instead that there shall be 650 constituencies. It made no change to the rules on more equal-sized constituencies.<a id=\"footnote-link-4\" class=\"footnote-ref\" href=\"#footnote-item-4\">4</a></p>",
+					"isUpdated": true,
+					"updatedDate": "2022-06-17T10:06:55",
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "This partial measure of redistribution was recommended by the Speaker's Conference on Electoral Reform and Redistribution of Seats 1944, in their first report. (Letter from Mr Speaker to the Prime Minister, 24 May 1944; Cmd 6534.)"
+						},
+						{
+							"number": "2",
+							"content": "See also Boundary Commissions Act 1992 (c 55), s 3."
+						},
+						{
+							"number": "3",
+							"content": "Electoral Registration and Administration Act 2013 (c 6), s 6."
+						},
+						{
+							"number": "4",
+							"content": "Parliamentary Constituencies Act 2020 (c 25), ss 5, 10."
+						}
+					],
+					"id": 4507,
+					"title": "Modern representation: Great Britain and the United Kingdom",
+					"titleChain": "The House of Commons",
+					"subSections": [
+						{
+							"parentSectionId": 4507,
+							"parentSectionTitle": "Modern representation: Great Britain and the United Kingdom",
+							"chapterNumber": 1,
+							"chapterTitle": "The constituent parts of Parliament",
+							"partNumber": 1,
+							"partTitle": "Part 1",
+							"contentHtml": "<p ><span class=\"paragraph-reference\">1.9</span>From 1673 to 1832 there were 513 Members in England and Wales. Following the English Reform Act (the Representation of the People Act 1832) the number was reduced from 513 to 500. The number of knights of the shire was increased to 159. Many boroughs were disenfranchised, while new boroughs were created; after the Act the two universities and the several cities and boroughs elected 341 Members.</p><p >Further changes were made by the Representation of the People Act 1867 and the Redistribution of Seats Act 1885. Under the Representation of the People Act 1918, England and Wales returned 528 Members. This number was temporarily increased to 553 under the provisions of the House of Commons (Redistribution of Seats) Act 1944, but was reduced to 542, with provision for variation on the recommendation of the Boundary Commission, by the Representation of the People Act 1948, which abolished University representation and adjusted the boundaries of many constituencies. The number of constituencies in England and Wales following the general election of 2017 was 573.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a></p>",
+							"isUpdated": false,
+							"updatedDate": null,
+							"footnotes": [
+								{
+									"number": "1",
+									"content": "The Parliamentary Constituencies and Assembly Electoral Regions (Wales) Order 2006 (SI 2006/1041); the Parliamentary Constituencies (England) Order 2007 (SI 2007/1681); and the Parliamentary Constituencies (England) (Amendment) Order 2009 (SI 2009/698)."
+								}
+							],
+							"id": 4508,
+							"title": "England and Wales",
+							"titleChain": "The House of Commons > Modern representation: Great Britain and the United Kingdom",
+							"subSections": []
+						},
+						{
+							"parentSectionId": 4507,
+							"parentSectionTitle": "Modern representation: Great Britain and the United Kingdom",
+							"chapterNumber": 1,
+							"chapterTitle": "The constituent parts of Parliament",
+							"partNumber": 1,
+							"partTitle": "Part 1",
+							"contentHtml": "<p ><span class=\"paragraph-reference\">1.10</span>The number of Members for Scotland was increased by the Representation of the People (Scotland) Act 1832 from 45 to 53, 30 of whom were commissioners of shires, and 23 commissioners of burghs. Further changes were made by the Representation of the People (Scotland) Act 1868 and the Redistribution of Seats Act 1885. Under the Representation of the People Act 1918, Scotland returned 74 Members: 38 Members for 21 parliamentary counties; 33 Members for 13 parliamentary burghs; and three Members for four universities in one university constituency. This representation was not affected by the House of Commons (Redistribution of Seats) Act 1944, but the abolition of university representation under the Representation of the People Act 1948 reduced the number to 71, with provision for variation on the recommendation of the Boundary Commission. In 1983 this number increased to 72, and in 2005 it was reduced to 59, following the creation of the Scottish Parliament and a subsequent review by the Scottish Boundary Commission.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a></p>",
+							"isUpdated": false,
+							"updatedDate": null,
+							"footnotes": [
+								{
+									"number": "1",
+									"content": "The Parliamentary Constituencies (Scotland) Order 2005 (SI 2005/250). The Scotland Act 1998 (c 46), s 86, abolished the minimum of 71 constituencies for Scotland and required the Boundary Commission for Scotland, in its next report, to calculate the number of constituencies by using the electoral quota for England."
+								}
+							],
+							"id": 4509,
+							"title": "Scotland",
+							"titleChain": "The House of Commons > Modern representation: Great Britain and the United Kingdom",
+							"subSections": []
+						},
+						{
+							"parentSectionId": 4507,
+							"parentSectionTitle": "Modern representation: Great Britain and the United Kingdom",
+							"chapterNumber": 1,
+							"chapterTitle": "The constituent parts of Parliament",
+							"partNumber": 1,
+							"partTitle": "Part 1",
+							"contentHtml": "<p ><span class=\"paragraph-reference\">1.11</span>By the Irish Reform Act (the Representation of the People (Ireland) Act 1832) the number of Representatives for Ireland in the British Parliament was increased from 100 to 105. The Government of Ireland Act 1920 reduced this number to 46 Members, 13 of whom were to represent constituencies in Northern Ireland.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  This reduction was not to take place before the dissolution of the Parliament then existing.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a>  The Irish Free State (Agreement) Act 1922, <abbr title=\"section\">s</abbr> 1(4), provided that after its passing no writ should be issued for the election of a Member to serve in the House of Commons for a constituency in Ireland other than a constituency in Northern Ireland, with the result that the representation of Ireland was reduced to the 13 Members returned by constituencies in Northern Ireland. The temporary provisions of the House of Commons (Redistribution of Seats) Act 1944 did not affect this representation, but the abolition of university representation under the Representation of the People Act 1948 reduced the number to 12. Under the House of Commons (Redistribution of Seats) Act 1979, the Boundary Commission for Northern Ireland was required, in framing its first report after the passing of the Act, to divide Northern Ireland into no fewer than 16 and no more than 18 constituencies. Since the general election of 1997 there have been 18 constituencies.</p>",
+							"isUpdated": false,
+							"updatedDate": null,
+							"footnotes": [
+								{
+									"number": "1",
+									"content": "See Government of Ireland Act 1920, s 19 and sch V."
+								},
+								{
+									"number": "2",
+									"content": "See Government of Ireland Act 1920, s 73(1)."
+								}
+							],
+							"id": 4510,
+							"title": "Ireland and Northern Ireland",
+							"titleChain": "The House of Commons > Modern representation: Great Britain and the United Kingdom",
+							"subSections": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"parentSectionId": null,
+			"parentSectionTitle": null,
+			"chapterNumber": 1,
+			"chapterTitle": "The constituent parts of Parliament",
+			"partNumber": 1,
+			"partTitle": "Part 1",
+			"contentHtml": "<p ><span class=\"paragraph-reference\">1.12</span>The Lords Spiritual and Temporal sit together and jointly constitute the House of Lords.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  As Members of the House they enjoy the same rights and privileges.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a></p>",
+			"isUpdated": false,
+			"updatedDate": null,
+			"footnotes": [
+				{
+					"number": "1",
+					"content": "There is no limit to the number of Lords Temporal. In February 2019 there were 668 life peers and 92 excepted hereditary peers (including those subject to statutory disqualification, suspended or on leave of absence)."
+				},
+				{
+					"number": "2",
+					"content": "Lords Spiritual do not enjoy privilege of peerage (SO No 6); for the privilege of peerage, see para <a class=\"paragraph-ref\" href=\"/Search/Paragraph/12.2\" title=\"12.2\">12.2</a>."
+				}
+			],
+			"id": 4511,
+			"title": "The House of Lords",
+			"titleChain": null,
+			"subSections": [
+				{
+					"parentSectionId": 4511,
+					"parentSectionTitle": "The House of Lords",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.13</span>The Lords Spiritual are the archbishops and bishops of the Church of England having seats in Parliament by ancient usage and by statute.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  In 1847, on the creation of the bishopric of Manchester, it was enacted that the number of bishops sitting in Parliament should not be increased in consequence, and a similar provision has been made in the case of bishoprics which have been created subsequently.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a></p><p >The following bishops now have seats in the House of Lords: the archbishops of Canterbury and York; the bishops of London, Durham and Winchester; and 21 other diocesan bishops of the Church of England. Previously, when a vacancy arose in one of the 21 spaces not reserved, the next most senior bishop replaced them.<a id=\"footnote-link-3\" class=\"footnote-ref\" href=\"#footnote-item-3\">3</a>  Under the provisions of the Lords Spiritual (Women) Act 2015, until 2025 any such vacancy is now filled by a female English diocesan bishop, ahead of any male.<a id=\"footnote-link-4\" class=\"footnote-ref\" href=\"#footnote-item-4\">4</a>  A bishop may resign their see and therewith their seat.<a id=\"footnote-link-5\" class=\"footnote-ref\" href=\"#footnote-item-5\">5</a>  Bishops are obliged to retire at 70.<a id=\"footnote-link-6\" class=\"footnote-ref\" href=\"#footnote-item-6\">6</a></p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "They were excluded by Act 16 Cha 1, c 27, and did not resume their seats after the Restoration, in the Convention Parliament, but were restored in the next Parliament, by Act 13 Cha 2, c 2. The four bishops added to the House of Lords, at the Union, to represent the episcopal body of Ireland, were withdrawn after 1 January 1871 on the disestablishment of the Irish Church by the Irish Church Act 1869. On the disestablishment of the Church in Wales on 31 March 1920 (see the Welsh Church (Temporalities) Act 1919, s 2) bishops of that Church ceased, under the Welsh Church Act 1914, s 2(2), to be qualified to sit or vote as Lords of Parliament, and no bishop of the Church in Wales is, as such, to be summoned to the House of Lords. The vacancies caused by the withdrawal of the bishops of the Church in Wales who had seats in Parliament were supplied by the issue of writs of summons to bishops not disqualified by the Act who had not previously received writs of summons (Welsh Church Act 1914, s 2(3))."
+						},
+						{
+							"number": "2",
+							"content": "The Ecclesiastical Commissioners Act 1847, s 2; Bishopric Acts relating to St Albans, 1875 (38 &amp; 39 Vict, c 34); Truro, 1876 (39 &amp; 40 Vict, c 54); Liverpool, Newcastle, Southwell, and Wakefield, 1878 (41 &amp; 42 Vict, c 68); Bristol, 1884 (47 &amp; 48 Vict, c 66); Southwark and Birmingham, 1904 (4 Edw 7, c 30); Chelmsford, St Edmundsbury and Ipswich, and Sheffield, 1913 (3 and 4 Geo 5, c 36); Bradford and Coventry, 1917 (7 &amp; 8 Geo 5, c 57); Portsmouth and Guildford, 1923 (14 &amp; 15 Geo 5, Measure No 2); Blackburn, 1923 (14 &amp; 15 Geo 5, Measure No 4); Derby, 1923 (14 &amp; 15 Geo 5, Measure No 5); Leicester, 1925 (15 &amp; 16 Geo 5, Measure No 2)."
+						},
+						{
+							"number": "3",
+							"content": "Bishoprics Act 1878, s 5. The Bishop of Sodor and Man has no seat in Parliament, not having originally held his temporalities directly from the Crown."
+						},
+						{
+							"number": "4",
+							"content": "Lords Spiritual (Women) Act 2015, s 1."
+						},
+						{
+							"number": "5",
+							"content": "Bishops (Retirement) Measure 1986, s 12."
+						},
+						{
+							"number": "6",
+							"content": "Ecclesiastical Office (Age Limit) Measure 1975."
+						}
+					],
+					"id": 4512,
+					"title": "Lords Spiritual",
+					"titleChain": "The House of Lords",
+					"subSections": []
+				},
+				{
+					"parentSectionId": 4511,
+					"parentSectionTitle": "The House of Lords",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.14</span>The Lords Temporal<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  may be divided into three categories. The first category comprises those hereditary peers excepted from the general provision in the House of Lords Act 1999, <abbr title=\"section\">s</abbr> 1, that holders of hereditary peerages should no longer be members of the House. Under <abbr title=\"section\">s</abbr> 2 of that Act, there are a maximum of 92 excepted hereditary peers.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a>  These are the holders of the offices of Earl Marshal (the Duke of Norfolk) and the Lord Great Chamberlain (the Marquess of Cholmondeley) and 90 other hereditary peers<a id=\"footnote-link-3\" class=\"footnote-ref\" href=\"#footnote-item-3\">3</a>  who, as the Act provides, will remain as Members for their lifetime or until a subsequent Act otherwise provides. Fifteen were elected by the whole House to act as Deputy Speakers and other office-holders, and the other 75 were elected by their party or group.<a id=\"footnote-link-4\" class=\"footnote-ref\" href=\"#footnote-item-4\">4</a></p><p >The second and third categories comprise what may be collectively described as \u2018life peers\u2019.<a id=\"footnote-link-5\" class=\"footnote-ref\" href=\"#footnote-item-5\">5</a>  The first, and most numerous, category of life peer comprises peers created for life under the Life Peerages Act 1958. The remaining category consists of peers created for life under the Appellate Jurisdiction Act 1876, as amended, who were appointed to serve as salaried Lords of Appeal in Ordinary. The 1876 Act was repealed, and the office of Lord of Appeal in Ordinary abolished, by provisions contained in <abbr title=\"Schedule\">sch</abbr> 18 to the Constitutional Reform Act 2005, which came into force at the same time as the United Kingdom Supreme Court was established, on 1 October 2009. Thus no new peers will be created within this category. However, existing peers created under the 1876 Act will remain Members.</p><p class='updated-paragraph'>Lords Temporal usually retain their membership of the House for life. Under the House of Lords Reform Act 2014, however, a Member is disqualified from attending the proceedings of the House (including the proceedings of a committee or joint committee) if they have resigned from the House or ceased to be a Member by virtue of not attending during a session lasting six months or more, or they have been sentenced to imprisonment indefinitely or for more than one year. Such persons do not receive a writ of summons and may not attend in pursuance of a writ already received. Under the House of Lords (Expulsion and Suspension) Act 2015 the House may pass a resolution to expel a Member for misconduct. <abbr title=\"Standing Order (public business)\">Standing Order No</abbr> 11 provides that a motion to expel a Member must follow a recommendation from the Conduct Committee after the Member has been found in breach of the Code of Conduct. Expelled Members do not receive a writ of summons and may not attend in pursuance of a writ already received.</p>",
+					"isUpdated": true,
+					"updatedDate": "2022-06-17T10:06:55",
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "For disclaimer of peerage, see <em>Erskine May</em>  (22nd edn, 1997), pp 13\u201314."
+						},
+						{
+							"number": "2",
+							"content": "Hereditary peers of first creation were excluded from membership of the House by the House of Lords Act 1999 but were offered life peerages to enable them to remain as Members."
+						},
+						{
+							"number": "3",
+							"content": "SO No 9."
+						},
+						{
+							"number": "4",
+							"content": "Two peers were elected by the Labour hereditary peers, 42 by the Conservative hereditary peers, three by the Liberal Democrat hereditary peers and 28 by the Cross Bench hereditary peers."
+						},
+						{
+							"number": "5",
+							"content": "Following the decision in the Wensleydale peerage case (LJ (1856) 38; T E May (ed F Holland) <em>Constitutional History of England</em>  (1908) i, pp 196\u2013201), legislation was necessary to make it possible for life peers to be members of the House. The Appellate Jurisdiction Act 1876 was the first such legislation."
+						}
+					],
+					"id": 4513,
+					"title": "Lords Temporal",
+					"titleChain": "The House of Lords",
+					"subSections": [
+						{
+							"parentSectionId": 4513,
+							"parentSectionTitle": "Lords Temporal",
+							"chapterNumber": 1,
+							"chapterTitle": "The constituent parts of Parliament",
+							"partNumber": 1,
+							"partTitle": "Part 1",
+							"contentHtml": "<p class='updated-paragraph'><span class=\"paragraph-reference\">1.15</span>Under <abbr title=\"Standing Order (public business)\">Standing Order No</abbr> 9, any vacancy arising as a result of the death, expulsion or resignation of one of the 90 hereditary peers elected under the House of Lords Act 1999 must be filled by means of a by-election. By-elections are conducted in accordance with arrangements made by the Clerk of the Parliaments and take place within three months of a vacancy occurring. If the vacancy is among the 75, only the excepted hereditary peers (including those elected among the 15) in the relevant party or group are entitled to vote (Standing Order No 9(6)). If the vacancy is among the 15, the whole House is entitled to vote (Standing Order No 9(7)).</p><p class='updated-paragraph'>The Clerk of the Parliaments maintains a register of hereditary peers who wish to stand in any by-election under <abbr title=\"Standing Order (public business)\">Standing Order No</abbr> 10. Any excluded hereditary peer is entitled to be included in the register, not just those who were previously Members of the House. Under <abbr title=\"Standing Order (public business)\">Standing Order No</abbr> 10, any hereditary peer not previously in receipt of a writ of summons who wishes to be included in the register petitions the House, and any such petition is referred to the Lord Chancellor to consider and report upon whether such peer has established their right to be included in the register (see also para <a class=\"paragraph-ref\" href=\"/Search/Paragraph/11.6\" title=\"11.6\">11.6</a> ).</p>",
+							"isUpdated": true,
+							"updatedDate": "2022-06-17T10:06:55",
+							"footnotes": [],
+							"id": 4514,
+							"title": "By-elections",
+							"titleChain": "The House of Lords > Lords Temporal",
+							"subSections": []
+						}
+					]
+				},
+				{
+					"parentSectionId": 4511,
+					"parentSectionTitle": "The House of Lords",
+					"chapterNumber": 1,
+					"chapterTitle": "The constituent parts of Parliament",
+					"partNumber": 1,
+					"partTitle": "Part 1",
+					"contentHtml": "<p ><span class=\"paragraph-reference\">1.16</span>By virtue of the Act of Union of 1800 the Peers of Ireland elected 28 of their number to sit in the House of Lords as representatives. Elections were, however, discontinued after 1922. In 1966 the House agreed to a report of the Committee for Privileges to the effect that the provisions of the Act of Union relating to the election of representative peers ceased to be effective on the passing of the Irish Free State Agreement Act 1922 and the right to elect such peers no longer existed.<a id=\"footnote-link-1\" class=\"footnote-ref\" href=\"#footnote-item-1\">1</a>  Peers of Ireland may petition the House to have their claims to succession established. Such petitions are referred to the Lord Chancellor, who reports his decision to the House.<a id=\"footnote-link-2\" class=\"footnote-ref\" href=\"#footnote-item-2\">2</a>  Since 1963 a peer of Ireland has been entitled to be elected a member of the House of Commons for any constituency in the United Kingdom and to vote at parliamentary elections.<a id=\"footnote-link-3\" class=\"footnote-ref\" href=\"#footnote-item-3\">3</a></p>",
+					"isUpdated": false,
+					"updatedDate": null,
+					"footnotes": [
+						{
+							"number": "1",
+							"content": "LJ (1966\u201367) 263; Report by Committee for Privileges on the Petition of the Irish Peers (HL 53 (1966\u201367))."
+						},
+						{
+							"number": "2",
+							"content": "SO No 79."
+						},
+						{
+							"number": "3",
+							"content": "Peerage Act 1963, s 5."
+						}
+					],
+					"id": 4515,
+					"title": "Peers of Ireland",
+					"titleChain": "The House of Lords",
+					"subSections": []
+				}
+			]
+		}
+	],
+	"chapterId": 1
+}
