@@ -6,15 +6,72 @@
 import random
 import os
 
+
+def intInput(prompt: str, lowerLimit: int=None, upperLimit: int=None) -> int:
+	"""
+	Displays the prompt to the user
+	and forces an integer response.
+	
+	Will also enforce the lower and
+	upper limits (both inclusive) if
+	they are provided when the fuction
+	is called.
+
+	Returns integer.
+
+	:param str prompt: The text displayed to the user before the input function is called
+	:param int lowerLimit: The lowest integer that should be accepted
+	:param int upperLimit: The highest integer that should be accepted
+
+	:return: The integer inputted by the user
+	:rtype: int
+	"""
+	limitString = ''
+	limitString += f'min: {lowerLimit}' if lowerLimit != None else ''
+	limitString += f', max: {upperLimit}' if lowerLimit != None else ''
+
+	if len(limitString) > 0:
+		limitString = f' ({limitString})'
+
+	generatedPromptString = f'Please enter an integer{limitString}: '
+
+	while True:
+		
+		value = input(generatedPromptString)
+		while value.isdigit() != True:
+			print('Please enter an integer value.')
+
+			print(prompt)
+			value = input(generatedPromptString)
+
+
+		intValue = int(value)
+
+		if lowerLimit == None and upperLimit == None:
+			break
+		elif intValue < lowerLimit:
+			print(f'Please enter an integer greater than or equal to {lowerLimit}.')
+		elif intValue > upperLimit:
+			print(f'Please enter an integer less than than or equal to {upperLimit}.')
+		else:
+			break
+	
+	return intValue
+
+
 def Main():
 	Again = "y"
 	Score = 0
 	while Again == "y":
 		Filename = input("Press Enter to start a standard puzzle or enter name of file to load: ")
+		Filename = Filename if len(Filename) == 0 else '/Users/louisstevens/Documents/CompSci/PersonalCompSci/csHelp2024/skeletonProgram2024/ideas/textFiles/' + Filename
+
 		if len(Filename) > 0:
 			MyPuzzle = Puzzle(Filename + ".txt")
 		else:
-			MyPuzzle = Puzzle(8, int(8 * 8 * 0.6))
+			userDefinedGridSize = intInput('Please provide your desired grid size.', 4, 9)
+	
+			MyPuzzle = Puzzle(userDefinedGridSize, int(userDefinedGridSize * userDefinedGridSize * 0.6))
 		Score = MyPuzzle.AttemptPuzzle()
 		print("Puzzle finished. Your score was: " + str(Score))
 		Again = input("Do another puzzle? ").lower()
