@@ -1,0 +1,633 @@
+Constituency,Value,Region color,Winning Party
+Aldershot,23,#0281aa,Conservative
+Aldridge-Brownhills,3,#0281aa,Conservative
+Altrincham and Sale West,26,#E4003B,Labour
+Amber Valley,6,#E4003B,Labour
+Arundel and South Downs,6,#0281aa,Conservative
+Ashfield,9,#E4003B,Labour
+Ashford,5,#E4003B,Labour
+Ashton-under-Lyne,46,#E4003B,Labour
+Aylesbury,4,#FAA61A,Liberal Democrats
+Banbury,6,#E4003B,Labour
+Barking,64,#E4003B,Labour
+Barnsley North,40,#E4003B,Labour
+Barnsley South,41,#E4003B,Labour
+Barrow and Furness,18,#E4003B,Labour
+Basildon and Billericay,1,#0281aa,Conservative
+Basingstoke,12,#E4003B,Labour
+Bassetlaw,4,#E4003B,Labour
+Bath,50,#FAA61A,Liberal Democrats
+Battersea,42,#E4003B,Labour
+Beaconsfield,5,#0281aa,Conservative
+Beckenham and Penge,33,#E4003B,Labour
+Bedford,37,#E4003B,Labour
+Bermondsey and Old Southwark,28,#E4003B,Labour
+Bethnal Green and Stepney,86,#E4003B,Labour
+Beverley and Holderness,5,#E4003B,Labour
+Bexhill and Battle,8,#0281aa,Conservative
+Bexleyheath and Crayford,8,#E4003B,Labour
+Bicester and Woodstock,3,#FAA61A,Liberal Democrats
+Birkenhead,72,#E4003B,Labour
+Birmingham Edgbaston,54,#E4003B,Labour
+Birmingham Erdington,44,#E4003B,Labour
+Birmingham Hall Green and Moseley,74,#E4003B,Labour
+Birmingham Hodge Hill and Solihull North,62,#E4003B,Labour
+Birmingham Ladywood,90,#E4003B,Labour
+Birmingham Northfield,28,#E4003B,Labour
+Birmingham Perry Barr,77,#E4003B,Labour
+Birmingham Selly Oak,58,#E4003B,Labour
+Birmingham Yardley,60,#E4003B,Labour
+Bishop Auckland,15,#E4003B,Labour
+Blackburn,74,#E4003B,Labour
+Blackley and Middleton South,63,#E4003B,Labour
+Blackpool North and Fleetwood,13,#E4003B,Labour
+Blackpool South,23,#E4003B,Labour
+Blaydon and Consett,40,#E4003B,Labour
+Blyth and Ashington,42,#E4003B,Labour
+Bognor Regis and Littlehampton,3,#0281aa,Conservative
+Bolsover,19,#E4003B,Labour
+Bolton North East,29,#E4003B,Labour
+Bolton South and Walkden,58,#E4003B,Labour
+Bolton West,13,#E4003B,Labour
+Bootle,97,#E4003B,Labour
+Boston and Skegness,12,#0281aa,Conservative
+Bournemouth East,14,#E4003B,Labour
+Bournemouth West,13,#E4003B,Labour
+Bracknell,8,#E4003B,Labour
+Bradford East,68,#E4003B,Labour
+Bradford South,38,#E4003B,Labour
+Bradford West,91,#E4003B,Labour
+Braintree,5,#0281aa,Conservative
+Brent East,65,#E4003B,Labour
+Brent West,54,#E4003B,Labour
+Brentford and Isleworth,51,#E4003B,Labour
+Brentwood and Ongar,12,#0281aa,Conservative
+Bridgwater,1,#E4003B,Labour
+Bridlington and The Wolds,3,#0281aa,Conservative
+Brigg and Immingham,4,#0281aa,Conservative
+Brighton Kemptown and Peacehaven,58,#E4003B,Labour
+Brighton Pavilion,24,#02A95B,Green
+Bristol Central,13,#E4003B,Labour
+Bristol East,69,#E4003B,Labour
+Bristol North East,44,#E4003B,Labour
+Bristol North West,44,#E4003B,Labour
+Bristol South,50,#E4003B,Labour
+Broadland and Fakenham,3,#E4003B,Labour
+Bromley and Biggin Hill,9,#E4003B,Labour
+Bromsgrove,10,#0281aa,Conservative
+Broxbourne,4,#E4003B,Labour
+Broxtowe,28,#E4003B,Labour
+Buckingham and Bletchley,9,#E4003B,Labour
+Burnley,28,#E4003B,Labour
+Burton and Uttoxeter,13,#E4003B,Labour
+Bury North,31,#E4003B,Labour
+Bury South,28,#E4003B,Labour
+Bury St Edmunds and Stowmarket,3,#0281aa,Conservative
+Calder Valley,28,#E4003B,Labour
+Camborne and Redruth,17,#E4003B,Labour
+Cambridge,15,#E4003B,Labour
+Cannock Chase,3,#E4003B,Labour
+Canterbury,36,#E4003B,Labour
+Cardiff South and Penarth,44,#E4003B,Labour
+Carlisle,19,#E4003B,Labour
+Carshalton and Wallington,29,#FAA61A,Liberal Democrats
+Castle Point,5,#0281aa,Conservative
+Central Devon,4,#0281aa,Conservative
+Central Suffolk and North Ipswich,3,#E4003B,Labour
+Chatham and Aylesford,3,#E4003B,Labour
+Cheadle,28,#FAA61A,Liberal Democrats
+Chelmsford,6,#FAA61A,Liberal Democrats
+Chelsea and Fulham,15,#E4003B,Labour
+Cheltenham,29,#FAA61A,Liberal Democrats
+Chesham and Amersham,5,#FAA61A,Liberal Democrats
+Chester North and Neston,50,#E4003B,Labour
+Chester South and Eddisbury,1,#0281aa,Conservative
+Chesterfield,32,#E4003B,Labour
+Chichester,8,#0281aa,Conservative
+Chingford and Woodford Green,32,#E4003B,Labour
+Chippenham,4,#FAA61A,Liberal Democrats
+Chipping Barnet,27,#E4003B,Labour
+Chorley,100,#36454F,Speaker
+Christchurch,8,#0281aa,Conservative
+Cities of London and Westminster,18,#E4003B,Labour
+City of Durham,41,#E4003B,Labour
+Clacton,5,#12B6CF,Reform UK
+Clapham and Brixton Hill,51,#E4003B,Labour
+Colchester,10,#E4003B,Labour
+Colne Valley,23,#E4003B,Labour
+Congleton,4,#E4003B,Labour
+Corby and East Northamptonshire,22,#E4003B,Labour
+Coventry East,53,#E4003B,Labour
+Coventry North West,36,#E4003B,Labour
+Coventry South,37,#E4003B,Labour
+Cramlington and Killingworth,35,#E4003B,Labour
+Crawley,22,#E4003B,Labour
+Crewe and Nantwich,26,#E4003B,Labour
+Croydon East,44,#E4003B,Labour
+Croydon South,10,#E4003B,Labour
+Croydon West,77,#E4003B,Labour
+Dagenham and Rainham,33,#E4003B,Labour
+Darlington,22,#E4003B,Labour
+Dartford,8,#E4003B,Labour
+Daventry,5,#0281aa,Conservative
+Derby North,31,#E4003B,Labour
+Derby South,50,#E4003B,Labour
+Derbyshire Dales,5,#E4003B,Labour
+Dewsbury and Batley,55,#E4003B,Labour
+Didcot and Wantage,10,#FAA61A,Liberal Democrats
+Doncaster Central,28,#E4003B,Labour
+Doncaster East and the Isle of Axholme,6,#E4003B,Labour
+Doncaster North,44,#E4003B,Labour
+Dorking and Horley,10,#FAA61A,Liberal Democrats
+Dover and Deal,13,#E4003B,Labour
+Droitwich and Evesham,6,#0281aa,Conservative
+Dudley,1,#E4003B,Labour
+Dulwich and West Norwood,59,#E4003B,Labour
+Dunstable and Leighton Buzzard,5,#E4003B,Labour
+Ealing Central and Acton,51,#E4003B,Labour
+Ealing North,58,#E4003B,Labour
+Ealing Southall,68,#E4003B,Labour
+Earley and Woodley,15,#E4003B,Labour
+Easington,53,#E4003B,Labour
+East Grinstead and Uckfield,1,#0281aa,Conservative
+East Ham,91,#E4003B,Labour
+East Hampshire,3,#0281aa,Conservative
+East Surrey,10,#0281aa,Conservative
+East Thanet,18,#E4003B,Labour
+East Wiltshire,8,#0281aa,Conservative
+East Worthing and Shoreham,22,#E4003B,Labour
+Eastbourne,27,#FAA61A,Liberal Democrats
+Eastleigh,15,#FAA61A,Liberal Democrats
+Edmonton and Winchmore Hill,62,#E4003B,Labour
+Ellesmere Port and Bromborough,65,#E4003B,Labour
+Eltham and Chislehurst,29,#E4003B,Labour
+Ely and East Cambridgeshire,5,#FAA61A,Liberal Democrats
+Enfield North,54,#E4003B,Labour
+Epping Forest,3,#0281aa,Conservative
+Epsom and Ewell,15,#0281aa,Conservative
+Erewash,19,#E4003B,Labour
+Erith and Thamesmead,63,#E4003B,Labour
+Esher and Walton,24,#FAA61A,Liberal Democrats
+Exeter,54,#E4003B,Labour
+Exmouth and Exeter East,5,#0281aa,Conservative
+Fareham and Waterlooville,5,#0281aa,Conservative
+Farnham and Bordon,4,#FAA61A,Liberal Democrats
+Faversham and Mid Kent,1,#0281aa,Conservative
+Feltham and Heston,51,#E4003B,Labour
+Filton and Bradley Stoke,18,#E4003B,Labour
+Finchley and Golders Green,1,#E4003B,Labour
+Folkestone and Hythe,6,#E4003B,Labour
+Forest of Dean,8,#E4003B,Labour
+Frome and East Somerset,5,#FAA61A,Liberal Democrats
+Fylde,5,#E4003B,Labour
+Gainsborough,1,#0281aa,Conservative
+Gateshead Central and Whickham,47,#E4003B,Labour
+Gedling,28,#E4003B,Labour
+Gillingham and Rainham,6,#E4003B,Labour
+Glastonbury and Somerton,6,#FAA61A,Liberal Democrats
+Gloucester,18,#E4003B,Labour
+Godalming and Ash,10,#FAA61A,Liberal Democrats
+Goole and Pocklington,1,#0281aa,Conservative
+Gorton and Denton,77,#E4003B,Labour
+Gosport,5,#0281aa,Conservative
+Grantham and Bourne,3,#0281aa,Conservative
+Gravesham,8,#E4003B,Labour
+Great Grimsby and Cleethorpes,8,#E4003B,Labour
+Great Yarmouth,4,#E4003B,Labour
+Greenwich and Woolwich,58,#E4003B,Labour
+Guildford,22,#FAA61A,Liberal Democrats
+Hackney North and Stoke Newington,81,#E4003B,Labour
+Hackney South and Shoreditch,86,#E4003B,Labour
+Halesowen,17,#E4003B,Labour
+Halifax,38,#E4003B,Labour
+Hamble Valley,5,#0281aa,Conservative
+Hammersmith and Chiswick,54,#E4003B,Labour
+Hampstead and Highgate,37,#E4003B,Labour
+Harborough", Oadby and Wigston,9,#E4003B,Labour
+Harlow,5,#E4003B,Labour
+Harpenden and Berkhamsted,1,#FAA61A,Liberal Democrats
+Harrogate and Knaresborough,18,#FAA61A,Liberal Democrats
+Harrow East,19,#E4003B,Labour
+Harrow West,54,#E4003B,Labour
+Hartlepool,32,#E4003B,Labour
+Harwich and North Essex,9,#E4003B,Labour
+Hastings and Rye,29,#E4003B,Labour
+Havant,4,#0281aa,Conservative
+Hayes and Harlington,56,#E4003B,Labour
+Hazel Grove,23,#FAA61A,Liberal Democrats
+Hemel Hempstead,9,#E4003B,Labour
+Hendon,27,#E4003B,Labour
+Henley and Thame,8,#FAA61A,Liberal Democrats
+Hereford and South Herefordshire,1,#0281aa,Conservative
+Herne Bay and Sandwich,4,#E4003B,Labour
+Hertford and Stortford,6,#E4003B,Labour
+Hertsmere,12,#0281aa,Conservative
+Hexham,21,#E4003B,Labour
+Heywood and Middleton North,27,#E4003B,Labour
+High Peak,36,#E4003B,Labour
+Hinckley and Bosworth,9,#0281aa,Conservative
+Hitchin,9,#E4003B,Labour
+Holborn and St Pancras,74,#E4003B,Labour
+Honiton and Sidmouth,9,#0281aa,Conservative
+Hornchurch and Upminster,1,#E4003B,Labour
+Hornsey and Friern Barnet,45,#E4003B,Labour
+Horsham,4,#FAA61A,Liberal Democrats
+Houghton and Sunderland South,40,#E4003B,Labour
+Hove and Portslade,53,#E4003B,Labour
+Huddersfield,50,#E4003B,Labour
+Huntingdon,1,#E4003B,Labour
+Hyndburn,24,#E4003B,Labour
+Ilford North,53,#E4003B,Labour
+Ilford South,73,#E4003B,Labour
+Ipswich,26,#E4003B,Labour
+Isle of Wight East,5,#E4003B,Labour
+Isle of Wight West,6,#E4003B,Labour
+Islington North,67,#E4003B,Labour
+Islington South and Finsbury,54,#E4003B,Labour
+Jarrow and Gateshead East,51,#E4003B,Labour
+Keighley and Ilkley,32,#E4003B,Labour
+Kenilworth and Southam,1,#0281aa,Conservative
+Kensington and Bayswater,32,#E4003B,Labour
+Kettering,8,#E4003B,Labour
+Kingston and Surbiton,47,#FAA61A,Liberal Democrats
+Kingston upon Hull East,38,#E4003B,Labour
+Kingston upon Hull North and Cottingham,45,#E4003B,Labour
+Kingston upon Hull West and Haltemprice,24,#E4003B,Labour
+Kingswinford and South Staffordshire,9,#0281aa,Conservative
+Knowsley,97,#E4003B,Labour
+Lancaster and Wyre,32,#E4003B,Labour
+Leeds Central and Headingley,62,#E4003B,Labour
+Leeds East,40,#E4003B,Labour
+Leeds North East,65,#E4003B,Labour
+Leeds North West,31,#E4003B,Labour
+Leeds South,72,#E4003B,Labour
+Leeds South West and Morley,17,#E4003B,Labour
+Leeds West and Pudsey,41,#E4003B,Labour
+Leicester East,49,#E4003B,Labour
+Leicester South,74,#E4003B,Labour
+Leicester West,46,#E4003B,Labour
+Leigh and Atherton,29,#E4003B,Labour
+Lewes,22,#FAA61A,Liberal Democrats
+Lewisham East,71,#E4003B,Labour
+Lewisham North,78,#E4003B,Labour
+Lewisham West and East Dulwich,74,#E4003B,Labour
+Leyton and Wanstead,72,#E4003B,Labour
+Lichfield,1,#0281aa,Conservative
+Lincoln,29,#E4003B,Labour
+Liverpool Garston,82,#E4003B,Labour
+Liverpool Riverside,96,#E4003B,Labour
+Liverpool Walton,99,#E4003B,Labour
+Liverpool Wavertree,76,#E4003B,Labour
+Liverpool West Derby,96,#E4003B,Labour
+Loughborough,26,#E4003B,Labour
+Louth and Horncastle,8,#0281aa,Conservative
+Lowestoft,6,#E4003B,Labour
+Luton North,54,#E4003B,Labour
+Luton South and South Bedfordshire,50,#E4003B,Labour
+Macclesfield,19,#E4003B,Labour
+Maidenhead,1,#FAA61A,Liberal Democrats
+Maidstone and Malling,1,#0281aa,Conservative
+Makerfield,42,#E4003B,Labour
+Maldon,13,#0281aa,Conservative
+Manchester Central,65,#E4003B,Labour
+Manchester Rusholme,95,#E4003B,Labour
+Manchester Withington,64,#E4003B,Labour
+Mansfield,32,#0281aa,Conservative
+Melksham and Devizes,5,#FAA61A,Liberal Democrats
+Melton and Syston,3,#E4003B,Labour
+Meriden and Solihull East,12,#0281aa,Conservative
+Mid Bedfordshire,1,#0281aa,Conservative
+Mid Buckinghamshire,4,#0281aa,Conservative
+Mid Cheshire,31,#E4003B,Labour
+Mid Derbyshire,9,#E4003B,Labour
+Mid Dorset and North Poole,5,#FAA61A,Liberal Democrats
+Mid Leicestershire,6,#E4003B,Labour
+Mid Norfolk,3,#E4003B,Labour
+Mid Sussex,8,#FAA61A,Liberal Democrats
+Middlesbrough and Thornaby East,56,#E4003B,Labour
+Middlesbrough South and East Cleveland,23,#E4003B,Labour
+Milton Keynes Central,26,#E4003B,Labour
+Milton Keynes North,24,#E4003B,Labour
+Mitcham and Morden,63,#E4003B,Labour
+Morecambe and Lunesdale,13,#E4003B,Labour
+New Forest East,9,#0281aa,Conservative
+New Forest West,10,#0281aa,Conservative
+Newark,3,#E4003B,Labour
+Newbury,10,#FAA61A,Liberal Democrats
+Newcastle upon Tyne Central and West,65,#E4003B,Labour
+Newcastle upon Tyne East and Wallsend,65,#E4003B,Labour
+Newcastle upon Tyne North,45,#E4003B,Labour
+Newcastle-under-Lyme,14,#E4003B,Labour
+Newton Abbot,1,#FAA61A,Liberal Democrats
+Newton Aycliffe and Spennymoor,23,#E4003B,Labour
+Normanton and Hemsworth,36,#E4003B,Labour
+North Bedfordshire,3,#0281aa,Conservative
+North Cornwall,5,#FAA61A,Liberal Democrats
+North Cotswolds,4,#0281aa,Conservative
+North Devon,8,#FAA61A,Liberal Democrats
+North Dorset,8,#0281aa,Conservative
+North Durham,38,#E4003B,Labour
+North East Cambridgeshire,9,#0281aa,Conservative
+North East Derbyshire,8,#E4003B,Labour
+North East Hampshire,4,#0281aa,Conservative
+North East Hertfordshire,6,#E4003B,Labour
+North East Somerset and Hanham,4,#E4003B,Labour
+North Herefordshire,6,#0281aa,Conservative
+North Norfolk,6,#FAA61A,Liberal Democrats
+North Northumberland,6,#E4003B,Labour
+North Shropshire,1,#0281aa,Conservative
+North Somerset,9,#E4003B,Labour
+North Warwickshire and Bedworth,6,#E4003B,Labour
+North West Cambridgeshire,5,#E4003B,Labour
+North West Essex,9,#0281aa,Conservative
+North West Hampshire,4,#0281aa,Conservative
+North West Leicestershire,5,#E4003B,Labour
+North West Norfolk,10,#0281aa,Conservative
+Northampton North,28,#E4003B,Labour
+Northampton South,15,#E4003B,Labour
+Norwich North,23,#E4003B,Labour
+Norwich South,55,#E4003B,Labour
+Nottingham East,64,#E4003B,Labour
+Nottingham North and Kimberley,42,#E4003B,Labour
+Nottingham South,55,#E4003B,Labour
+Nuneaton,14,#E4003B,Labour
+Old Bexley and Sidcup,4,#E4003B,Labour
+Oldham East and Saddleworth,35,#E4003B,Labour
+Oldham West", Chadderton and Royton,56,#E4003B,Labour
+Orpington,1,#0281aa,Conservative
+Ossett and Denby Dale,9,#E4003B,Labour
+Oxford East,54,#E4003B,Labour
+Oxford West and Abingdon,49,#FAA61A,Liberal Democrats
+Peckham,82,#E4003B,Labour
+Pendle and Clitheroe,9,#E4003B,Labour
+Penistone and Stocksbridge,15,#E4003B,Labour
+Penrith and Solway,15,#E4003B,Labour
+Peterborough,29,#E4003B,Labour
+Plymouth Moor View,10,#E4003B,Labour
+Plymouth Sutton and Devonport,44,#E4003B,Labour
+Pontefract", Castleford and Knottingley,29,#E4003B,Labour
+Poole,1,#E4003B,Labour
+Poplar and Limehouse,64,#E4003B,Labour
+Portsmouth North,4,#E4003B,Labour
+Portsmouth South,32,#E4003B,Labour
+Preston,60,#E4003B,Labour
+Putney,38,#E4003B,Labour
+Queen's Park and Maida Vale,67,#E4003B,Labour
+Rawmarsh and Conisbrough,32,#E4003B,Labour
+Rayleigh and Wickford,9,#0281aa,Conservative
+Reading Central,37,#E4003B,Labour
+Reading West and Mid Berkshire,1,#E4003B,Labour
+Redcar,19,#E4003B,Labour
+Redditch,6,#E4003B,Labour
+Reigate,3,#0281aa,Conservative
+Ribble Valley,9,#E4003B,Labour
+Richmond and Northallerton,6,#0281aa,Conservative
+Richmond Park,42,#FAA61A,Liberal Democrats
+Rochdale,42,#E4003B,Labour
+Rochester and Strood,5,#E4003B,Labour
+Romford,1,#E4003B,Labour
+Romsey and Southampton North,1,#FAA61A,Liberal Democrats
+Rossendale and Darwen,22,#E4003B,Labour
+Rother Valley,14,#E4003B,Labour
+Rotherham,28,#E4003B,Labour
+Rugby,15,#E4003B,Labour
+Ruislip", Northwood and Pinner,9,#E4003B,Labour
+Runcorn and Helsby,47,#E4003B,Labour
+Runnymede and Weybridge,1,#0281aa,Conservative
+Rushcliffe,24,#E4003B,Labour
+Rutland and Stamford,8,#0281aa,Conservative
+Salford,55,#E4003B,Labour
+Salisbury,9,#0281aa,Conservative
+Scarborough and Whitby,19,#E4003B,Labour
+Scunthorpe,12,#E4003B,Labour
+Sefton Central,53,#E4003B,Labour
+Selby,21,#E4003B,Labour
+Sevenoaks,8,#0281aa,Conservative
+Sheffield Brightside and Hillsborough,69,#E4003B,Labour
+Sheffield Central,58,#E4003B,Labour
+Sheffield Hallam,6,#E4003B,Labour
+Sheffield Heeley,64,#E4003B,Labour
+Sheffield South East,55,#E4003B,Labour
+Sherwood Forest,12,#E4003B,Labour
+Shipley,26,#E4003B,Labour
+Shrewsbury,23,#E4003B,Labour
+Sittingbourne and Sheppey,1,#0281aa,Conservative
+Skipton and Ripon,10,#0281aa,Conservative
+Sleaford and North Hykeham,5,#0281aa,Conservative
+Slough,53,#E4003B,Labour
+Smethwick,60,#E4003B,Labour
+Solihull West and Shirley,1,#0281aa,Conservative
+South Basildon and East Thurrock,3,#E4003B,Labour
+South Cambridgeshire,27,#FAA61A,Liberal Democrats
+South Cotswolds,4,#FAA61A,Liberal Democrats
+South Derbyshire,8,#E4003B,Labour
+South Devon,9,#FAA61A,Liberal Democrats
+South Dorset,6,#E4003B,Labour
+South East Cornwall,10,#0281aa,Conservative
+South Holland and the Deepings,9,#0281aa,Conservative
+South Leicestershire,3,#0281aa,Conservative
+South Norfolk,6,#E4003B,Labour
+South Northamptonshire,10,#0281aa,Conservative
+South Ribble,23,#E4003B,Labour
+South Shields,41,#E4003B,Labour
+South Shropshire,13,#0281aa,Conservative
+South Suffolk,1,#0281aa,Conservative
+South West Devon,10,#0281aa,Conservative
+South West Hertfordshire,3,#0281aa,Conservative
+South West Norfolk,5,#0281aa,Conservative
+South West Wiltshire,3,#E4003B,Labour
+Southampton Itchen,27,#E4003B,Labour
+Southampton Test,37,#E4003B,Labour
+Southend East and Rochford,9,#E4003B,Labour
+Southend West and Leigh,8,#E4003B,Labour
+Southgate and Wood Green,63,#E4003B,Labour
+Southport,24,#E4003B,Labour
+Spelthorne,3,#E4003B,Labour
+Spen Valley,22,#E4003B,Labour
+St Albans,40,#FAA61A,Liberal Democrats
+St Austell and Newquay,6,#E4003B,Labour
+St Helens North,59,#E4003B,Labour
+St Helens South and Whiston,68,#E4003B,Labour
+St Ives,22,#FAA61A,Liberal Democrats
+St Neots and Mid Cambridgeshire,5,#FAA61A,Liberal Democrats
+Stafford,14,#E4003B,Labour
+Staffordshire Moorlands,8,#E4003B,Labour
+Stalybridge and Hyde,38,#E4003B,Labour
+Stevenage,19,#E4003B,Labour
+Stockport,60,#E4003B,Labour
+Stockton North,45,#E4003B,Labour
+Stockton West,19,#E4003B,Labour
+Stoke-on-Trent Central,26,#E4003B,Labour
+Stoke-on-Trent North,12,#E4003B,Labour
+Stoke-on-Trent South,1,#E4003B,Labour
+Stone", Great Wyrley and Penkridge,1,#0281aa,Conservative
+Stourbridge,10,#E4003B,Labour
+Stratford and Bow,82,#E4003B,Labour
+Stratford-on-Avon,1,#0281aa,Conservative
+Streatham and Croydon North,58,#E4003B,Labour
+Stretford and Urmston,65,#E4003B,Labour
+Stroud,32,#E4003B,Labour
+Suffolk Coastal,4,#E4003B,Labour
+Sunderland Central,41,#E4003B,Labour
+Surrey Heath,24,#0281aa,Conservative
+Sussex Weald,8,#0281aa,Conservative
+Sutton and Cheam,15,#FAA61A,Liberal Democrats
+Sutton Coldfield,5,#E4003B,Labour
+Swindon North,10,#E4003B,Labour
+Swindon South,26,#E4003B,Labour
+Tamworth,5,#E4003B,Labour
+Tatton,5,#E4003B,Labour
+Taunton and Wellington,13,#FAA61A,Liberal Democrats
+Telford,18,#E4003B,Labour
+Tewkesbury,1,#0281aa,Conservative
+The Wrekin,3,#E4003B,Labour
+Thirsk and Malton,4,#0281aa,Conservative
+Thornbury and Yate,5,#FAA61A,Liberal Democrats
+Thurrock,9,#E4003B,Labour
+Tipton and Wednesbury,18,#E4003B,Labour
+Tiverton and Minehead,5,#0281aa,Conservative
+Tonbridge,8,#0281aa,Conservative
+Tooting,56,#E4003B,Labour
+Torbay,1,#FAA61A,Liberal Democrats
+Torridge and Tavistock,3,#0281aa,Conservative
+Tottenham,94,#E4003B,Labour
+Truro and Falmouth,26,#E4003B,Labour
+Tunbridge Wells,4,#FAA61A,Liberal Democrats
+Twickenham,51,#FAA61A,Liberal Democrats
+Tynemouth,42,#E4003B,Labour
+Uxbridge and South Ruislip,21,#E4003B,Labour
+Vauxhall and Camberwell Green,58,#E4003B,Labour
+Wakefield and Rothwell,26,#E4003B,Labour
+Wallasey,71,#E4003B,Labour
+Walsall and Bloxwich,27,#E4003B,Labour
+Walthamstow,83,#E4003B,Labour
+Warrington North,36,#E4003B,Labour
+Warrington South,36,#E4003B,Labour
+Warwick and Leamington,37,#E4003B,Labour
+Washington and Gateshead South,41,#E4003B,Labour
+Watford,28,#E4003B,Labour
+Waveney Valley,15,#0281aa,Conservative
+Weald of Kent,13,#0281aa,Conservative
+Wellingborough and Rushden,15,#E4003B,Labour
+Wells and Mendip Hills,5,#FAA61A,Liberal Democrats
+Welwyn Hatfield,15,#E4003B,Labour
+West Bromwich,24,#E4003B,Labour
+West Dorset,9,#FAA61A,Liberal Democrats
+West Ham and Beckton,85,#E4003B,Labour
+West Lancashire,54,#E4003B,Labour
+West Suffolk,6,#0281aa,Conservative
+West Worcestershire,4,#0281aa,Conservative
+Westmorland and Lonsdale,23,#FAA61A,Liberal Democrats
+Weston-super-Mare,8,#E4003B,Labour
+Wetherby and Easingwold,6,#0281aa,Conservative
+Whitehaven and Workington,28,#E4003B,Labour
+Widnes and Halewood,77,#E4003B,Labour
+Wigan,49,#E4003B,Labour
+Wimbledon,27,#FAA61A,Liberal Democrats
+Winchester,15,#FAA61A,Liberal Democrats
+Windsor,1,#E4003B,Labour
+Wirral West,40,#E4003B,Labour
+Witham,5,#0281aa,Conservative
+Witney,1,#0281aa,Conservative
+Woking,12,#FAA61A,Liberal Democrats
+Wokingham,6,#FAA61A,Liberal Democrats
+Wolverhampton North East,13,#E4003B,Labour
+Wolverhampton South East,37,#E4003B,Labour
+Wolverhampton West,31,#E4003B,Labour
+Worcester,26,#E4003B,Labour
+Worsley and Eccles,44,#E4003B,Labour
+Worthing West,10,#E4003B,Labour
+Wycombe,28,#E4003B,Labour
+Wyre Forest,1,#E4003B,Labour
+Wythenshawe and Sale East,56,#E4003B,Labour
+Yeovil,3,#FAA61A,Liberal Democrats
+York Central,50,#E4003B,Labour
+York Outer,18,#E4003B,Labour
+Aberdeen North,29,#FDF38E,Scottish National Party
+Aberdeen South,13,#FDF38E,Scottish National Party
+Aberdeenshire North and Moray East,33,#0281aa,Conservative
+Airdrie and Shotts,15,#E4003B,Labour
+Alloa and Grangemouth,24,#FDF38E,Scottish National Party
+Angus and Perthshire Glens,17,#FDF38E,Scottish National Party
+Arbroath and Broughty Ferry,29,#FDF38E,Scottish National Party
+Argyll", Bute and South Lochaber,9,#FDF38E,Scottish National Party
+Ayr", Carrick and Cumnock,8,#FDF38E,Scottish National Party
+Bathgate and Linlithgow,10,#FDF38E,Scottish National Party
+Berwickshire", Roxburgh and Selkirk,8,#0281aa,Conservative
+Caithness", Sutherland and Easter Ross,4,#FAA61A,Liberal Democrats
+Central Ayrshire,14,#FDF38E,Scottish National Party
+Coatbridge and Bellshill,14,#E4003B,Labour
+Cowdenbeath and Kirkcaldy,19,#E4003B,Labour
+Cumbernauld and Kirkintilloch,47,#E4003B,Labour
+Dumfries and Galloway,1,#0281aa,Conservative
+Dumfriesshire", Clydesdale and Tweeddale,6,#0281aa,Conservative
+Dundee Central,14,#FDF38E,Scottish National Party
+Dunfermline and Dollar,4,#E4003B,Labour
+East Kilbride and Strathaven,9,#FDF38E,Scottish National Party
+East Renfrewshire,12,#FDF38E,Scottish National Party
+Edinburgh East and Musselburgh,1,#E4003B,Labour
+Edinburgh North and Leith,3,#E4003B,Labour
+Edinburgh South,53,#E4003B,Labour
+Edinburgh South West,22,#FDF38E,Scottish National Party
+Edinburgh West,17,#FAA61A,Liberal Democrats
+Falkirk,28,#FDF38E,Scottish National Party
+Glasgow East,10,#E4003B,Labour
+Glasgow North,12,#E4003B,Labour
+Glasgow North East,17,#E4003B,Labour
+Glasgow South,6,#E4003B,Labour
+Glasgow South West,13,#E4003B,Labour
+Glasgow West,5,#E4003B,Labour
+Glenrothes and Mid Fife,3,#E4003B,Labour
+Gordon and Buchan,6,#0281aa,Conservative
+Hamilton and Clyde Valley,9,#E4003B,Labour
+Inverclyde and Renfrewshire West,5,#E4003B,Labour
+Inverness", Skye and West Ross-shire,29,#FDF38E,Scottish National Party
+Kilmarnock and Loudoun,17,#FDF38E,Scottish National Party
+Livingston,1,#FDF38E,Scottish National Party
+Lothian East,24,#E4003B,Labour
+Mid Dunbartonshire,5,#FAA61A,Liberal Democrats
+Midlothian,15,#E4003B,Labour
+Moray West", Nairn and Strathspey,9,#FDF38E,Scottish National Party
+Motherwell", Wishaw and Carluke,5,#E4003B,Labour
+Na h-Eileanan an Iar,9,#E4003B,Labour
+North Ayrshire and Arran,22,#FDF38E,Scottish National Party
+North East Fife,8,#FAA61A,Liberal Democrats
+Orkney and Shetland,21,#FAA61A,Liberal Democrats
+Paisley and Renfrewshire North,42,#E4003B,Labour
+Paisley and Renfrewshire South,1,#E4003B,Labour
+Perth and Kinross-shire,8,#FDF38E,Scottish National Party
+Rutherglen,14,#E4003B,Labour
+Stirling and Strathallan,21,#FDF38E,Scottish National Party
+West Aberdeenshire and Kincardine,31,#0281aa,Conservative
+West Dunbartonshire,4,#E4003B,Labour
+Aberafan Maesteg,55,#E4003B,Labour
+Alyn and Deeside,27,#E4003B,Labour
+Bangor Aberconwy,23,#E4003B,Labour
+Blaenau Gwent and Rhymney,67,#E4003B,Labour
+Brecon", Radnor and Cwm Tawe,8,#FAA61A,Liberal Democrats
+Bridgend,21,#E4003B,Labour
+Caerfyrddin,13,#005B54,Plaid Cymru
+Caerphilly,38,#E4003B,Labour
+Cardiff East,63,#E4003B,Labour
+Cardiff North,44,#E4003B,Labour
+Cardiff West,46,#E4003B,Labour
+Ceredigion Preseli,18,#005B54,Plaid Cymru
+Clwyd East,17,#E4003B,Labour
+Clwyd North,22,#E4003B,Labour
+Dwyfor Meirionnydd,28,#005B54,Plaid Cymru
+Gower,32,#E4003B,Labour
+Llanelli,26,#E4003B,Labour
+Merthyr Tydfil and Aberdare,54,#E4003B,Labour
+Mid and South Pembrokeshire,15,#E4003B,Labour
+Monmouthshire,9,#E4003B,Labour
+Montgomeryshire and Glyndwr,1,#0281aa,Conservative
+Neath and Swansea East,45,#E4003B,Labour
+Newport East,37,#E4003B,Labour
+Newport West and Islwyn,31,#E4003B,Labour
+Pontypridd,42,#E4003B,Labour
+Rhondda and Ogmore,60,#E4003B,Labour
+Swansea West,49,#E4003B,Labour
+Torfaen,35,#E4003B,Labour
+Vale of Glamorgan,23,#E4003B,Labour
+Wrexham,18,#E4003B,Labour
+Ynys Mon,3,#E4003B,Labour

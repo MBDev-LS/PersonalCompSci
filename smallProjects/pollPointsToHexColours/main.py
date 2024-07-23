@@ -116,7 +116,7 @@ CONSTITUENCY_COL_NUM = getColumnNum(pointsCsvList, CONSTITUENCY_COL_NAME)
 partyLookupDict = generatePartyLookupDict(pointsCsvList, PARTY_DETAIL_DICTS)
 
 
-def percentageStringToInt(percentageString: str) -> int:
+def percentageStringToInt(percentageString: str, rowList) -> int:
 	if percentageString == '':
 		return 0
 	
@@ -134,11 +134,11 @@ def getWinnerInfo(rowList: list, partyLookupDict: dict) -> dict | None:
 	Returns None if too close to call.
 	"""
 	winningPointValue = max([
-		percentageStringToInt(pointValue) for i, pointValue in enumerate(rowList) if i in list(partyLookupDict)
+		percentageStringToInt(pointValue, rowList) for i, pointValue in enumerate(rowList) if i in list(partyLookupDict)
 	])
 
 	secondPointValue = getSecondMax([
-		percentageStringToInt(pointValue) for i, pointValue in enumerate(rowList) if i in list(partyLookupDict)
+		percentageStringToInt(pointValue, rowList) for i, pointValue in enumerate(rowList) if i in list(partyLookupDict)
 	])
 
 	print(winningPointValue)
@@ -148,24 +148,58 @@ def getWinnerInfo(rowList: list, partyLookupDict: dict) -> dict | None:
 	
 	else:
 		return {
-			'winningPartyKey': partyLookupDict[rowList.index(winningPointValue)],
+			'winningPartyKey': partyLookupDict[rowList.index(f'{winningPointValue}%')],
 			'winningVoteShare': winningPointValue,
 			'secondVoteShare': secondPointValue
 		}
 
-def generateWinnersDict(pointsCsvList: list[list], partyLookupDict: dict[str]) -> list[dict]:
+def generateWinnersDicts(pointsCsvList: list[list], partyLookupDict: dict[str]) -> list[dict]:
 	outputList = [] 
 
-	for rowList in pointsCsvList:
-		winnerInfo = getWinnerInfo()
+	for i, rowList in enumerate(pointsCsvList):
+		if i == 0:
+			continue
 
-		if rowList[CONSTITUENCY_COL_NAME][CONSTITUENCY_COL_NUM] == SPEAKER_CONSTITUENCY_NAME:
-			outputList.append([rowList[CONSTITUENCY_COL_NAME], ])
+		winnerInfo = getWinnerInfo(rowList, partyLookupDict)
 
 		# [['Constituency', 'Winner', 'VoteShare', 'HexColour']]
 		outputList.append({
-			
+			'constituency': rowList[CONSTITUENCY_COL_NUM],
+			'winnerName': winnerInfo['winningPartyKey'],
+			'margin': winnerInfo['winningVoteShare'] - winnerInfo['secondVoteShare']
 		})
+	
+	return outputList
 
 
-print(getWinnerInfo(pointsCsvList[1], partyLookupDict))
+# print(generateWinnersDicts(pointsCsvList, partyLookupDict))
+
+winnerInfoDictsList = generateWinnersDicts(pointsCsvList, partyLookupDict)
+
+maxMargin = max([winnerDict['margin'] for winnerDict in winnerInfoDictsList])
+
+def generateCsvList(winnerInfoDictsList: list[dict]) -> list[list]:
+	outputList = [['Constituency', 'Value', 'Region color', 'Winning Party']]
+
+	for winnerInfoDict in winnerInfoDictsList:
+		if winnerInfoDict['constituency'].lower() != SPEAKER_CONSTITUENCY_NAME.lower():
+			winnerColour = PARTY_DETAIL_DICTS[winnerInfoDict['winnerName']]['hexColour']
+			winningPartyName = PARTY_DETAIL_DICTS[winnerInfoDict['winnerName']]['verboseName']
+		else:
+			winnerColour = SPEAKER_HEX
+			winningPartyName = 'Speaker'
+
+		outputList.append([
+			winnerInfoDict['constituency'],
+			round((winnerInfoDict['margin'] / maxMargin) * 100),
+			f'#{winnerColour}',
+			winningPartyName
+		])
+	
+	return outputList
+
+
+with open(BASE_DIR / 'mapData.csv', 'w', newline='') as outputFile:
+    wr = csv.writer(outputFile, quoting=csv.QUOTE_NONE, escapechar='"')
+    wr.writerows(generateCsvList(winnerInfoDictsList))
+
