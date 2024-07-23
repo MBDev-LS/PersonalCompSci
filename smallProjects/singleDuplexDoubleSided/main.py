@@ -9,16 +9,11 @@ import re
 PDF_EXT_REGEX = r'\.pdf$'
 
 
-# Even Pages
-# Reversed Odd Pages
-
 def getEvenPages(pdfReader: PdfReader, numOfPages: int) -> list:
 	evenPagesList = []
 
 	for pageNum in range(1, numOfPages, 2): # Note: zero-indexed, so 1 is page 2 (even)
 		evenPagesList.append(pdfReader.pages[pageNum])
-
-	
 
 	return evenPagesList
 
@@ -33,10 +28,7 @@ def getOddPages(pdfReader: PdfReader, numOfPages: int) -> list:
 
 
 def exportPageListToPdf(pageList: str, outputFileName: str) -> None:
-	# with open(outputFileName, 'w+') as outputFile:
 	pdfWriter = PdfWriter()
-
-	
 
 	for pageObject in pageList:
 		pdfWriter.add_page(pageObject)
@@ -62,9 +54,3 @@ def splitPagesForPrinting(inputFileName):
 
 if __name__ == '__main__':
 	splitPagesForPrinting(BASE_DIR / 'ofcomMediaBillRoadmap.pdf')
-
-
-
-
-# pdfReader = PdfReader(BASE_DIR / 'data.pdf')
-# print(pdfReader.pages[0])
