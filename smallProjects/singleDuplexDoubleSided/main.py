@@ -53,4 +53,4 @@ def splitPagesForPrinting(inputFileName):
 
 
 if __name__ == '__main__':
-	splitPagesForPrinting(BASE_DIR / 'ofcomMediaBillRoadmap.pdf')
+	splitPagesForPrinting(BASE_DIR / 'mit-ai.pdf')

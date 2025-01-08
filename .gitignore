@@ -2,6 +2,7 @@
 # Project Specific
 nlp_course
 *.db
+personalCompSciEnv
 
 # Personal
 .vscode
