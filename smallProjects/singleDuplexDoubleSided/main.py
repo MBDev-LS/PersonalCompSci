@@ -53,4 +53,17 @@ def splitPagesForPrinting(inputFileName):
 
 
 if __name__ == '__main__':
-	splitPagesForPrinting(BASE_DIR / 'mit-ai.pdf')
+	splitPagesForPrinting(BASE_DIR / 'aqa-gcse-maths-2022-p2.pdf')
+
+
+
+# """
+# ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+# ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
+# □ ■ □ ■ □ ■ □ ■
+# ■ □ ■ □ ■ □ ■ □
+# □ ■ □ ■ □ ■ □ ■
+# ■ □ ■ □ ■ □ ■ □
+# ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
+# ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+# """
